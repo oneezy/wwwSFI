@@ -1,0 +1,317 @@
+<!--
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    UTILITY
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+<style>
+@media (min-width: 0) and (max-width: 768px) {
+
+    [mobile-display="none"]             { display: none !important; }
+    [mobile-display="inline"]           { display: inline !important; }
+    [mobile-display="inline-block"]     { display: inline-block !important; }
+    [mobile-display="block"]            { display: block !important; }
+
+
+/*
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    Height
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+
+
+    /* Height "Names"
+    --------------------------------------------------- */
+    [mobile-height="quarter"]       {  height: 25vh !important;    }
+    [mobile-height="third"]         {  height: 33.33vh !important; }
+    [mobile-height="half"]          {  height: 50vh !important;    }
+    [mobile-height="sixth"]         {  height: 66.66vh !important; }
+    [mobile-height="threequarter"]  {  height: 75vh !important;    }
+    [mobile-height="full"]          {  height: 100vh !important;   }
+    [mobile-height="fullquarter"]   {  height: 125vh !important;   }
+    [mobile-height="fullhalf"]      {  height: 150vh !important;   }
+    [mobile-height="double"]        {  height: 200vh !important;   }
+
+
+
+    /* Height "Exact"                                             Height "Minimum"                                                 Height "Maximum"
+    ----------------------------------------------------         ------------------------------------------------------           ---------------------------------------------------- */
+    [mobile-height=".25"]           {  height: 25vh !important;    }                [mobile-min-height=".25"]    {  min-height: 25vh !important;    }                  [mobile-max-height=".25"]    {  max-height: 25vh !important;    }
+    [mobile-height=".33"]           {  height: 33.33vh !important; }                [mobile-min-height=".33"]    {  min-height: 33.33vh !important; }                  [mobile-max-height=".33"]    {  max-height: 33.33vh !important; }
+    [mobile-height=".5"]            {  height: 50vh !important;    }                [mobile-min-height=".5"]     {  min-height: 50vh !important;    }                  [mobile-max-height=".5"]     {  max-height: 50vh !important;    }
+    [mobile-height=".66"]           {  height: 66.66vh !important; }                [mobile-min-height=".66"]    {  min-height: 66.66vh !important; }                  [mobile-max-height=".66"]    {  max-height: 66.66vh !important; }
+    [mobile-height=".75"]           {  height: 75vh !important;    }                [mobile-min-height=".75"]    {  min-height: 75vh !important;    }                  [mobile-max-height=".75"]    {  max-height: 75vh !important;    }
+    [mobile-height="1"]             {  height: 100vh !important;   }                [mobile-min-height="1"]      {  min-height: 100vh !important;   }                  [mobile-max-height="1"]      {  max-height: 100vh !important;   }
+    [mobile-height="1.25"]          {  height: 125vh !important;   }                [mobile-min-height="1.25"]   {  min-height: 125vh !important;   }                  [mobile-max-height="1.25"]   {  max-height: 125vh !important;   }
+    [mobile-height="1.5"]           {  height: 150vh !important;   }                [mobile-min-height="1.5"]    {  min-height: 150vh !important;   }                  [mobile-max-height="1.5"]    {  max-height: 150vh !important;   }
+    [mobile-height="2"]             {  height: 200vh !important;   }                [mobile-min-height="2"]      {  min-height: 200vh !important;   }                  [mobile-max-height="2"]      {  max-height: 200vh !important;   }
+
+
+
+    /* Height "Percentage"                                        Height "Minimum Percentage"                                      Height "Maximum Percentage"
+    ----------------------------------------------------         ------------------------------------------------------           ---------------------------------------------------- */
+    [mobile-height="25"]           {  height: 25% !important;    }                  [mobile-min-height="25"]    {  min-height: 25% !important;    }                    [mobile-max-height="25"]    {  max-height: 25% !important;    }
+    [mobile-height="33"]           {  height: 33.33% !important; }                  [mobile-min-height="33"]    {  min-height: 33.33% !important; }                    [mobile-max-height="33"]    {  max-height: 33.33% !important; }
+    [mobile-height="5"]            {  height: 50% !important;    }                  [mobile-min-height="5"]     {  min-height: 50% !important;    }                    [mobile-max-height="5"]     {  max-height: 50% !important;    }
+    [mobile-height="66"]           {  height: 66.66% !important; }                  [mobile-min-height="66"]    {  min-height: 66.66% !important; }                    [mobile-max-height="66"]    {  max-height: 66.66% !important; }
+    [mobile-height="75"]           {  height: 75% !important;    }                  [mobile-min-height="75"]    {  min-height: 75% !important;    }                    [mobile-max-height="75"]    {  max-height: 75% !important;    }
+    [mobile-height="100"]          {  height: 100% !important;   }                  [mobile-min-height="100"]   {  min-height: 100% !important;   }                    [mobile-max-height="100"]   {  max-height: 100% !important;   }
+    [mobile-height="125"]          {  height: 125% !important;   }                  [mobile-min-height="125"]   {  min-height: 125% !important;   }                    [mobile-max-height="125"]   {  max-height: 125% !important;   }
+    [mobile-height="150"]          {  height: 150% !important;   }                  [mobile-min-height="150"]   {  min-height: 150% !important;   }                    [mobile-max-height="150"]   {  max-height: 150% !important;   }
+    [mobile-height="200"]          {  height: 200% !important;   }                  [mobile-min-height="200"]   {  min-height: 200% !important;   }                    [mobile-max-height="200"]   {  max-height: 200% !important;   }
+
+
+
+
+
+
+
+/*
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    Width
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+
+
+    /* Width "Names"
+    --------------------------------------------------- */
+    [mobile-width="quarter"]       {  width: 25vw !important;    }
+    [mobile-width="third"]         {  width: 33.33vw !important; }
+    [mobile-width="half"]          {  width: 50vw !important;    }
+    [mobile-width="sixth"]         {  width: 66.66vw !important; }
+    [mobile-width="threequarter"]  {  width: 75vw !important;    }
+    [mobile-width="full"]          {  width: 100vw !important;   }
+    [mobile-width="fullquarter"]   {  width: 125vw !important;   }
+    [mobile-width="fullhalf"]      {  width: 150vw !important;   }
+    [mobile-width="double"]        {  width: 200vw !important;   }
+
+
+
+    /* Width "Exact"                                              Width "Minimum"                                                  Width "Maximum"
+    ----------------------------------------------------         ------------------------------------------------------           ---------------------------------------------------- */
+    [mobile-width=".25"]           {  width: 25vw !important;    }                  [mobile-min-width=".25"]    {  min-width: 25vw !important;    }                    [mobile-max-width=".25"]    {  max-width: 25vw !important;    }
+    [mobile-width=".33"]           {  width: 33.33vw !important; }                  [mobile-min-width=".33"]    {  min-width: 33.33vw !important; }                    [mobile-max-width=".33"]    {  max-width: 33.33vw !important; }
+    [mobile-width=".5"]            {  width: 50vw !important;    }                  [mobile-min-width=".5"]     {  min-width: 50vw !important;    }                    [mobile-max-width=".5"]     {  max-width: 50vw !important;    }
+    [mobile-width=".66"]           {  width: 66.66vw !important; }                  [mobile-min-width=".66"]    {  min-width: 66.66vw !important; }                    [mobile-max-width=".66"]    {  max-width: 66.66vw !important; }
+    [mobile-width=".75"]           {  width: 75vw !important;    }                  [mobile-min-width=".75"]    {  min-width: 75vw !important;    }                    [mobile-max-width=".75"]    {  max-width: 75vw !important;    }
+    [mobile-width="1"]             {  width: 100vw !important;   }                  [mobile-min-width="1"]      {  min-width: 100vw !important;   }                    [mobile-max-width="1"]      {  max-width: 100vw !important;   }
+    [mobile-width="1.25"]          {  width: 125vw !important;   }                  [mobile-min-width="1.25"]   {  min-width: 125vw !important;   }                    [mobile-max-width="1.25"]   {  max-width: 125vw !important;   }
+    [mobile-width="1.5"]           {  width: 150vw !important;   }                  [mobile-min-width="1.5"]    {  min-width: 150vw !important;   }                    [mobile-max-width="1.5"]    {  max-width: 150vw !important;   }
+    [mobile-width="2"]             {  width: 200vw !important;   }                  [mobile-min-width="2"]      {  min-width: 200vw !important;   }                    [mobile-max-width="2"]      {  max-width: 200vw !important;   }
+
+
+
+    /* Width "Percentage"                                         Width "Minimum Percentage"                                       Width "Maximum Percentage"
+    ----------------------------------------------------         ------------------------------------------------------           ---------------------------------------------------- */
+    [mobile-width="25"]           {  width: 25% !important;    }                    [mobile-min-width="25"]    {  min-width: 25% !important;    }                      [mobile-max-width="25"]    {  max-width: 25% !important;    }
+    [mobile-width="33"]           {  width: 33.33% !important; }                    [mobile-min-width="33"]    {  min-width: 33.33% !important; }                      [mobile-max-width="33"]    {  max-width: 33.33% !important; }
+    [mobile-width="5"]            {  width: 50% !important;    }                    [mobile-min-width="5"]     {  min-width: 50% !important;    }                      [mobile-max-width="5"]     {  max-width: 50% !important;    }
+    [mobile-width="66"]           {  width: 66.66% !important; }                    [mobile-min-width="66"]    {  min-width: 66.66% !important; }                      [mobile-max-width="66"]    {  max-width: 66.66% !important; }
+    [mobile-width="75"]           {  width: 75% !important;    }                    [mobile-min-width="75"]    {  min-width: 75% !important;    }                      [mobile-max-width="75"]    {  max-width: 75% !important;    }
+    [mobile-width="100"]          {  width: 100% !important;   }                    [mobile-min-width="100"]   {  min-width: 100% !important;   }                      [mobile-max-width="100"]   {  max-width: 100% !important;   }
+    [mobile-width="125"]          {  width: 125% !important;   }                    [mobile-min-width="125"]   {  min-width: 125% !important;   }                      [mobile-max-width="125"]   {  max-width: 125% !important;   }
+    [mobile-width="150"]          {  width: 150% !important;   }                    [mobile-min-width="150"]   {  min-width: 150% !important;   }                      [mobile-max-width="150"]   {  max-width: 150% !important;   }
+    [mobile-width="200"]          {  width: 200% !important;   }                    [mobile-min-width="200"]   {  min-width: 200% !important;   }                      [mobile-max-width="200"]   {  max-width: 200% !important;   }
+
+
+
+
+
+
+
+/*
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    Margin
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+
+
+    /* Margin
+    -------------------------------------------------- */
+    [mobile-margin="0"]            {  margin: 0 !important;       }
+    [mobile-margin=".25"]          {  margin: .25rem !important;  }
+    [mobile-margin=".5"]           {  margin: .5rem !important;   }
+    [mobile-margin=".75"]          {  margin: .75rem !important;  }
+    [mobile-margin="1"]            {  margin: 1rem !important;    }
+    [mobile-margin="1.25"]         {  margin: 1.25rem !important; }
+    [mobile-margin="1.5"]          {  margin: 1.5rem !important;  }
+    [mobile-margin="1.75"]         {  margin: 1.75rem !important; }
+    [mobile-margin="2"]            {  margin: 2rem !important;    }
+    [mobile-margin="2.25"]         {  margin: 2.25rem !important; }
+    [mobile-margin="2.5"]          {  margin: 2.5rem !important;  }
+    [mobile-margin="2.75"]         {  margin: 2.75rem !important; }
+    [mobile-margin="3"]            {  margin: 3rem !important;    }
+
+
+    /* Margin "X" Axis                                            Margin "Y" Axis
+    ----------------------------------------------------         ------------------------------------------------------ */
+    [mobile-margin-x=".25"]        {  margin: 0 .25rem !important;    }             [mobile-margin-y=".25"]     {  margin: .25rem  0 !important; }
+    [mobile-margin-x=".5"]         {  margin: 0 .5rem !important;     }             [mobile-margin-y=".5"]      {  margin: .5rem   0 !important; }
+    [mobile-margin-x=".75"]        {  margin: 0 .75rem !important;    }             [mobile-margin-y=".75"]     {  margin: .75rem  0 !important; }
+    [mobile-margin-x="1"]          {  margin: 0 1rem !important;      }             [mobile-margin-y="1"]       {  margin: 1rem    0 !important; }
+    [mobile-margin-x="1.25"]       {  margin: 0 1.25rem !important;   }             [mobile-margin-y="1.25"]    {  margin: 1.25rem 0 !important; }
+    [mobile-margin-x="1.5"]        {  margin: 0 1.5rem !important;    }             [mobile-margin-y="1.5"]     {  margin: 1.5rem  0 !important; }
+    [mobile-margin-x="1.75"]       {  margin: 0 1.75rem !important;   }             [mobile-margin-y="1.75"]    {  margin: 1.75rem 0 !important; }
+    [mobile-margin-x="2"]          {  margin: 0 2rem !important;      }             [mobile-margin-y="2"]       {  margin: 2rem    0 !important; }
+    [mobile-margin-x="2.25"]       {  margin: 0 2.25rem !important;   }             [mobile-margin-y="2.25"]    {  margin: 2.25rem 0 !important; }
+    [mobile-margin-x="2.5"]        {  margin: 0 2.5rem !important;    }             [mobile-margin-y="2.5"]     {  margin: 2.5rem  0 !important; }
+    [mobile-margin-x="2.75"]       {  margin: 0 2.75rem !important;   }             [mobile-margin-y="2.75"]    {  margin: 2.75rem 0 !important; }
+    [mobile-margin-x="3"]          {  margin: 0 3rem !important;      }             [mobile-margin-y="3"]       {  margin: 3rem    0 !important; }
+
+
+    /* Margin "Top"                                               Margin "Right"                                                   Margin "Bottom"                                                    Margin "Left"
+    ----------------------------------------------------         ------------------------------------------------------           ---------------------------------------------------------          ------------------------------------------------------ */
+    [mobile-margin-top=".25"]      {  margin-top: .25rem !important;  }             [mobile-margin-right=".25"]     {  margin-right: .25rem !important;  }             [mobile-margin-bottom=".25"]     {  margin-bottom: .25rem !important;  }             [mobile-margin-left=".25"]     {  margin-left: .25rem !important;  }
+    [mobile-margin-top=".5"]       {  margin-top: .5rem !important;   }             [mobile-margin-right=".5"]      {  margin-right: .5rem !important;   }             [mobile-margin-bottom=".5"]      {  margin-bottom: .5rem !important;   }             [mobile-margin-left=".5"]      {  margin-left: .5rem !important;   }
+    [mobile-margin-top=".75"]      {  margin-top: .75rem !important;  }             [mobile-margin-right=".75"]     {  margin-right: .75rem !important;  }             [mobile-margin-bottom=".75"]     {  margin-bottom: .75rem !important;  }             [mobile-margin-left=".75"]     {  margin-left: .75rem !important;  }
+    [mobile-margin-top="1"]        {  margin-top: 1rem !important;    }             [mobile-margin-right="1"]       {  margin-right: 1rem !important;    }             [mobile-margin-bottom="1"]       {  margin-bottom: 1rem !important;    }             [mobile-margin-left="1"]       {  margin-left: 1rem !important;    }
+    [mobile-margin-top="1.25"]     {  margin-top: 1.25rem !important; }             [mobile-margin-right="1.25"]    {  margin-right: 1.25rem !important; }             [mobile-margin-bottom="1.25"]    {  margin-bottom: 1.25rem !important; }             [mobile-margin-left="1.25"]    {  margin-left: 1.25rem !important; }
+    [mobile-margin-top="1.5"]      {  margin-top: 1.5rem !important;  }             [mobile-margin-right="1.5"]     {  margin-right: 1.5rem !important;  }             [mobile-margin-bottom="1.5"]     {  margin-bottom: 1.5rem !important;  }             [mobile-margin-left="1.5"]     {  margin-left: 1.5rem !important;  }
+    [mobile-margin-top="1.75"]     {  margin-top: 1.75rem !important; }             [mobile-margin-right="1.75"]    {  margin-right: 1.75rem !important; }             [mobile-margin-bottom="1.75"]    {  margin-bottom: 1.75rem !important; }             [mobile-margin-left="1.75"]    {  margin-left: 1.75rem !important; }
+    [mobile-margin-top="2"]        {  margin-top: 2rem !important;    }             [mobile-margin-right="2"]       {  margin-right: 2rem !important;    }             [mobile-margin-bottom="2"]       {  margin-bottom: 2rem !important;    }             [mobile-margin-left="2"]       {  margin-left: 2rem !important;    }
+    [mobile-margin-top="2.25"]     {  margin-top: 2.25rem !important; }             [mobile-margin-right="2.25"]    {  margin-right: 2.25rem !important; }             [mobile-margin-bottom="2.25"]    {  margin-bottom: 2.25rem !important; }             [mobile-margin-left="2.25"]    {  margin-left: 2.25rem !important; }
+    [mobile-margin-top="2.5"]      {  margin-top: 2.5rem !important;  }             [mobile-margin-right="2.5"]     {  margin-right: 2.5rem !important;  }             [mobile-margin-bottom="2.5"]     {  margin-bottom: 2.5rem !important;  }             [mobile-margin-left="2.5"]     {  margin-left: 2.5rem !important;  }
+    [mobile-margin-top="2.75"]     {  margin-top: 2.75rem !important; }             [mobile-margin-right="2.75"]    {  margin-right: 2.75rem !important; }             [mobile-margin-bottom="2.75"]    {  margin-bottom: 2.75rem !important; }             [mobile-margin-left="2.75"]    {  margin-left: 2.75rem !important; }
+    [mobile-margin-top="3"]        {  margin-top: 3rem !important;    }             [mobile-margin-right="3"]       {  margin-right: 3rem !important;    }             [mobile-margin-bottom="3"]       {  margin-bottom: 3rem !important;    }             [mobile-margin-left="3"]       {  margin-left: 3rem !important;    }
+
+
+
+
+
+
+/*
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    Padding
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+
+
+    /* Padding
+    -------------------------------------------------- */
+    [mobile-padding="0"]            {  padding: 0 !important;       }
+    [mobile-padding=".25"]          {  padding: .25rem !important;  }
+    [mobile-padding=".5"]           {  padding: .5rem !important;   }
+    [mobile-padding=".75"]          {  padding: .75rem !important;  }
+    [mobile-padding="1"]            {  padding: 1rem !important;    }
+    [mobile-padding="1.25"]         {  padding: 1.25rem !important; }
+    [mobile-padding="1.5"]          {  padding: 1.5rem !important;  }
+    [mobile-padding="1.75"]         {  padding: 1.75rem !important; }
+    [mobile-padding="2"]            {  padding: 2rem !important;    }
+    [mobile-padding="2.25"]         {  padding: 2.25rem !important; }
+    [mobile-padding="2.5"]          {  padding: 2.5rem !important;  }
+    [mobile-padding="2.75"]         {  padding: 2.75rem !important; }
+    [mobile-padding="3"]            {  padding: 3rem !important;    }
+
+
+    /* Padding "X" Axis                                                      Padding "Y" Axis
+    ----------------------------------------------------                   ------------------------------------------------------ */
+    [mobile-padding-x=".25"]        {  padding: 0 .25rem !important;    }             [mobile-padding-y=".25"]     {  padding: .25rem  0 !important; }
+    [mobile-padding-x=".5"]         {  padding: 0 .5rem !important;     }             [mobile-padding-y=".5"]      {  padding: .5rem   0 !important; }
+    [mobile-padding-x=".75"]        {  padding: 0 .75rem !important;    }             [mobile-padding-y=".75"]     {  padding: .75rem  0 !important; }
+    [mobile-padding-x="1"]          {  padding: 0 1rem !important;      }             [mobile-padding-y="1"]       {  padding: 1rem    0 !important; }
+    [mobile-padding-x="1.25"]       {  padding: 0 1.25rem !important;   }             [mobile-padding-y="1.25"]    {  padding: 1.25rem 0 !important; }
+    [mobile-padding-x="1.5"]        {  padding: 0 1.5rem !important;    }             [mobile-padding-y="1.5"]     {  padding: 1.5rem  0 !important; }
+    [mobile-padding-x="1.75"]       {  padding: 0 1.75rem !important;   }             [mobile-padding-y="1.75"]    {  padding: 1.75rem 0 !important; }
+    [mobile-padding-x="2"]          {  padding: 0 2rem !important;      }             [mobile-padding-y="2"]       {  padding: 2rem    0 !important; }
+    [mobile-padding-x="2.25"]       {  padding: 0 2.25rem !important;   }             [mobile-padding-y="2.25"]    {  padding: 2.25rem 0 !important; }
+    [mobile-padding-x="2.5"]        {  padding: 0 2.5rem !important;    }             [mobile-padding-y="2.5"]     {  padding: 2.5rem  0 !important; }
+    [mobile-padding-x="2.75"]       {  padding: 0 2.75rem !important;   }             [mobile-padding-y="2.75"]    {  padding: 2.75rem 0 !important; }
+    [mobile-padding-x="3"]          {  padding: 0 3rem !important;      }             [mobile-padding-y="3"]       {  padding: 3rem    0 !important; }
+
+
+    /* Padding "Top"                                                        Padding "Right"                                                            Padding "Bottom"                                                             Padding "Left"
+    ----------------------------------------------------                   --------------------------------------------------------                   ----------------------------------------------------------                   ------------------------------------------------------ */
+    [mobile-padding-top=".25"]      {  padding-top: .25rem !important;  }             [mobile-padding-right=".25"]     {  padding-right: .25rem !important;  }             [mobile-padding-bottom=".25"]     {  padding-bottom: .25rem !important;  }             [mobile-padding-left=".25"]     {  padding-left: .25rem !important;  }
+    [mobile-padding-top=".5"]       {  padding-top: .5rem !important;   }             [mobile-padding-right=".5"]      {  padding-right: .5rem !important;   }             [mobile-padding-bottom=".5"]      {  padding-bottom: .5rem !important;   }             [mobile-padding-left=".5"]      {  padding-left: .5rem !important;   }
+    [mobile-padding-top=".75"]      {  padding-top: .75rem !important;  }             [mobile-padding-right=".75"]     {  padding-right: .75rem !important;  }             [mobile-padding-bottom=".75"]     {  padding-bottom: .75rem !important;  }             [mobile-padding-left=".75"]     {  padding-left: .75rem !important;  }
+    [mobile-padding-top="1"]        {  padding-top: 1rem !important;    }             [mobile-padding-right="1"]       {  padding-right: 1rem !important;    }             [mobile-padding-bottom="1"]       {  padding-bottom: 1rem !important;    }             [mobile-padding-left="1"]       {  padding-left: 1rem !important;    }
+    [mobile-padding-top="1.25"]     {  padding-top: 1.25rem !important; }             [mobile-padding-right="1.25"]    {  padding-right: 1.25rem !important; }             [mobile-padding-bottom="1.25"]    {  padding-bottom: 1.25rem !important; }             [mobile-padding-left="1.25"]    {  padding-left: 1.25rem !important; }
+    [mobile-padding-top="1.5"]      {  padding-top: 1.5rem !important;  }             [mobile-padding-right="1.5"]     {  padding-right: 1.5rem !important;  }             [mobile-padding-bottom="1.5"]     {  padding-bottom: 1.5rem !important;  }             [mobile-padding-left="1.5"]     {  padding-left: 1.5rem !important;  }
+    [mobile-padding-top="1.75"]     {  padding-top: 1.75rem !important; }             [mobile-padding-right="1.75"]    {  padding-right: 1.75rem !important; }             [mobile-padding-bottom="1.75"]    {  padding-bottom: 1.75rem !important; }             [mobile-padding-left="1.75"]    {  padding-left: 1.75rem !important; }
+    [mobile-padding-top="2"]        {  padding-top: 2rem !important;    }             [mobile-padding-right="2"]       {  padding-right: 2rem !important;    }             [mobile-padding-bottom="2"]       {  padding-bottom: 2rem !important;    }             [mobile-padding-left="2"]       {  padding-left: 2rem !important;    }
+    [mobile-padding-top="2.25"]     {  padding-top: 2.25rem !important; }             [mobile-padding-right="2.25"]    {  padding-right: 2.25rem !important; }             [mobile-padding-bottom="2.25"]    {  padding-bottom: 2.25rem !important; }             [mobile-padding-left="2.25"]    {  padding-left: 2.25rem !important; }
+    [mobile-padding-top="2.5"]      {  padding-top: 2.5rem !important;  }             [mobile-padding-right="2.5"]     {  padding-right: 2.5rem !important;  }             [mobile-padding-bottom="2.5"]     {  padding-bottom: 2.5rem !important;  }             [mobile-padding-left="2.5"]     {  padding-left: 2.5rem !important;  }
+    [mobile-padding-top="2.75"]     {  padding-top: 2.75rem !important; }             [mobile-padding-right="2.75"]    {  padding-right: 2.75rem !important; }             [mobile-padding-bottom="2.75"]    {  padding-bottom: 2.75rem !important; }             [mobile-padding-left="2.75"]    {  padding-left: 2.75rem !important; }
+    [mobile-padding-top="3"]        {  padding-top: 3rem !important;    }             [mobile-padding-right="3"]       {  padding-right: 3rem !important;    }             [mobile-padding-bottom="3"]       {  padding-bottom: 3rem !important;    }             [mobile-padding-left="3"]       {  padding-left: 3rem !important;    }
+
+
+
+
+
+
+
+/*
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    COLORS
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+
+    /* Background */
+    [mobile-bg="red"]                             { background: rgba(240,98,146,  1) !important; }
+    [mobile-bg="blue"]                            { background: rgba(100,181,246, 1) !important; }
+    [mobile-bg="purple"]                          { background: rgba(123,31,162,  1) !important; }
+    [mobile-bg="yellow"]                          { background: rgba(246,255,40,  1) !important; }
+    [mobile-bg="green"]                           { background: rgba(0,230,118,   1) !important; }
+    [mobile-bg="white"]                           { background: rgba(255,255,255, 1) !important; }
+    [mobile-bg="black"]                           { background: rgba(0,0,0,       1) !important; }
+    [mobile-bg="gray"]                            { background: rgba(70,70,70,    1) !important; }
+
+    /* Dark BG (MD Spec)*/
+    [mobile-bg="black"][mobile-type="primary"]        { background: rgba(0,0,0, .87) !important; }
+    [mobile-bg="black"][mobile-type="secondary"]      { background: rgba(0,0,0, .54) !important; }
+    [mobile-bg="black"][mobile-type="disabled"]       { background: rgba(0,0,0, .38) !important; }
+    [mobile-bg="black"][mobile-type="divider"]        { background: rgba(0,0,0, .12) !important; }
+
+    /* Light BG (MD Spec)*/
+    [mobile-bg="white"][mobile-type="primary"]        { background: rgba(255,255,255,   1) !important; }
+    [mobile-bg="white"][mobile-type="secondary"]      { background: rgba(255,255,255,  .7) !important; }
+    [mobile-bg="white"][mobile-type="disabled"]       { background: rgba(255,255,255,  .5) !important; }
+    [mobile-bg="white"][mobile-type="divider"]        { background: rgba(255,255,255, .12) !important; }
+
+
+    /* Text */
+    [mobile-color="black"]            { color: #000 !important; }
+    [mobile-color="white"]            { color: #fff !important; }
+
+
+    /* Dark Text (MD Spec)*/
+    [mobile-color="black"][mobile-type="primary"]        { color: rgba(0,0,0, .87) !important; }
+    [mobile-color="black"][mobile-type="secondary"]      { color: rgba(0,0,0, .54) !important; }
+    [mobile-color="black"][mobile-type="disabled"]       { color: rgba(0,0,0, .38) !important; }
+    [mobile-color="black"][mobile-type="divider"]        { color: rgba(0,0,0, .12) !important; }
+
+
+    /* Light Text (MD Spec)*/
+    [mobile-color="white"][mobile-type="primary"]        { color: rgba(255,255,255,   1) !important; }
+    [mobile-color="white"][mobile-type="secondary"]      { color: rgba(255,255,255,  .7) !important; }
+    [mobile-color="white"][mobile-type="disabled"]       { color: rgba(255,255,255,  .5) !important; }
+    [mobile-color="white"][mobile-type="divider"]        { color: rgba(255,255,255, .12) !important; }
+
+
+/*
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    OPACITY
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+
+    /* General */
+    [mobile-opacity="1"]                   { opacity:   1 !important; }
+    [mobile-opacity="0"]                   { opacity:   0 !important; }
+    [mobile-opacity="divider"]             { opacity: .12 !important; }
+
+    /* Dark */
+    [mobile-opacity="dark-primary"]        { opacity: .87 !important; }
+    [mobile-opacity="dark-secondary"]      { opacity: .54 !important; }
+    [mobile-opacity="dark-disabled"]       { opacity: .38 !important; }
+
+    /* Light */
+    [mobile-opacity="light-primary"]       { opacity:   1 !important; }
+    [mobile-opacity="light-secondary"]     { opacity:  .7 !important; }
+    [mobile-opacity="light-disabled"]      { opacity:  .5 !important; }
+
+
+/*
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    STYLES
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+
+    /* Visibility */
+    [mobile-radius="1"]                   { border-radius: 100%; }
+
+
+
+
+}
+</style>

@@ -1,0 +1,551 @@
+<!--
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    SETTINGS (Universal)
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+<style>
+
+
+    [display="none"]             { display: none; }
+    [display="inline"]           { display: inline; }
+    [display="inline-block"]     { display: inline-block; }
+    [display="block"]            { display: block; }
+
+
+/*
+    Height
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+
+
+    /* Height "Names"
+    --------------------------------------------------- */
+    [height="quarter"]       {  height: 25vh;    }
+    [height="third"]         {  height: 33.33vh; }
+    [height="half"]          {  height: 50vh;    }
+    [height="sixth"]         {  height: 66.66vh; }
+    [height="threequarter"]  {  height: 75vh;    }
+    [height="full"]          {  height: 100vh;   }
+    [height="fullquarter"]   {  height: 125vh;   }
+    [height="fullhalf"]      {  height: 150vh;   }
+    [height="double"]        {  height: 200vh;   }
+
+
+
+    /* Height "Exact"                                             Height "Minimum"                                                 Height "Maximum"
+    ----------------------------------------------------         ------------------------------------------------------           ---------------------------------------------------- */
+    [height=".1"]            {  height: 10vh;    }                [min-height=".1"]     {  min-height: 10vh;    }                  [max-height=".1"]     {  max-height: 10vh;    }
+    [height=".2"]            {  height: 20vh;    }                [min-height=".2"]     {  min-height: 20vh;    }                  [max-height=".2"]     {  max-height: 20vh;    }
+    [height=".25"]           {  height: 25vh;    }                [min-height=".25"]    {  min-height: 25vh;    }                  [max-height=".25"]    {  max-height: 25vh;    }
+    [height=".3"]            {  height: 30vh;    }                [min-height=".3"]     {  min-height: 30vh;    }                  [max-height=".3"]     {  max-height: 30vh;    }
+    [height=".33"]           {  height: 33.33vh; }                [min-height=".33"]    {  min-height: 33.33vh; }                  [max-height=".33"]    {  max-height: 33.33vh; }
+    [height=".4"]            {  height: 40vh;    }                [min-height=".4"]     {  min-height: 40vh;    }                  [max-height=".4"]     {  max-height: 40vh;    }
+    [height=".5"]            {  height: 50vh;    }                [min-height=".5"]     {  min-height: 50vh;    }                  [max-height=".5"]     {  max-height: 50vh;    }
+    [height=".6"]            {  height: 60vh;    }                [min-height=".6"]     {  min-height: 60vh;    }                  [max-height=".6"]     {  max-height: 60vh;    }
+    [height=".66"]           {  height: 66.66vh; }                [min-height=".66"]    {  min-height: 66.66vh; }                  [max-height=".66"]    {  max-height: 66.66vh; }
+    [height=".7"]            {  height: 70vh;    }                [min-height=".7"]     {  min-height: 70vh;    }                  [max-height=".7"]     {  max-height: 70vh;    }
+    [height=".75"]           {  height: 75vh;    }                [min-height=".75"]    {  min-height: 75vh;    }                  [max-height=".75"]    {  max-height: 75vh;    }
+    [height=".8"]            {  height: 80vh;    }                [min-height=".8"]     {  min-height: 80vh;    }                  [max-height=".8"]     {  max-height: 80vh;    }
+    [height=".9"]            {  height: 90vh;    }                [min-height=".9"]     {  min-height: 90vh;    }                  [max-height=".9"]     {  max-height: 90vh;    }
+    [height="1"]             {  height: 100vh;   }                [min-height="1"]      {  min-height: 100vh;   }                  [max-height="1"]      {  max-height: 100vh;   }
+    [height="1.25"]          {  height: 125vh;   }                [min-height="1.25"]   {  min-height: 125vh;   }                  [max-height="1.25"]   {  max-height: 125vh;   }
+    [height="1.5"]           {  height: 150vh;   }                [min-height="1.5"]    {  min-height: 150vh;   }                  [max-height="1.5"]    {  max-height: 150vh;   }
+    [height="2"]             {  height: 200vh;   }                [min-height="2"]      {  min-height: 200vh;   }                  [max-height="2"]      {  max-height: 200vh;   }
+
+
+
+    /* Height "Percentage"                                        Height "Minimum Percentage"                                      Height "Maximum Percentage"
+    ----------------------------------------------------         ------------------------------------------------------           ---------------------------------------------------- */
+    [height="10"]            {  height: 10%;    }                 [min-height="10"]     {  min-height: 10%;    }                   [max-height="10"]     {  max-height: 10%;    }
+    [height="20"]            {  height: 20%;    }                 [min-height="20"]     {  min-height: 20%;    }                   [max-height="20"]     {  max-height: 20%;    }
+    [height="25"]            {  height: 25%;    }                 [min-height="25"]     {  min-height: 25%;    }                   [max-height="25"]     {  max-height: 25%;    }
+    [height="30"]            {  height: 30%;    }                 [min-height="30"]     {  min-height: 30%;    }                   [max-height="30"]     {  max-height: 30%;    }
+    [height="33"]            {  height: 33%;    }                 [min-height="33"]     {  min-height: 33%;    }                   [max-height="33"]     {  max-height: 33%;    }
+    [height="40"]            {  height: 40%;    }                 [min-height="40"]     {  min-height: 40%;    }                   [max-height="40"]     {  max-height: 40%;    }
+    [height="50"]            {  height: 50%;    }                 [min-height="50"]     {  min-height: 50%;    }                   [max-height="50"]     {  max-height: 50%;    }
+    [height="60"]            {  height: 60%;    }                 [min-height="60"]     {  min-height: 60%;    }                   [max-height="60"]     {  max-height: 60%;    }
+    [height="66"]            {  height: 66%;    }                 [min-height="66"]     {  min-height: 66%;    }                   [max-height="66"]     {  max-height: 66%;    }
+    [height="70"]            {  height: 70%;    }                 [min-height="70"]     {  min-height: 70%;    }                   [max-height="70"]     {  max-height: 70%;    }
+    [height="75"]            {  height: 75%;    }                 [min-height="75"]     {  min-height: 75%;    }                   [max-height="75"]     {  max-height: 75%;    }
+    [height="80"]            {  height: 80%;    }                 [min-height="80"]     {  min-height: 80%;    }                   [max-height="80"]     {  max-height: 80%;    }
+    [height="90"]            {  height: 90%;    }                 [min-height="90"]     {  min-height: 90%;    }                   [max-height="90"]     {  max-height: 90%;    }
+    [height="100"]           {  height: 100%;   }                 [min-height="100"]    {  min-height: 100%;   }                   [max-height="100"]    {  max-height: 100%;   }
+    [height="125"]           {  height: 125%;   }                 [min-height="125"]    {  min-height: 125%;   }                   [max-height="125"]    {  max-height: 125%;   }
+    [height="150"]           {  height: 150%;   }                 [min-height="150"]    {  min-height: 150%;   }                   [max-height="150"]    {  max-height: 150%;   }
+    [height="200"]           {  height: 200%;   }                 [min-height="200"]    {  min-height: 200%;   }                   [max-height="200"]    {  max-height: 200%;   }
+
+
+
+
+
+
+
+/*
+    Width
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+
+
+    /* Width "Names"
+    --------------------------------------------------- */
+    [width="quarter"]       {  width: 25vw;    }
+    [width="third"]         {  width: 33.33vw; }
+    [width="half"]          {  width: 50vw;    }
+    [width="sixth"]         {  width: 66.66vw; }
+    [width="threequarter"]  {  width: 75vw;    }
+    [width="full"]          {  width: 100vw;   }
+    [width="fullquarter"]   {  width: 125vw;   }
+    [width="fullhalf"]      {  width: 150vw;   }
+    [width="double"]        {  width: 200vw;   }
+
+
+
+    /* Width "Exact"                                            Width "Minimum"                                                Width "Maximum"
+    ----------------------------------------------------       ------------------------------------------------------         ---------------------------------------------------- */
+    [width=".1"]            {  width: 10vw;    }                [min-width=".1"]     {  min-width: 10vw;    }                  [max-width=".1"]     {  max-width: 10vw;    }
+    [width=".2"]            {  width: 20vw;    }                [min-width=".2"]     {  min-width: 20vw;    }                  [max-width=".2"]     {  max-width: 20vw;    }
+    [width=".25"]           {  width: 25vw;    }                [min-width=".25"]    {  min-width: 25vw;    }                  [max-width=".25"]    {  max-width: 25vw;    }
+    [width=".3"]            {  width: 30vw;    }                [min-width=".3"]     {  min-width: 30vw;    }                  [max-width=".3"]     {  max-width: 30vw;    }
+    [width=".33"]           {  width: 33.33vw; }                [min-width=".33"]    {  min-width: 33.33vw; }                  [max-width=".33"]    {  max-width: 33.33vw; }
+    [width=".4"]            {  width: 40vw;    }                [min-width=".4"]     {  min-width: 40vw;    }                  [max-width=".4"]     {  max-width: 40vw;    }
+    [width=".5"]            {  width: 50vw;    }                [min-width=".5"]     {  min-width: 50vw;    }                  [max-width=".5"]     {  max-width: 50vw;    }
+    [width=".6"]            {  width: 60vw;    }                [min-width=".6"]     {  min-width: 60vw;    }                  [max-width=".6"]     {  max-width: 60vw;    }
+    [width=".66"]           {  width: 66.66vw; }                [min-width=".66"]    {  min-width: 66.66vw; }                  [max-width=".66"]    {  max-width: 66.66vw; }
+    [width=".7"]            {  width: 70vw;    }                [min-width=".7"]     {  min-width: 70vw;    }                  [max-width=".7"]     {  max-width: 70vw;    }
+    [width=".75"]           {  width: 75vw;    }                [min-width=".75"]    {  min-width: 75vw;    }                  [max-width=".75"]    {  max-width: 75vw;    }
+    [width=".8"]            {  width: 80vw;    }                [min-width=".8"]     {  min-width: 80vw;    }                  [max-width=".8"]     {  max-width: 80vw;    }
+    [width=".9"]            {  width: 90vw;    }                [min-width=".9"]     {  min-width: 90vw;    }                  [max-width=".9"]     {  max-width: 90vw;    }
+    [width="1"]             {  width: 100vw;   }                [min-width="1"]      {  min-width: 100vw;   }                  [max-width="1"]      {  max-width: 100vw;   }
+    [width="1.25"]          {  width: 125vw;   }                [min-width="1.25"]   {  min-width: 125vw;   }                  [max-width="1.25"]   {  max-width: 125vw;   }
+    [width="1.5"]           {  width: 150vw;   }                [min-width="1.5"]    {  min-width: 150vw;   }                  [max-width="1.5"]    {  max-width: 150vw;   }
+    [width="2"]             {  width: 200vw;   }                [min-width="2"]      {  min-width: 200vw;   }                  [max-width="2"]      {  max-width: 200vw;   }
+
+
+
+    /* Width "Percentage"                                       Width "Minimum Percentage"                                     Width "Maximum Percentage"
+    ----------------------------------------------------       ------------------------------------------------------         ---------------------------------------------------- */
+    [width="10"]            {  width: 10%;    }                 [min-width="10"]     {  min-width: 10%;    }                   [max-width="10"]     {  max-width: 10%;    }
+    [width="20"]            {  width: 20%;    }                 [min-width="20"]     {  min-width: 20%;    }                   [max-width="20"]     {  max-width: 20%;    }
+    [width="25"]            {  width: 25%;    }                 [min-width="25"]     {  min-width: 25%;    }                   [max-width="25"]     {  max-width: 25%;    }
+    [width="30"]            {  width: 30%;    }                 [min-width="30"]     {  min-width: 30%;    }                   [max-width="30"]     {  max-width: 30%;    }
+    [width="33"]            {  width: 33%;    }                 [min-width="33"]     {  min-width: 33%;    }                   [max-width="33"]     {  max-width: 33%;    }
+    [width="40"]            {  width: 40%;    }                 [min-width="40"]     {  min-width: 40%;    }                   [max-width="40"]     {  max-width: 40%;    }
+    [width="50"]            {  width: 50%;    }                 [min-width="50"]     {  min-width: 50%;    }                   [max-width="50"]     {  max-width: 50%;    }
+    [width="60"]            {  width: 60%;    }                 [min-width="60"]     {  min-width: 60%;    }                   [max-width="60"]     {  max-width: 60%;    }
+    [width="66"]            {  width: 66%;    }                 [min-width="66"]     {  min-width: 66%;    }                   [max-width="66"]     {  max-width: 66%;    }
+    [width="70"]            {  width: 70%;    }                 [min-width="70"]     {  min-width: 70%;    }                   [max-width="70"]     {  max-width: 70%;    }
+    [width="75"]            {  width: 75%;    }                 [min-width="75"]     {  min-width: 75%;    }                   [max-width="75"]     {  max-width: 75%;    }
+    [width="80"]            {  width: 80%;    }                 [min-width="80"]     {  min-width: 80%;    }                   [max-width="80"]     {  max-width: 80%;    }
+    [width="90"]            {  width: 90%;    }                 [min-width="90"]     {  min-width: 90%;    }                   [max-width="90"]     {  max-width: 90%;    }
+    [width="100"]           {  width: 100%;   }                 [min-width="100"]    {  min-width: 100%;   }                   [max-width="100"]    {  max-width: 100%;   }
+    [width="125"]           {  width: 125%;   }                 [min-width="125"]    {  min-width: 125%;   }                   [max-width="125"]    {  max-width: 125%;   }
+    [width="150"]           {  width: 150%;   }                 [min-width="150"]    {  min-width: 150%;   }                   [max-width="150"]    {  max-width: 150%;   }
+    [width="200"]           {  width: 200%;   }                 [min-width="200"]    {  min-width: 200%;   }                   [max-width="200"]    {  max-width: 200%;   }
+
+
+
+
+
+
+
+/*
+    Margin
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+
+
+    /* Margin (rem)
+    -------------------------------------------------- */
+    [margin="0"]          {  margin: 0;       }
+    [margin=".25"]        {  margin: .25rem;  }
+    [margin=".5"]         {  margin: .5rem;   }
+    [margin=".75"]        {  margin: .75rem;  }
+    [margin="1"]          {  margin: 1rem;    }
+    [margin="1.25"]       {  margin: 1.25rem; }
+    [margin="1.5"]        {  margin: 1.5rem;  }
+    [margin="1.75"]       {  margin: 1.75rem; }
+    [margin="2"]          {  margin: 2rem;    }
+    [margin="2.25"]       {  margin: 2.25rem; }
+    [margin="2.5"]        {  margin: 2.5rem;  }
+    [margin="2.75"]       {  margin: 2.75rem; }
+    [margin="3"]          {  margin: 3rem;    }
+
+
+    /* Margin (rem) "X" Axis                                      Margin (rem) "Y" Axis
+    ----------------------------------------------------         ------------------------------------------------------ */
+    [margin-x=".25"]      {  margin: 0 .25rem;    }            [margin-y=".25"]     {  margin: .25rem  0; }
+    [margin-x=".5"]       {  margin: 0 .5rem;     }            [margin-y=".5"]      {  margin: .5rem   0; }
+    [margin-x=".75"]      {  margin: 0 .75rem;    }            [margin-y=".75"]     {  margin: .75rem  0; }
+    [margin-x="1"]        {  margin: 0 1rem;      }            [margin-y="1"]       {  margin: 1rem    0; }
+    [margin-x="1.25"]     {  margin: 0 1.25rem;   }            [margin-y="1.25"]    {  margin: 1.25rem 0; }
+    [margin-x="1.5"]      {  margin: 0 1.5rem;    }            [margin-y="1.5"]     {  margin: 1.5rem  0; }
+    [margin-x="1.75"]     {  margin: 0 1.75rem;   }            [margin-y="1.75"]    {  margin: 1.75rem 0; }
+    [margin-x="2"]        {  margin: 0 2rem;      }            [margin-y="2"]       {  margin: 2rem    0; }
+    [margin-x="2.25"]     {  margin: 0 2.25rem;   }            [margin-y="2.25"]    {  margin: 2.25rem 0; }
+    [margin-x="2.5"]      {  margin: 0 2.5rem;    }            [margin-y="2.5"]     {  margin: 2.5rem  0; }
+    [margin-x="2.75"]     {  margin: 0 2.75rem;   }            [margin-y="2.75"]    {  margin: 2.75rem 0; }
+    [margin-x="3"]        {  margin: 0 3rem;      }            [margin-y="3"]       {  margin: 3rem    0; }
+
+
+    /* Margin (rem) "Top"                                         Margin (rem) "Right"                                          Margin (rem) "Bottom"                                         Margin (rem) "Left"
+    ----------------------------------------------------         ------------------------------------------------------        ---------------------------------------------------------     ------------------------------------------------------ */
+    [margin-t=".25"]      {  margin-top: .25rem;  }              [margin-r=".25"]     {  margin-right: .25rem;  }               [margin-b=".25"]     {  margin-bottom: .25rem;  }               [margin-l=".25"]     {  margin-left: .25rem;  }
+    [margin-t=".5"]       {  margin-top: .5rem;   }              [margin-r=".5"]      {  margin-right: .5rem;   }               [margin-b=".5"]      {  margin-bottom: .5rem;   }               [margin-l=".5"]      {  margin-left: .5rem;   }
+    [margin-t=".75"]      {  margin-top: .75rem;  }              [margin-r=".75"]     {  margin-right: .75rem;  }               [margin-b=".75"]     {  margin-bottom: .75rem;  }               [margin-l=".75"]     {  margin-left: .75rem;  }
+    [margin-t="1"]        {  margin-top: 1rem;    }              [margin-r="1"]       {  margin-right: 1rem;    }               [margin-b="1"]       {  margin-bottom: 1rem;    }               [margin-l="1"]       {  margin-left: 1rem;    }
+    [margin-t="1.25"]     {  margin-top: 1.25rem; }              [margin-r="1.25"]    {  margin-right: 1.25rem; }               [margin-b="1.25"]    {  margin-bottom: 1.25rem; }               [margin-l="1.25"]    {  margin-left: 1.25rem; }
+    [margin-t="1.5"]      {  margin-top: 1.5rem;  }              [margin-r="1.5"]     {  margin-right: 1.5rem;  }               [margin-b="1.5"]     {  margin-bottom: 1.5rem;  }               [margin-l="1.5"]     {  margin-left: 1.5rem;  }
+    [margin-t="1.75"]     {  margin-top: 1.75rem; }              [margin-r="1.75"]    {  margin-right: 1.75rem; }               [margin-b="1.75"]    {  margin-bottom: 1.75rem; }               [margin-l="1.75"]    {  margin-left: 1.75rem; }
+    [margin-t="2"]        {  margin-top: 2rem;    }              [margin-r="2"]       {  margin-right: 2rem;    }               [margin-b="2"]       {  margin-bottom: 2rem;    }               [margin-l="2"]       {  margin-left: 2rem;    }
+    [margin-t="2.25"]     {  margin-top: 2.25rem; }              [margin-r="2.25"]    {  margin-right: 2.25rem; }               [margin-b="2.25"]    {  margin-bottom: 2.25rem; }               [margin-l="2.25"]    {  margin-left: 2.25rem; }
+    [margin-t="2.5"]      {  margin-top: 2.5rem;  }              [margin-r="2.5"]     {  margin-right: 2.5rem;  }               [margin-b="2.5"]     {  margin-bottom: 2.5rem;  }               [margin-l="2.5"]     {  margin-left: 2.5rem;  }
+    [margin-t="2.75"]     {  margin-top: 2.75rem; }              [margin-r="2.75"]    {  margin-right: 2.75rem; }               [margin-b="2.75"]    {  margin-bottom: 2.75rem; }               [margin-l="2.75"]    {  margin-left: 2.75rem; }
+    [margin-t="3"]        {  margin-top: 3rem;    }              [margin-r="3"]       {  margin-right: 3rem;    }               [margin-b="3"]       {  margin-bottom: 3rem;    }               [margin-l="3"]       {  margin-left: 3rem;    }
+
+
+
+    /* Margin (page)
+    -------------------------------------------------- */
+    [margin="10"]            {  margin: 10vh 10vw;  }
+    [margin="20"]            {  margin: 20vh 20vw;  }
+    [margin="25"]            {  margin: 25vh 25vw;  }
+    [margin="30"]            {  margin: 30vh 30vw;  }
+    [margin="33"]            {  margin: 33.33vh 33.33vw; }
+    [margin="40"]            {  margin: 40vh 40vw;  }
+    [margin="50"]            {  margin: 50vh 50vw;  }
+    [margin="60"]            {  margin: 60vh 60vw;  }
+    [margin="66"]            {  margin: 66.66vh 66.66vw; }
+    [margin="70"]            {  margin: 70vh 70vw;  }
+    [margin="75"]            {  margin: 75vh 75vw;  }
+    [margin="80"]            {  margin: 80vh 80vw;  }
+    [margin="90"]            {  margin: 90vh 90vw;  }
+    [margin="100"]           {  margin: 100vh 100vw;  }
+    [margin="125"]           {  margin: 125vh 125vw;  }
+    [margin="150"]           {  margin: 150vh 150vw;  }
+    [margin="200"]           {  margin: 200vh 200vw;  }
+
+
+    /* Margin (page) "X" Axis                                     Margin (page) "Y" Axis
+    ----------------------------------------------------         ------------------------------------------------------ */
+    [margin-x="10"]          {  margin: 0 10vw;    }              [margin-y="10"]          {  margin: 10vh 0;    }
+    [margin-x="20"]          {  margin: 0 20vw;    }              [margin-y="20"]          {  margin: 20vh 0;    }
+    [margin-x="25"]          {  margin: 0 25vw;    }              [margin-y="25"]          {  margin: 25vh 0;    }
+    [margin-x="30"]          {  margin: 0 30vw;    }              [margin-y="30"]          {  margin: 30vw 0;    }
+    [margin-x="33"]          {  margin: 0 33.33vw; }              [margin-y="33"]          {  margin: 33.33vh 0; }
+    [margin-x="40"]          {  margin: 0 40vw;    }              [margin-y="40"]          {  margin: 40vh 0;    }
+    [margin-x="50"]          {  margin: 0 50vw;    }              [margin-y="50"]          {  margin: 50vh 0;    }
+    [margin-x="60"]          {  margin: 0 60vw;    }              [margin-y="60"]          {  margin: 60vh 0;    }
+    [margin-x="66"]          {  margin: 0 66.66vw; }              [margin-y="66"]          {  margin: 66.66vh 0; }
+    [margin-x="70"]          {  margin: 0 70vw;    }              [margin-y="70"]          {  margin: 70vh 0;    }
+    [margin-x="75"]          {  margin: 0 75vw;    }              [margin-y="75"]          {  margin: 75vh 0;    }
+    [margin-x="80"]          {  margin: 0 80vw;    }              [margin-y="80"]          {  margin: 80vh 0;    }
+    [margin-x="90"]          {  margin: 0 90vw;    }              [margin-y="90"]          {  margin: 90vh 0;    }
+    [margin-x="100"]         {  margin: 0 100vw;   }              [margin-y="100"]         {  margin: 100vh 0;   }
+    [margin-x="125"]         {  margin: 0 125vw;   }              [margin-y="125"]         {  margin: 120vh 0;   }
+    [margin-x="150"]         {  margin: 0 150vw;   }              [margin-y="150"]         {  margin: 150vh 0;   }
+    [margin-x="200"]         {  margin: 0 200vw;   }              [margin-y="200"]         {  margin: 200vh 0;   }
+
+
+    /* Margin (page) "Top"                                        Margin (page) "Right"                                         Margin (page) "Bottom"                                        Margin (page) "Left"
+    ----------------------------------------------------         ------------------------------------------------------        ---------------------------------------------------------     ------------------------------------------------------ */
+    [margin-t="10"]          {  margin-top: 10vh;  }              [margin-r="10"]            {  margin-right: 10vw;  }          [margin-b="10"]            {  margin-bottom: 10vh;  }         [margin-l="10"]            {  margin-left: 10vw; }
+    [margin-t="20"]          {  margin-top: 20vh;  }              [margin-r="20"]            {  margin-right: 20vw;  }          [margin-b="20"]            {  margin-bottom: 20vh;  }         [margin-l="20"]            {  margin-left: 20vw; }
+    [margin-t="25"]          {  margin-top: 25vh;  }              [margin-r="25"]            {  margin-right: 25vw;  }          [margin-b="25"]            {  margin-bottom: 25vh;  }         [margin-l="25"]            {  margin-left: 25vw; }
+    [margin-t="30"]          {  margin-top: 30vh;  }              [margin-r="30"]            {  margin-right: 30vw;  }          [margin-b="30"]            {  margin-bottom: 30vh;  }         [margin-l="30"]            {  margin-left: 30vw; }
+    [margin-t="33"]          {  margin-top: 33.33vh; }            [margin-r="33"]            {  margin-right: 33.33vw; }        [margin-b="33"]            {  margin-bottom: 33.33vh; }       [margin-l="33"]            {  margin-left: 33.33vw; }
+    [margin-t="40"]          {  margin-top: 40vh;  }              [margin-r="40"]            {  margin-right: 40vw;  }          [margin-b="40"]            {  margin-bottom: 40vh;  }         [margin-l="40"]            {  margin-left: 40vw; }
+    [margin-t="50"]          {  margin-top: 50vh;  }              [margin-r="50"]            {  margin-right: 50vw;  }          [margin-b="50"]            {  margin-bottom: 50vh;  }         [margin-l="50"]            {  margin-left: 50vw; }
+    [margin-t="60"]          {  margin-top: 60vh;  }              [margin-r="60"]            {  margin-right: 60vw;  }          [margin-b="60"]            {  margin-bottom: 60vh;  }         [margin-l="60"]            {  margin-left: 60vw; }
+    [margin-t="66"]          {  margin-top: 66.66vh; }            [margin-r="66"]            {  margin-right: 66.66vw; }        [margin-b="66"]            {  margin-bottom: 66.66vh; }       [margin-l="66"]            {  margin-left: 66.66vw; }
+    [margin-t="70"]          {  margin-top: 70vh;  }              [margin-r="70"]            {  margin-right: 70vw;  }          [margin-b="70"]            {  margin-bottom: 70vh;  }         [margin-l="70"]            {  margin-left: 70vw; }
+    [margin-t="75"]          {  margin-top: 75vh;  }              [margin-r="75"]            {  margin-right: 75vw;  }          [margin-b="75"]            {  margin-bottom: 75vh;  }         [margin-l="75"]            {  margin-left: 75vw; }
+    [margin-t="80"]          {  margin-top: 80vh;  }              [margin-r="80"]            {  margin-right: 80vw;  }          [margin-b="80"]            {  margin-bottom: 80vh;  }         [margin-l="80"]            {  margin-left: 80vw; }
+    [margin-t="90"]          {  margin-top: 90vh;  }              [margin-r="90"]            {  margin-right: 90vw;  }          [margin-b="90"]            {  margin-bottom: 90vh;  }         [margin-l="90"]            {  margin-left: 90vw; }
+    [margin-t="100"]         {  margin-top: 100vh;  }             [margin-r="100"]           {  margin-right: 100vw;  }         [margin-b="100"]           {  margin-bottom: 100vh;  }        [margin-l="100"]           {  margin-left: 100vw; }
+    [margin-t="125"]         {  margin-top: 125vh;  }             [margin-r="125"]           {  margin-right: 125vw;  }         [margin-b="125"]           {  margin-bottom: 125vh;  }        [margin-l="125"]           {  margin-left: 125vw; }
+    [margin-t="150"]         {  margin-top: 150vh;  }             [margin-r="150"]           {  margin-right: 150vw;  }         [margin-b="150"]           {  margin-bottom: 150vh;  }        [margin-l="150"]           {  margin-left: 150vw; }
+    [margin-t="200"]         {  margin-top: 200vh;  }             [margin-r="200"]           {  margin-right: 200vw;  }         [margin-b="200"]           {  margin-bottom: 200vh;  }        [margin-l="200"]           {  margin-left: 200vw; }
+
+
+
+/*
+    Padding
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+
+
+    /* Padding (rem)
+    -------------------------------------------------- */
+    [padding="0"]          {  padding: 0;       }
+    [padding=".25"]        {  padding: .25rem;  }
+    [padding=".5"]         {  padding: .5rem;   }
+    [padding=".75"]        {  padding: .75rem;  }
+    [padding="1"]          {  padding: 1rem;    }
+    [padding="1.25"]       {  padding: 1.25rem; }
+    [padding="1.5"]        {  padding: 1.5rem;  }
+    [padding="1.75"]       {  padding: 1.75rem; }
+    [padding="2"]          {  padding: 2rem;    }
+    [padding="2.25"]       {  padding: 2.25rem; }
+    [padding="2.5"]        {  padding: 2.5rem;  }
+    [padding="2.75"]       {  padding: 2.75rem; }
+    [padding="3"]          {  padding: 3rem;    }
+
+
+    /* Padding (rem) "X" Axis                                      Padding (rem) "Y" Axis
+    ----------------------------------------------------         ------------------------------------------------------ */
+    [padding-x=".25"]      {  padding: 0 .25rem;    }            [padding-y=".25"]     {  padding: .25rem  0; }
+    [padding-x=".5"]       {  padding: 0 .5rem;     }            [padding-y=".5"]      {  padding: .5rem   0; }
+    [padding-x=".75"]      {  padding: 0 .75rem;    }            [padding-y=".75"]     {  padding: .75rem  0; }
+    [padding-x="1"]        {  padding: 0 1rem;      }            [padding-y="1"]       {  padding: 1rem    0; }
+    [padding-x="1.25"]     {  padding: 0 1.25rem;   }            [padding-y="1.25"]    {  padding: 1.25rem 0; }
+    [padding-x="1.5"]      {  padding: 0 1.5rem;    }            [padding-y="1.5"]     {  padding: 1.5rem  0; }
+    [padding-x="1.75"]     {  padding: 0 1.75rem;   }            [padding-y="1.75"]    {  padding: 1.75rem 0; }
+    [padding-x="2"]        {  padding: 0 2rem;      }            [padding-y="2"]       {  padding: 2rem    0; }
+    [padding-x="2.25"]     {  padding: 0 2.25rem;   }            [padding-y="2.25"]    {  padding: 2.25rem 0; }
+    [padding-x="2.5"]      {  padding: 0 2.5rem;    }            [padding-y="2.5"]     {  padding: 2.5rem  0; }
+    [padding-x="2.75"]     {  padding: 0 2.75rem;   }            [padding-y="2.75"]    {  padding: 2.75rem 0; }
+    [padding-x="3"]        {  padding: 0 3rem;      }            [padding-y="3"]       {  padding: 3rem    0; }
+
+
+    /* Padding (rem) "Top"                                         Padding (rem) "Right"                                          Padding (rem) "Bottom"                                         Padding (rem) "Left"
+    ----------------------------------------------------         ------------------------------------------------------        ---------------------------------------------------------     ------------------------------------------------------ */
+    [padding-t=".25"]      {  padding-top: .25rem;  }              [padding-r=".25"]     {  padding-right: .25rem;  }               [padding-b=".25"]     {  padding-bottom: .25rem;  }               [padding-l=".25"]     {  padding-left: .25rem;  }
+    [padding-t=".5"]       {  padding-top: .5rem;   }              [padding-r=".5"]      {  padding-right: .5rem;   }               [padding-b=".5"]      {  padding-bottom: .5rem;   }               [padding-l=".5"]      {  padding-left: .5rem;   }
+    [padding-t=".75"]      {  padding-top: .75rem;  }              [padding-r=".75"]     {  padding-right: .75rem;  }               [padding-b=".75"]     {  padding-bottom: .75rem;  }               [padding-l=".75"]     {  padding-left: .75rem;  }
+    [padding-t="1"]        {  padding-top: 1rem;    }              [padding-r="1"]       {  padding-right: 1rem;    }               [padding-b="1"]       {  padding-bottom: 1rem;    }               [padding-l="1"]       {  padding-left: 1rem;    }
+    [padding-t="1.25"]     {  padding-top: 1.25rem; }              [padding-r="1.25"]    {  padding-right: 1.25rem; }               [padding-b="1.25"]    {  padding-bottom: 1.25rem; }               [padding-l="1.25"]    {  padding-left: 1.25rem; }
+    [padding-t="1.5"]      {  padding-top: 1.5rem;  }              [padding-r="1.5"]     {  padding-right: 1.5rem;  }               [padding-b="1.5"]     {  padding-bottom: 1.5rem;  }               [padding-l="1.5"]     {  padding-left: 1.5rem;  }
+    [padding-t="1.75"]     {  padding-top: 1.75rem; }              [padding-r="1.75"]    {  padding-right: 1.75rem; }               [padding-b="1.75"]    {  padding-bottom: 1.75rem; }               [padding-l="1.75"]    {  padding-left: 1.75rem; }
+    [padding-t="2"]        {  padding-top: 2rem;    }              [padding-r="2"]       {  padding-right: 2rem;    }               [padding-b="2"]       {  padding-bottom: 2rem;    }               [padding-l="2"]       {  padding-left: 2rem;    }
+    [padding-t="2.25"]     {  padding-top: 2.25rem; }              [padding-r="2.25"]    {  padding-right: 2.25rem; }               [padding-b="2.25"]    {  padding-bottom: 2.25rem; }               [padding-l="2.25"]    {  padding-left: 2.25rem; }
+    [padding-t="2.5"]      {  padding-top: 2.5rem;  }              [padding-r="2.5"]     {  padding-right: 2.5rem;  }               [padding-b="2.5"]     {  padding-bottom: 2.5rem;  }               [padding-l="2.5"]     {  padding-left: 2.5rem;  }
+    [padding-t="2.75"]     {  padding-top: 2.75rem; }              [padding-r="2.75"]    {  padding-right: 2.75rem; }               [padding-b="2.75"]    {  padding-bottom: 2.75rem; }               [padding-l="2.75"]    {  padding-left: 2.75rem; }
+    [padding-t="3"]        {  padding-top: 3rem;    }              [padding-r="3"]       {  padding-right: 3rem;    }               [padding-b="3"]       {  padding-bottom: 3rem;    }               [padding-l="3"]       {  padding-left: 3rem;    }
+
+
+
+    /* Padding (page)
+    -------------------------------------------------- */
+    [padding="10"]            {  padding: 10vh 10vw;  }
+    [padding="20"]            {  padding: 20vh 20vw;  }
+    [padding="25"]            {  padding: 25vh 25vw;  }
+    [padding="30"]            {  padding: 30vh 30vw;  }
+    [padding="33"]            {  padding: 33.33vh 33.33vw; }
+    [padding="40"]            {  padding: 40vh 40vw;  }
+    [padding="50"]            {  padding: 50vh 50vw;  }
+    [padding="60"]            {  padding: 60vh 60vw;  }
+    [padding="66"]            {  padding: 66.66vh 66.66vw; }
+    [padding="70"]            {  padding: 70vh 70vw;  }
+    [padding="75"]            {  padding: 75vh 75vw;  }
+    [padding="80"]            {  padding: 80vh 80vw;  }
+    [padding="90"]            {  padding: 90vh 90vw;  }
+    [padding="100"]           {  padding: 100vh 100vw;  }
+    [padding="125"]           {  padding: 125vh 125vw;  }
+    [padding="150"]           {  padding: 150vh 150vw;  }
+    [padding="200"]           {  padding: 200vh 200vw;  }
+
+
+    /* Padding (page) "X" Axis                                     Padding (page) "Y" Axis
+    ----------------------------------------------------         ------------------------------------------------------ */
+    [padding-x="10"]          {  padding: 0 10vw;    }              [padding-y="10"]          {  padding: 10vh 0;    }
+    [padding-x="20"]          {  padding: 0 20vw;    }              [padding-y="20"]          {  padding: 20vh 0;    }
+    [padding-x="25"]          {  padding: 0 25vw;    }              [padding-y="25"]          {  padding: 25vh 0;    }
+    [padding-x="30"]          {  padding: 0 30vw;    }              [padding-y="30"]          {  padding: 30vw 0;    }
+    [padding-x="33"]          {  padding: 0 33.33vw; }              [padding-y="33"]          {  padding: 33.33vh 0; }
+    [padding-x="40"]          {  padding: 0 40vw;    }              [padding-y="40"]          {  padding: 40vh 0;    }
+    [padding-x="50"]          {  padding: 0 50vw;    }              [padding-y="50"]          {  padding: 50vh 0;    }
+    [padding-x="60"]          {  padding: 0 60vw;    }              [padding-y="60"]          {  padding: 60vh 0;    }
+    [padding-x="66"]          {  padding: 0 66.66vw; }              [padding-y="66"]          {  padding: 66.66vh 0; }
+    [padding-x="70"]          {  padding: 0 70vw;    }              [padding-y="70"]          {  padding: 70vh 0;    }
+    [padding-x="75"]          {  padding: 0 75vw;    }              [padding-y="75"]          {  padding: 75vh 0;    }
+    [padding-x="80"]          {  padding: 0 80vw;    }              [padding-y="80"]          {  padding: 80vh 0;    }
+    [padding-x="90"]          {  padding: 0 90vw;    }              [padding-y="90"]          {  padding: 90vh 0;    }
+    [padding-x="100"]         {  padding: 0 100vw;   }              [padding-y="100"]         {  padding: 100vh 0;   }
+    [padding-x="125"]         {  padding: 0 125vw;   }              [padding-y="125"]         {  padding: 120vh 0;   }
+    [padding-x="150"]         {  padding: 0 150vw;   }              [padding-y="150"]         {  padding: 150vh 0;   }
+    [padding-x="200"]         {  padding: 0 200vw;   }              [padding-y="200"]         {  padding: 200vh 0;   }
+
+
+    /* Padding (page) "Top"                                        Padding (page) "Right"                                         Padding (page) "Bottom"                                        Padding (page) "Left"
+    ----------------------------------------------------         ------------------------------------------------------        ---------------------------------------------------------     ------------------------------------------------------ */
+    [padding-t="10"]          {  padding-top: 10vh;  }              [padding-r="10"]            {  padding-right: 10vw;  }          [padding-b="10"]            {  padding-bottom: 10vh;  }         [padding-l="10"]            {  padding-left: 10vw; }
+    [padding-t="20"]          {  padding-top: 20vh;  }              [padding-r="20"]            {  padding-right: 20vw;  }          [padding-b="20"]            {  padding-bottom: 20vh;  }         [padding-l="20"]            {  padding-left: 20vw; }
+    [padding-t="25"]          {  padding-top: 25vh;  }              [padding-r="25"]            {  padding-right: 25vw;  }          [padding-b="25"]            {  padding-bottom: 25vh;  }         [padding-l="25"]            {  padding-left: 25vw; }
+    [padding-t="30"]          {  padding-top: 30vh;  }              [padding-r="30"]            {  padding-right: 30vw;  }          [padding-b="30"]            {  padding-bottom: 30vh;  }         [padding-l="30"]            {  padding-left: 30vw; }
+    [padding-t="33"]          {  padding-top: 33.33vh; }            [padding-r="33"]            {  padding-right: 33.33vw; }        [padding-b="33"]            {  padding-bottom: 33.33vh; }       [padding-l="33"]            {  padding-left: 33.33vw; }
+    [padding-t="40"]          {  padding-top: 40vh;  }              [padding-r="40"]            {  padding-right: 40vw;  }          [padding-b="40"]            {  padding-bottom: 40vh;  }         [padding-l="40"]            {  padding-left: 40vw; }
+    [padding-t="50"]          {  padding-top: 50vh;  }              [padding-r="50"]            {  padding-right: 50vw;  }          [padding-b="50"]            {  padding-bottom: 50vh;  }         [padding-l="50"]            {  padding-left: 50vw; }
+    [padding-t="60"]          {  padding-top: 60vh;  }              [padding-r="60"]            {  padding-right: 60vw;  }          [padding-b="60"]            {  padding-bottom: 60vh;  }         [padding-l="60"]            {  padding-left: 60vw; }
+    [padding-t="66"]          {  padding-top: 66.66vh; }            [padding-r="66"]            {  padding-right: 66.66vw; }        [padding-b="66"]            {  padding-bottom: 66.66vh; }       [padding-l="66"]            {  padding-left: 66.66vw; }
+    [padding-t="70"]          {  padding-top: 70vh;  }              [padding-r="70"]            {  padding-right: 70vw;  }          [padding-b="70"]            {  padding-bottom: 70vh;  }         [padding-l="70"]            {  padding-left: 70vw; }
+    [padding-t="75"]          {  padding-top: 75vh;  }              [padding-r="75"]            {  padding-right: 75vw;  }          [padding-b="75"]            {  padding-bottom: 75vh;  }         [padding-l="75"]            {  padding-left: 75vw; }
+    [padding-t="80"]          {  padding-top: 80vh;  }              [padding-r="80"]            {  padding-right: 80vw;  }          [padding-b="80"]            {  padding-bottom: 80vh;  }         [padding-l="80"]            {  padding-left: 80vw; }
+    [padding-t="90"]          {  padding-top: 90vh;  }              [padding-r="90"]            {  padding-right: 90vw;  }          [padding-b="90"]            {  padding-bottom: 90vh;  }         [padding-l="90"]            {  padding-left: 90vw; }
+    [padding-t="100"]         {  padding-top: 100vh;  }             [padding-r="100"]           {  padding-right: 100vw;  }         [padding-b="100"]           {  padding-bottom: 100vh;  }        [padding-l="100"]           {  padding-left: 100vw; }
+    [padding-t="125"]         {  padding-top: 125vh;  }             [padding-r="125"]           {  padding-right: 125vw;  }         [padding-b="125"]           {  padding-bottom: 125vh;  }        [padding-l="125"]           {  padding-left: 125vw; }
+    [padding-t="150"]         {  padding-top: 150vh;  }             [padding-r="150"]           {  padding-right: 150vw;  }         [padding-b="150"]           {  padding-bottom: 150vh;  }        [padding-l="150"]           {  padding-left: 150vw; }
+    [padding-t="200"]         {  padding-top: 200vh;  }             [padding-r="200"]           {  padding-right: 200vw;  }         [padding-b="200"]           {  padding-bottom: 200vh;  }        [padding-l="200"]           {  padding-left: 200vw; }
+
+
+
+
+
+
+
+
+/*
+    COLORS
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+
+    /* Background */
+    [bg="clear"]                           { background: rgba(255,255,255, 0); }
+    [bg="red"]                             { background: rgba(240,98,146,  1); }
+    [bg="blue"]                            { background: rgba(100,181,246, 1); }
+    [bg="purple"]                          { background: rgba(123,31,162,  1); }
+    [bg="yellow"]                          { background: rgba(246,255,40,  1); }
+    [bg="green"]                           { background: rgba(0,230,118,   1); }
+    [bg="white"]                           { background: rgba(255,255,255, 1); }
+    [bg="black"]                           { background: rgba(0,0,0,       1); }
+    [bg="gray"]                            { background: rgba(70,70,70,    1); }
+
+    /* Dark BG (MD Spec)*/
+    [bg="black"][type="primary"]        { background: rgba(0,0,0, .87); }
+    [bg="black"][type="secondary"]      { background: rgba(0,0,0, .54); }
+    [bg="black"][type="disabled"]       { background: rgba(0,0,0, .38); }
+    [bg="black"][type="divider"]        { background: rgba(0,0,0, .12); }
+
+    [bg="black"][fade=".1"]             { background: rgba(0,0,0, .12); }
+    [bg="black"][fade=".2"]             { background: rgba(0,0,0, .22); }
+    [bg="black"][fade=".3"]             { background: rgba(0,0,0, .32); }
+    [bg="black"][fade=".4"]             { background: rgba(0,0,0, .42); }
+    [bg="black"][fade=".5"]             { background: rgba(0,0,0, .54); }
+    [bg="black"][fade=".6"]             { background: rgba(0,0,0, .62); }
+    [bg="black"][fade=".7"]             { background: rgba(0,0,0, .72); }
+    [bg="black"][fade=".8"]             { background: rgba(0,0,0, .78); }
+    [bg="black"][fade=".9"]             { background: rgba(0,0,0, .87); }
+
+    /* Light BG (MD Spec)*/
+    [bg="white"][fade="primary"]        { background: rgba(255,255,255,   1); }
+    [bg="white"][fade="secondary"]      { background: rgba(255,255,255,  .7); }
+    [bg="white"][fade="disabled"]       { background: rgba(255,255,255,  .5); }
+    [bg="white"][fade="divider"]        { background: rgba(255,255,255, .12); }
+
+    [bg="white"][fade=".1"]             { background: rgba(255,255,255, .12); }
+    [bg="white"][fade=".2"]             { background: rgba(255,255,255, .22); }
+    [bg="white"][fade=".3"]             { background: rgba(255,255,255, .32); }
+    [bg="white"][fade=".4"]             { background: rgba(255,255,255, .42); }
+    [bg="white"][fade=".5"]             { background: rgba(255,255,255, .54); }
+    [bg="white"][fade=".6"]             { background: rgba(255,255,255, .62); }
+    [bg="white"][fade=".7"]             { background: rgba(255,255,255, .72); }
+    [bg="white"][fade=".8"]             { background: rgba(255,255,255, .78); }
+    [bg="white"][fade=".9"]             { background: rgba(255,255,255, .87); }
+
+
+    /* Text */
+    [color="black"]            { color: rgba(0,0,0,       1); }
+    [color="white"]            { color: rgba(255,255,255, 1); }
+
+
+    /* Dark Text (MD Spec)*/
+    [color="black"][type="primary"]        { color: rgba(0,0,0, .87); }
+    [color="black"][type="secondary"]      { color: rgba(0,0,0, .54); }
+    [color="black"][type="disabled"]       { color: rgba(0,0,0, .38); }
+    [color="black"][type="divider"]        { color: rgba(0,0,0, .12); }
+
+
+    /* Light Text (MD Spec)*/
+    [color="white"][type="primary"]        { color: rgba(255,255,255,   1); }
+    [color="white"][type="secondary"]      { color: rgba(255,255,255,  .7); }
+    [color="white"][type="disabled"]       { color: rgba(255,255,255,  .5); }
+    [color="white"][type="divider"]        { color: rgba(255,255,255, .12); }
+
+
+/*
+    OPACITY
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+
+    /* Visibility */
+    [visible="1"]                   { opacity:   1; }
+    [visible="0"]                   { opacity:   0; }
+
+    /* Opacity */
+    [opacity=".1"]                  { opacity: .12; }
+    [opacity=".2"]                  { opacity: .22; }
+    [opacity=".3"]                  { opacity: .32; }
+    [opacity=".4"]                  { opacity: .42; }
+    [opacity=".5"]                  { opacity: .54; }
+    [opacity=".6"]                  { opacity: .62; }
+    [opacity=".7"]                  { opacity: .72; }
+    [opacity=".8"]                  { opacity: .78; }
+    [opacity=".9"]                  { opacity: .87; }
+
+    /* Dark */
+    [opacity="dark-primary"]        { opacity: .87; }
+    [opacity="dark-secondary"]      { opacity: .54; }
+    [opacity="dark-disabled"]       { opacity: .38; }
+
+    /* Light */
+    [opacity="light-primary"]       { opacity:   1; }
+    [opacity="light-secondary"]     { opacity:  .7; }
+    [opacity="light-disabled"]      { opacity:  .5; }
+
+
+    [opacity="divider"]             { opacity: .12; }
+
+
+/*
+    STYLES
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+
+    /* Visibility */
+    [radius="1"]                   { border-radius: 100%; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* Margin: 50vh                            Height: 50vh
+    ----------------------------------        ----------------------------------
+    [margin=".5"]     { margin: 50vh; }        [height=".5"]     { height: 50vh }
+    [margin="50"]     { margin: 50vh; }        [height="50"]     { height: 50vh }
+    [margin="05"]     { margin: 50vh; }        [height="05"]     { height: 50vh }
+    [margin="1/2"]    { margin: 50vh; }        [height="1/2"]    { height: 50vh }
+    [margin="50vh"]   { margin: 50vh; }        [height="50vh"]   { height: 50vh }
+
+    [margin=".5"]     { margin: 50vh; }        [height=".5"]     { height: 50vh }
+    [margin=".5"]     { margin: 50vh; }        [height=".5"]     { height: 50vh }
+
+    */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>

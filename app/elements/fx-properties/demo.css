@@ -1,0 +1,45 @@
+/* Reset
+------------------------------------------------------------------ */
+* { margin: 0; padding: 0; box-sizing: border-box; position: relative; font-family: arial; }
+html * { transition: all .5s ease-in; }
+
+
+
+/* Positioning Properties + Attributes
+------------------------------------------------------------------ */
+::before, ::after {
+  position: absolute;
+  display: inline-block;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 16px;
+  opacity: 1;
+}
+
+::before { top:  3px; left: 5px; color: rgba(0,0,0, .78); }
+::after  { top: 21px; left: 5px; color: rgba(0,0,0, .52); }
+
+
+
+/* Appending "Elements" to themselves
+------------------------------------------------------------------ */
+body::before      { content: '<body>';    }
+main::before      { content: '<main>';    }
+section::before   { content: '<section>'; }
+aside::before     { content: '<aside>'; }
+div::before       { content: '<div>';     }
+
+
+
+/* Appending "Atrributes and Properties" to themselves
+------------------------------------------------------------------ */
+body::after                   { content: 'min-height="1" grid="vertical" padding="3"';    }
+main::after                   { content: 'grid="vertical" flex="auto" padding="3"';    }
+section::after                { content: 'grid="vertical" layout="center" flex="auto" padding="3" mobile-bg="blue" tablet-bg="yellow" desktop-bg="green"'; }
+aside:nth-child(1)::after     { content: 'margin-y="1" flex="0" grid="vertical" layout="center"'; }
+aside:nth-child(2)::after     { content: 'flex="1" mobile-grid="vertical" tablet-grid="vertical" desktop-grid="horizontal"'; }
+div::after                    { content: 'flex="1" bg="white" mobile-margin-y="1" desktop-margin-x="1"'; }
+
+
+/* Reize */
+b { display: block; text-align: center; padding: 0; }
+span { display: block; text-align: center; padding: 0; }

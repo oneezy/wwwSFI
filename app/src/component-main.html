@@ -1,0 +1,38 @@
+<!--
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    _MAIN (component)
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../elements/fx-properties/fx-properties.html">
+<link rel="import" href="page-intro.html">
+
+<dom-module id="component-main">
+
+    <style>
+    :host {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 100%;
+        box-sizing: border-box;
+        background: inherit;
+        position: relative;
+    }
+    </style>
+
+    <template>
+        <content></content>
+    </template>
+
+
+</dom-module>
+
+
+<script>
+    Polymer({
+
+        is: 'component-main'
+
+    });
+</script>

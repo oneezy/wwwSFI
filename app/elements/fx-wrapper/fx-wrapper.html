@@ -1,0 +1,256 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="wrapper-fx">
+
+    <style>
+        :host {
+            display: block;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            margin: 0 auto;
+        }
+
+
+/*
+----------------------------------------------------------------------------------
+    Mobile
+---------------------------------------------------------------------------------- */
+@media (min-width: 0) {
+
+    /* Color
+    *****************************************************/
+    :host          { background: skyblue; }
+
+
+    /* Height
+    *****************************************************/
+    /* Numbers */
+    :host([mobile="25vh"])          { height: 25vh; }
+    :host([mobile="33vh"])          { height: 33.33vh; }
+    :host([mobile="50vh"])          { height: 50vh; }
+    :host([mobile="66vh"])          { height: 66.66vh; }
+    :host([mobile="100vh"])         { height: 100vh; }
+    :host([mobile="125vh"])         { height: 125vh; }
+    :host([mobile="150vh"])         { height: 150vh; }
+    :host([mobile="200vh"])         { height: 200vh; }
+
+    /* Percents */
+    :host([mobile="height-25"])          { height: 25%; }
+    :host([mobile="height-33"])          { height: 33.33%; }
+    :host([mobile="height-50"])          { height: 50%; }
+    :host([mobile="height-66"])          { height: 66.66%; }
+    :host([mobile="height-100"])         { height: 100%; }
+    :host([mobile="height-125"])         { height: 125%; }
+    :host([mobile="height-150"])         { height: 150%; }
+    :host([mobile="height-200"])         { height: 200%; }
+
+
+    /* Widths
+    *****************************************************/
+    /* Numbers */
+    :host([mobile="25vw"])          { width: 25vw; }
+    :host([mobile="33vw"])          { width: 33.33vw; }
+    :host([mobile="50vw"])          { width: 50vw; }
+    :host([mobile="66vw"])          { width: 66.66vw; }
+    :host([mobile="100vw"])         { width: 100vw; }
+    :host([mobile="125vw"])         { width: 125vw; }
+    :host([mobile="150vw"])         { width: 150vw; }
+    :host([mobile="200vw"])         { width: 200vw; }
+
+    /* Percents */
+    :host([mobile="width-25"])          { width: 25%; }
+    :host([mobile="width-33"])          { width: 33.33%; }
+    :host([mobile="width-50"])          { width: 50%; }
+    :host([mobile="width-66"])          { width: 66.66%; }
+    :host([mobile="width-100"])         { width: 100%; }
+    :host([mobile="width-125"])         { width: 125%; }
+    :host([mobile="width-150"])         { width: 150%; }
+    :host([mobile="width-200"])         { width: 200%; }
+}
+
+
+/*
+----------------------------------------------------------------------------------
+    Tablet
+---------------------------------------------------------------------------------- */
+@media (min-width: 769px) {
+
+    /* Color
+    *****************************************************/
+    :host          { background: yellow; }
+
+
+    /* Height
+    *****************************************************/
+    /* Numbers */
+    :host([tablet="25vh"])          { height: 25vh; }
+    :host([tablet="33vh"])          { height: 33.33vh; }
+    :host([tablet="50vh"])          { height: 50vh; }
+    :host([tablet="66vh"])          { height: 66.66vh; }
+    :host([tablet="100vh"])         { height: 100vh; }
+    :host([tablet="125vh"])         { height: 125vh; }
+    :host([tablet="150vh"])         { height: 150vh; }
+    :host([tablet="200vh"])         { height: 200vh; }
+
+    /* Percents */
+    :host([tablet="height-25"])          { height: 25%; }
+    :host([tablet="height-33"])          { height: 33.33%; }
+    :host([tablet="height-50"])          { height: 50%; }
+    :host([tablet="height-66"])          { height: 66.66%; }
+    :host([tablet="height-100"])         { height: 100%; }
+    :host([tablet="height-125"])         { height: 125%; }
+    :host([tablet="height-150"])         { height: 150%; }
+    :host([tablet="height-200"])         { height: 200%; }
+
+
+    /* Widths
+    *****************************************************/
+    /* Numbers */
+    :host([tablet="25vw"])          { width: 25vw; }
+    :host([tablet="33vw"])          { width: 33.33vw; }
+    :host([tablet="50vw"])          { width: 50vw; }
+    :host([tablet="66vw"])          { width: 66.66vw; }
+    :host([tablet="100vw"])         { width: 100vw; }
+    :host([tablet="125vw"])         { width: 125vw; }
+    :host([tablet="150vw"])         { width: 150vw; }
+    :host([tablet="200vw"])         { width: 200vw; }
+
+    /* Percents */
+    :host([tablet="width-25"])          { width: 25%; }
+    :host([tablet="width-33"])          { width: 33.33%; }
+    :host([tablet="width-50"])          { width: 50%; }
+    :host([tablet="width-66"])          { width: 66.66%; }
+    :host([tablet="width-100"])         { width: 100%; }
+    :host([tablet="width-125"])         { width: 125%; }
+    :host([tablet="width-150"])         { width: 150%; }
+    :host([tablet="width-200"])         { width: 200%; }
+}
+
+
+/*
+----------------------------------------------------------------------------------
+    Desktop
+---------------------------------------------------------------------------------- */
+@media (min-width: 1025px) {
+
+    /* Color
+    *****************************************************/
+    :host          { background: lime; }
+
+
+    /* Height
+    *****************************************************/
+    /* Numbers */
+    :host([desktop="25vh"])          { height: 25vh; }
+    :host([desktop="33vh"])          { height: 33.33vh; }
+    :host([desktop="50vh"])          { height: 50vh; }
+    :host([desktop="66vh"])          { height: 66.66vh; }
+    :host([desktop="100vh"])         { height: 100vh; }
+    :host([desktop="125vh"])         { height: 125vh; }
+    :host([desktop="150vh"])         { height: 150vh; }
+    :host([desktop="200vh"])         { height: 200vh; }
+
+    /* Percents */
+    :host([desktop="height-25"])          { height: 25%; }
+    :host([desktop="height-33"])          { height: 33.33%; }
+    :host([desktop="height-50"])          { height: 50%; }
+    :host([desktop="height-66"])          { height: 66.66%; }
+    :host([desktop="height-100"])         { height: 100%; }
+    :host([desktop="height-125"])         { height: 125%; }
+    :host([desktop="height-150"])         { height: 150%; }
+    :host([desktop="height-200"])         { height: 200%; }
+
+
+    /* Widths
+    *****************************************************/
+    /* Numbers */
+    :host([desktop="25vw"])          { width: 25vw; }
+    :host([desktop="33vw"])          { width: 33.33vw; }
+    :host([desktop="50vw"])          { width: 50vw; }
+    :host([desktop="66vw"])          { width: 66.66vw; }
+    :host([desktop="100vw"])         { width: 100vw; }
+    :host([desktop="125vw"])         { width: 125vw; }
+    :host([desktop="150vw"])         { width: 150vw; }
+    :host([desktop="200vw"])         { width: 200vw; }
+
+    /* Percents */
+    :host([desktop="width-25"])          { width: 25%; }
+    :host([desktop="width-33"])          { width: 33.33%; }
+    :host([desktop="width-50"])          { width: 50%; }
+    :host([desktop="width-66"])          { width: 66.66%; }
+    :host([desktop="width-100"])         { width: 100%; }
+    :host([desktop="width-125"])         { width: 125%; }
+    :host([desktop="width-150"])         { width: 150%; }
+    :host([desktop="width-200"])         { width: 200%; }
+}
+
+
+/*
+----------------------------------------------------------------------------------
+    Universal
+---------------------------------------------------------------------------------- */
+
+    /* Height
+    *****************************************************/
+    /* Names */
+    :host([height="quarter"])     { height: 25vh; }
+    :host([height="third"])       { height: 33.33vh; }
+    :host([height="half"])        { height: 50vh; }
+    :host([height="sixth"])       { height: 66.66vh; }
+    :host([height="full"])        { height: 100vh; }
+
+    /* Numbers */
+    :host([height="25"])          { height: 25vh; }
+    :host([height="33"])          { height: 33.33vh; }
+    :host([height="50"])          { height: 50vh; }
+    :host([height="66"])          { height: 66.66vh; }
+    :host([height="100"])         { height: 100vh; }
+
+    /* Percents */
+    :host([height="25%"])         { height: 25%; }
+    :host([height="33%"])         { height: 33.33%; }
+    :host([height="50%"])         { height: 50%; }
+    :host([height="66%"])         { height: 66.66%; }
+    :host([height="100%"])        { height: 100%; }
+
+
+    /* Widths
+    *****************************************************/
+    /* Names */
+    :host([width="quarter"])     { width: 25vw; }
+    :host([width="third"])       { width: 33.33vw; }
+    :host([width="half"])        { width: 50vw; }
+    :host([width="sixth"])       { width: 66.66vw; }
+    :host([width="full"])        { width: 100vw; }
+
+    /* Numbers */
+    :host([width="25"])          { width: 25vw; }
+    :host([width="33"])          { width: 33.33vw; }
+    :host([width="50"])          { width: 50vw; }
+    :host([width="66"])          { width: 66.66vw; }
+    :host([width="100"])         { width: 100vw; }
+
+    /* Percents */
+    :host([width="25%"])         { width: 25%; }
+    :host([width="33%"])         { width: 33.33%; }
+    :host([width="50%"])         { width: 50%; }
+    :host([width="66%"])         { width: 66.66%; }
+    :host([width="100%"])        { width: 100%; }
+
+    </style>
+
+    <template>
+        <content></content>
+    </template>
+
+</dom-module>
+
+<script>
+
+    Polymer({
+    is: "wrapper-fx"
+
+    });
+
+</script>

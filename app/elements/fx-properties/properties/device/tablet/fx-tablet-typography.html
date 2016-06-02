@@ -1,0 +1,79 @@
+<!--
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    TYPOGRAPHY (Tablet)
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+<style>
+@media (min-width: 769px) and (max-width: 1024px) {
+
+/* All Text
+----------------------------------*/
+    [tablet-text="4"],
+    [tablet-text="3"],
+    [tablet-text="2"],
+    [tablet-text="1"],
+    [tablet-text="headline"],
+    [tablet-text="title"],
+    [tablet-text="subhead"],
+    [tablet-text="bold"],
+    [tablet-text="normal"],
+    [tablet-text="caption"],
+    [tablet-text="menu"],
+    [tablet-text="button"]        { font-family: 'Roboto', 'Noto', sans-serif; -webkit-font-smoothing: antialiased; }  /* OS X subpixel AA bleed bug */
+    [tablet-text="code2"],
+    [tablet-text="code1"]         { font-family: 'Roboto Mono', 'Consolas', 'Menlo', monospace; -webkit-font-smoothing: antialiased; }  /* OS X subpixel AA bleed bug */
+
+    [tablet-text="4"],
+    [tablet-text="3"],
+    [tablet-text="2"],
+    [tablet-text="1"],
+    [tablet-text="headline"],
+    [tablet-text="title"],
+    [tablet-text="subhead"],
+    [tablet-text="menu"],
+    [tablet-text="button"]        { text-rendering: optimizeLegibility; } /* Opt for better kerning for headers & other short labels. */
+
+    [tablet-text="4"],
+    [tablet-text="3"],
+    [tablet-text="title"],
+    [tablet-text="caption"],
+    [tablet-text="menu"],
+    [tablet-text="button"]        { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } /* Line wrapping only applies to Body, Subhead, Headline, and the smaller Display styles. All other styles should exist as single lines. */
+
+
+
+/* Text Styles
+----------------------------------*/
+    [tablet-text="4"]                  { font-size: 112px;   font-weight: 300;   letter-spacing: -.044em;   line-height: 120px; }
+    [tablet-text="3"]                  { font-size:  56px;   font-weight: 400;   letter-spacing: -.026em;   line-height: 60px;  }
+    [tablet-text="2"]                  { font-size:  45px;   font-weight: 400;   letter-spacing: -.018em;   line-height: 48px;  }
+    [tablet-text="1"]                  { font-size:  34px;   font-weight: 400;   letter-spacing: -.01em;    line-height: 40px;  }
+
+    [tablet-text="headline"]           { font-size:  24px;   font-weight: 400;   letter-spacing: -.012em;   line-height: 32px; }
+    [tablet-text="title"]              { font-size:  20px;   font-weight: 500;   line-height: 28px; }
+    [tablet-text="subhead"]            { font-size:  16px;   font-weight: 400;   line-height: 24px; }
+    [tablet-text="bold"]               { font-size:  14px;   font-weight: 500;   line-height: 24px; }
+    [tablet-text="normal"]             { font-size:  14px;   font-weight: 400;   line-height: 20px; }
+    [tablet-text="caption"]            { font-size:  12px;   font-weight: 400;   letter-spacing: 0.011em;   line-height: 20px; }
+
+    [tablet-text="menu"]               { font-size:  13px;   font-weight: 500;   line-height: 24px; }
+    [tablet-text="button"]             { font-size:  14px;   font-weight: 500;   letter-spacing: 0.018em;   line-height: 24px; text-transform: uppercase; }
+    [tablet-text="code1"]              { font-size:  14px;   font-weight: 500;   line-height: 20px; }
+    [tablet-text="code2"]              { font-size:  14px;   font-weight: 700;   line-height: 20px; }
+
+
+
+    [tablet-text-style="lowercase"]    {  text-transform: lowercase;  }
+    [tablet-text-style="uppercase"]    {  text-transform: uppercase;  }
+    [tablet-text-style="capitalize"]   {  text-transform: capitalize; }
+    [tablet-text-style="uppercase"]    {  text-transform: uppercase;  }
+    [tablet-text-style="inherit"]      {  text-transform: inherit;    }
+
+
+    [tablet-align="left"]       {  text-transform: left;     }
+    [tablet-align="right"]      {  text-transform: right;    }
+    [tablet-align="center"]     {  text-transform: center;   }
+    [tablet-align="justify"]    {  text-transform: justify;  }
+    [tablet-align="inherit"]    {  text-transform: inherit;  }
+}
+
+</style>

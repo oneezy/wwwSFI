@@ -1,0 +1,149 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="flex-vertical">
+
+    <style>
+        :host {
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+            position: relative;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        /* Layout
+        ************************************************************************/
+        /* Wrapping */
+        :host([wrap="yes"]) { flex-wrap: wrap; }
+        :host([wrap="no"]) { flex-wrap: nowrap; }
+        :host([wrap="reverse"]) { flex-wrap: wrap-reverse; }
+
+        /* Direction */
+        :host([direction="normal"]) { flex-direction: column; }
+        :host([direction="reverse"])  { flex-direction: column-reverse; }
+
+        /* Layout */
+        :host([layout="start"])       { justify-content: flex-start; }
+        :host([layout="end"])         { justify-content: flex-end; }
+        :host([layout="center"])      { justify-content: center; }
+        :host([layout="between"])     { justify-content: space-between; }
+        :host([layout="around"])      { justify-content: space-around; }
+
+        /* Content */
+        :host([content="start"])      { align-content: flex-start; }
+        :host([content="end"])        { align-content: flex-end; }
+        :host([content="center"])     { align-content: center; }
+        :host([content="between"])    { align-content: space-between; }
+        :host([content="around"])     { align-content: space-around; }
+        :host([content="stretch"])    { align-content: stretch; }
+
+        /* Items */
+        :host([items="start"])        { align-items: flex-start; }
+        :host([items="end"])          { align-items: flex-end; }
+        :host([items="center"])       { align-items: center; }
+        :host([items="base"])         { align-items: baseline; }
+        :host([items="stretch"])      { align-items: stretch; }
+
+
+        /* Height
+        ************************************************************************/
+        /* Names */
+        :host([height="quarter"])       { height: 25vh; }
+        :host([height="third"])         { height: 33.33vh; }
+        :host([height="half"])          { height: 50vh; }
+        :host([height="sixth"])         { height: 66.66vh; }
+        :host([height="full"])          { height: 100vh; }
+
+        /* Exact */
+        :host([height="25vh"])          { height: 25vh; }
+        :host([height="33vh"])          { height: 33.33vh; }
+        :host([height="50vh"])          { height: 50vh; }
+        :host([height="66vh"])          { height: 66.66vh; }
+        :host([height="75vh"])          { height: 75vh; }
+        :host([height="80vh"])          { height: 80vh; }
+        :host([height="90vh"])          { height: 90vh; }
+        :host([height="100vh"])         { height: 100vh; }
+        :host([height="125vh"])         { height: 125vh; }
+        :host([height="150vh"])         { height: 150vh; }
+        :host([height="200vh"])         { height: 200vh; }
+
+        /* Minimum */
+        :host([min-height="25vh"])      { min-height: 25vh; }
+        :host([min-height="33vh"])      { min-height: 33.33vh; }
+        :host([min-height="50vh"])      { min-height: 50vh; }
+        :host([min-height="66vh"])      { min-height: 66.66vh; }
+        :host([min-height="75vh"])      { min-height: 75vh; }
+        :host([min-height="80vh"])      { min-height: 80vh; }
+        :host([min-height="90vh"])      { min-height: 90vh; }
+        :host([min-height="100vh"])     { min-height: 100vh; }
+        :host([min-height="125vh"])     { min-height: 125vh; }
+        :host([min-height="150vh"])     { min-height: 150vh; }
+        :host([min-height="200vh"])     { min-height: 200vh; }
+
+        /* Percents */
+        :host([height="25%"])         { height: 25%; }
+        :host([height="33%"])         { height: 33.33%; }
+        :host([height="50%"])         { height: 50%; }
+        :host([height="66%"])         { height: 66.66%; }
+        :host([height="100%"])        { height: 100%; }
+
+
+        /* Widths
+        ************************************************************************/
+        /* Names */
+        :host([width="quarter"])       { width: 25vh; }
+        :host([width="third"])         { width: 33.33vh; }
+        :host([width="half"])          { width: 50vh; }
+        :host([width="sixth"])         { width: 66.66vh; }
+        :host([width="full"])          { width: 100vh; }
+
+        /* Exact */
+        :host([width="25vw"])          { width: 25vw; }
+        :host([width="33vw"])          { width: 33.33vw; }
+        :host([width="50vw"])          { width: 50vw; }
+        :host([width="66vw"])          { width: 66.66vw; }
+        :host([width="75vw"])          { width: 75vw; }
+        :host([width="80vw"])          { width: 80vw; }
+        :host([width="90vw"])          { width: 90vw; }
+        :host([width="100vw"])         { width: 100vw; }
+        :host([width="125vw"])         { width: 125vw; }
+        :host([width="150vw"])         { width: 150vw; }
+        :host([width="200vw"])         { width: 200vw; }
+
+        /* Minimum */
+        :host([min-width="25vw"])      { min-width: 25vw; }
+        :host([min-width="33vw"])      { min-width: 33.33vw; }
+        :host([min-width="50vw"])      { min-width: 50vw; }
+        :host([min-width="66vw"])      { min-width: 66.66vw; }
+        :host([min-width="75vw"])      { min-width: 75vw; }
+        :host([min-width="80vw"])      { min-width: 80vw; }
+        :host([min-width="90vw"])      { min-width: 90vw; }
+        :host([min-width="100vw"])     { min-width: 100vw; }
+        :host([min-width="125vw"])     { min-width: 125vw; }
+        :host([min-width="150vw"])     { min-width: 150vw; }
+        :host([min-width="200vw"])     { min-width: 200vw; }
+
+        /* Percents */
+        :host([width="25%"])         { width: 25%; }
+        :host([width="33%"])         { width: 33.33%; }
+        :host([width="50%"])         { width: 50%; }
+        :host([width="66%"])         { width: 66.66%; }
+        :host([width="100%"])        { width: 100%; }
+    </style>
+
+    <template>
+        <content></content>
+    </template>
+
+</dom-module>
+
+<script>
+
+    Polymer({
+    is: "flex-vertical"
+
+    });
+
+</script>

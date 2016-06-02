@@ -1,0 +1,140 @@
+<!--
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    PAGE: (Forms)
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<link rel="import" href="../bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
+<link rel="import" href="../bower_components/app-layout/app-box/app-box.html">
+
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../bower_components/iron-swipeable-pages/iron-swipeable-pages.html">
+<link rel="import" href="../bower_components/iron-iconset-svg/iron-iconset-svg.html">
+
+<link rel="import" href="../bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="../bower_components/paper-tabs/paper-tab.html">
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+
+<link rel="import" href="../elements/fx-properties/fx-properties.html">
+<link rel="import" href="../elements/fx-skew/fx-skew.html">
+
+<link rel="import" href="../src/forms-contact.html">
+<link rel="import" href="../bower_components/iron-swipeable-pages/iron-swipeable-pages.html">
+
+<dom-module id="page-forms">
+<template>
+
+    <style is="custom-style">
+    :host {
+        display: block;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        background: #fff;
+    }
+
+    iron-swipeable-pages {  }
+    iron-swipeable-pages > * {
+        -webkit-user-select: none;  /* Chrome all / Safari all */
+        -moz-user-select: none;     /* Firefox all */
+        -ms-user-select: none;      /* IE 10+ */
+        user-select: none;          /* Likely future */
+        cursor: default;
+    }
+    forms-contact {  }
+    .page { height: 100%; display: flex; flex: 1; }
+
+    </style>
+
+
+<!--  Content
+---------------------------------------------------------------------------------------------------------------->
+
+    <div grid="vertical"
+         layout="start-center"
+         self="stretch"
+         padding-t="20">
+
+        <!-- Select Menu -->
+        <paper-tabs selected="{{formsPage}}" mobile-width=".9"
+                                             tablet-width=".75"
+                                             desktop-width=".5">
+                    <paper-tab>
+                        <iron-icon icon="communication:forum"></iron-icon>
+                        Contact Form
+                    </paper-tab>
+
+                    <paper-tab>
+                        <iron-icon icon="icons:settings"></iron-icon>
+                        Rebuild Form
+                    </paper-tab>
+        </paper-tabs>
+
+
+        <iron-swipeable-pages on-selected-changed="_onSelectedChanged" selected="{{formsPage}}" show-arrow  min-height=".5" bg="blue">
+                   <!-- grid="vertical"
+                        layout="start-center"
+                        self="stretch"
+                        bg="blue" -->
+
+                    <!-- Contact Form -->
+                    <div class="page">
+                        <forms-contact></forms-contact>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="page">
+                        <forms-contact></forms-contact>
+                    </div>
+        </iron-swipeable-pages>
+
+        <!--
+        <form-quote></form-quote> -->
+    </div>
+
+
+<!--  Content
+---------------------------------------------------------------------------------------------------------------->
+
+</template>
+</dom-module>
+
+
+
+<script>
+
+    Polymer({
+      is: "page-forms"
+
+    });
+
+</script>
+<!-- 
+<script>
+/*
+  var scope = document.querySelector('template[is="page-forms"]');
+  scope.formsPage = 0;
+
+  scope._onSelectedChanged = function(e) {
+    var target = e.target;
+    target.isGesture ? console.log("Swiped by Gesture!") : console.log("Swiped by Selection!");
+  };
+
+
+  scope._onPrevClick1 = function() {
+    scope.selected1 = scope.selected1 === 0 ? 4 : (scope.selected1 - 1);
+  };
+
+  scope._onNextClick1 = function() {
+    scope.selected1 = scope.selected1 === 4 ? 0 : (scope.selected1 + 1);
+  };
+
+  scope._onPrevClick2 = function() {
+    scope.selected2 = scope.selected2 === 0 ? 4 : (scope.selected2 - 1);
+  };
+
+  scope._onNextClick2 = function() {
+    scope.selected2 = scope.selected2 === 4 ? 0 : (scope.selected2 + 1); /*
+</script>
+-->

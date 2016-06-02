@@ -1,0 +1,551 @@
+<!--
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    SETTINGS (Desktop)
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+<style>
+@media (min-width: 1025px) {
+
+    [desktop-display="none"]             { display: none; }
+    [desktop-display="inline"]           { display: inline; }
+    [desktop-display="inline-block"]     { display: inline-block; }
+    [desktop-display="block"]            { display: block; }
+
+
+/*
+    Height
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+
+
+    /* Height "Names"
+    --------------------------------------------------- */
+    [desktop-height="quarter"]       {  height: 25vh;    }
+    [desktop-height="third"]         {  height: 33.33vh; }
+    [desktop-height="half"]          {  height: 50vh;    }
+    [desktop-height="sixth"]         {  height: 66.66vh; }
+    [desktop-height="threequarter"]  {  height: 75vh;    }
+    [desktop-height="full"]          {  height: 100vh;   }
+    [desktop-height="fullquarter"]   {  height: 125vh;   }
+    [desktop-height="fullhalf"]      {  height: 150vh;   }
+    [desktop-height="double"]        {  height: 200vh;   }
+
+
+
+    /* Height "Exact"                                             Height "Minimum"                                                 Height "Maximum"
+    ----------------------------------------------------         ------------------------------------------------------           ---------------------------------------------------- */
+    [desktop-height=".1"]            {  height: 10vh;    }                [desktop-min-height=".1"]     {  min-height: 10vh;    }                  [desktop-max-height=".1"]     {  max-height: 10vh;    }
+    [desktop-height=".2"]            {  height: 20vh;    }                [desktop-min-height=".2"]     {  min-height: 20vh;    }                  [desktop-max-height=".2"]     {  max-height: 20vh;    }
+    [desktop-height=".25"]           {  height: 25vh;    }                [desktop-min-height=".25"]    {  min-height: 25vh;    }                  [desktop-max-height=".25"]    {  max-height: 25vh;    }
+    [desktop-height=".3"]            {  height: 30vh;    }                [desktop-min-height=".3"]     {  min-height: 30vh;    }                  [desktop-max-height=".3"]     {  max-height: 30vh;    }
+    [desktop-height=".33"]           {  height: 33.33vh; }                [desktop-min-height=".33"]    {  min-height: 33.33vh; }                  [desktop-max-height=".33"]    {  max-height: 33.33vh; }
+    [desktop-height=".4"]            {  height: 40vh;    }                [desktop-min-height=".4"]     {  min-height: 40vh;    }                  [desktop-max-height=".4"]     {  max-height: 40vh;    }
+    [desktop-height=".5"]            {  height: 50vh;    }                [desktop-min-height=".5"]     {  min-height: 50vh;    }                  [desktop-max-height=".5"]     {  max-height: 50vh;    }
+    [desktop-height=".6"]            {  height: 60vh;    }                [desktop-min-height=".6"]     {  min-height: 60vh;    }                  [desktop-max-height=".6"]     {  max-height: 60vh;    }
+    [desktop-height=".66"]           {  height: 66.66vh; }                [desktop-min-height=".66"]    {  min-height: 66.66vh; }                  [desktop-max-height=".66"]    {  max-height: 66.66vh; }
+    [desktop-height=".7"]            {  height: 70vh;    }                [desktop-min-height=".7"]     {  min-height: 70vh;    }                  [desktop-max-height=".7"]     {  max-height: 70vh;    }
+    [desktop-height=".75"]           {  height: 75vh;    }                [desktop-min-height=".75"]    {  min-height: 75vh;    }                  [desktop-max-height=".75"]    {  max-height: 75vh;    }
+    [desktop-height=".8"]            {  height: 80vh;    }                [desktop-min-height=".8"]     {  min-height: 80vh;    }                  [desktop-max-height=".8"]     {  max-height: 80vh;    }
+    [desktop-height=".9"]            {  height: 90vh;    }                [desktop-min-height=".9"]     {  min-height: 90vh;    }                  [desktop-max-height=".9"]     {  max-height: 90vh;    }
+    [desktop-height="1"]             {  height: 100vh;   }                [desktop-min-height="1"]      {  min-height: 100vh;   }                  [desktop-max-height="1"]      {  max-height: 100vh;   }
+    [desktop-height="1.25"]          {  height: 125vh;   }                [desktop-min-height="1.25"]   {  min-height: 125vh;   }                  [desktop-max-height="1.25"]   {  max-height: 125vh;   }
+    [desktop-height="1.5"]           {  height: 150vh;   }                [desktop-min-height="1.5"]    {  min-height: 150vh;   }                  [desktop-max-height="1.5"]    {  max-height: 150vh;   }
+    [desktop-height="2"]             {  height: 200vh;   }                [desktop-min-height="2"]      {  min-height: 200vh;   }                  [desktop-max-height="2"]      {  max-height: 200vh;   }
+
+
+
+    /* Height "Percentage"                                        Height "Minimum Percentage"                                      Height "Maximum Percentage"
+    ----------------------------------------------------         ------------------------------------------------------           ---------------------------------------------------- */
+    [desktop-height="10"]            {  height: 10%;    }                 [desktop-min-height="10"]     {  min-height: 10%;    }                   [desktop-max-height="10"]     {  max-height: 10%;    }
+    [desktop-height="20"]            {  height: 20%;    }                 [desktop-min-height="20"]     {  min-height: 20%;    }                   [desktop-max-height="20"]     {  max-height: 20%;    }
+    [desktop-height="25"]            {  height: 25%;    }                 [desktop-min-height="25"]     {  min-height: 25%;    }                   [desktop-max-height="25"]     {  max-height: 25%;    }
+    [desktop-height="30"]            {  height: 30%;    }                 [desktop-min-height="30"]     {  min-height: 30%;    }                   [desktop-max-height="30"]     {  max-height: 30%;    }
+    [desktop-height="33"]            {  height: 33%;    }                 [desktop-min-height="33"]     {  min-height: 33%;    }                   [desktop-max-height="33"]     {  max-height: 33%;    }
+    [desktop-height="40"]            {  height: 40%;    }                 [desktop-min-height="40"]     {  min-height: 40%;    }                   [desktop-max-height="40"]     {  max-height: 40%;    }
+    [desktop-height="50"]            {  height: 50%;    }                 [desktop-min-height="50"]     {  min-height: 50%;    }                   [desktop-max-height="50"]     {  max-height: 50%;    }
+    [desktop-height="60"]            {  height: 60%;    }                 [desktop-min-height="60"]     {  min-height: 60%;    }                   [desktop-max-height="60"]     {  max-height: 60%;    }
+    [desktop-height="66"]            {  height: 66%;    }                 [desktop-min-height="66"]     {  min-height: 66%;    }                   [desktop-max-height="66"]     {  max-height: 66%;    }
+    [desktop-height="70"]            {  height: 70%;    }                 [desktop-min-height="70"]     {  min-height: 70%;    }                   [desktop-max-height="70"]     {  max-height: 70%;    }
+    [desktop-height="75"]            {  height: 75%;    }                 [desktop-min-height="75"]     {  min-height: 75%;    }                   [desktop-max-height="75"]     {  max-height: 75%;    }
+    [desktop-height="80"]            {  height: 80%;    }                 [desktop-min-height="80"]     {  min-height: 80%;    }                   [desktop-max-height="80"]     {  max-height: 80%;    }
+    [desktop-height="90"]            {  height: 90%;    }                 [desktop-min-height="90"]     {  min-height: 90%;    }                   [desktop-max-height="90"]     {  max-height: 90%;    }
+    [desktop-height="100"]           {  height: 100%;   }                 [desktop-min-height="100"]    {  min-height: 100%;   }                   [desktop-max-height="100"]    {  max-height: 100%;   }
+    [desktop-height="125"]           {  height: 125%;   }                 [desktop-min-height="125"]    {  min-height: 125%;   }                   [desktop-max-height="125"]    {  max-height: 125%;   }
+    [desktop-height="150"]           {  height: 150%;   }                 [desktop-min-height="150"]    {  min-height: 150%;   }                   [desktop-max-height="150"]    {  max-height: 150%;   }
+    [desktop-height="200"]           {  height: 200%;   }                 [desktop-min-height="200"]    {  min-height: 200%;   }                   [desktop-max-height="200"]    {  max-height: 200%;   }
+
+
+
+
+
+
+
+/*
+    Width
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+
+
+    /* Width "Names"
+    --------------------------------------------------- */
+    [desktop-width="quarter"]       {  width: 25vw;    }
+    [desktop-width="third"]         {  width: 33.33vw; }
+    [desktop-width="half"]          {  width: 50vw;    }
+    [desktop-width="sixth"]         {  width: 66.66vw; }
+    [desktop-width="threequarter"]  {  width: 75vw;    }
+    [desktop-width="full"]          {  width: 100vw;   }
+    [desktop-width="fullquarter"]   {  width: 125vw;   }
+    [desktop-width="fullhalf"]      {  width: 150vw;   }
+    [desktop-width="double"]        {  width: 200vw;   }
+
+
+
+    /* Width "Exact"                                            Width "Minimum"                                                Width "Maximum"
+    ----------------------------------------------------       ------------------------------------------------------         ---------------------------------------------------- */
+    [desktop-width=".1"]            {  width: 10vw;    }                [desktop-min-width=".1"]     {  min-width: 10vw;    }                  [desktop-max-width=".1"]     {  max-width: 10vw;    }
+    [desktop-width=".2"]            {  width: 20vw;    }                [desktop-min-width=".2"]     {  min-width: 20vw;    }                  [desktop-max-width=".2"]     {  max-width: 20vw;    }
+    [desktop-width=".25"]           {  width: 25vw;    }                [desktop-min-width=".25"]    {  min-width: 25vw;    }                  [desktop-max-width=".25"]    {  max-width: 25vw;    }
+    [desktop-width=".3"]            {  width: 30vw;    }                [desktop-min-width=".3"]     {  min-width: 30vw;    }                  [desktop-max-width=".3"]     {  max-width: 30vw;    }
+    [desktop-width=".33"]           {  width: 33.33vw; }                [desktop-min-width=".33"]    {  min-width: 33.33vw; }                  [desktop-max-width=".33"]    {  max-width: 33.33vw; }
+    [desktop-width=".4"]            {  width: 40vw;    }                [desktop-min-width=".4"]     {  min-width: 40vw;    }                  [desktop-max-width=".4"]     {  max-width: 40vw;    }
+    [desktop-width=".5"]            {  width: 50vw;    }                [desktop-min-width=".5"]     {  min-width: 50vw;    }                  [desktop-max-width=".5"]     {  max-width: 50vw;    }
+    [desktop-width=".6"]            {  width: 60vw;    }                [desktop-min-width=".6"]     {  min-width: 60vw;    }                  [desktop-max-width=".6"]     {  max-width: 60vw;    }
+    [desktop-width=".66"]           {  width: 66.66vw; }                [desktop-min-width=".66"]    {  min-width: 66.66vw; }                  [desktop-max-width=".66"]    {  max-width: 66.66vw; }
+    [desktop-width=".7"]            {  width: 70vw;    }                [desktop-min-width=".7"]     {  min-width: 70vw;    }                  [desktop-max-width=".7"]     {  max-width: 70vw;    }
+    [desktop-width=".75"]           {  width: 75vw;    }                [desktop-min-width=".75"]    {  min-width: 75vw;    }                  [desktop-max-width=".75"]    {  max-width: 75vw;    }
+    [desktop-width=".8"]            {  width: 80vw;    }                [desktop-min-width=".8"]     {  min-width: 80vw;    }                  [desktop-max-width=".8"]     {  max-width: 80vw;    }
+    [desktop-width=".9"]            {  width: 90vw;    }                [desktop-min-width=".9"]     {  min-width: 90vw;    }                  [desktop-max-width=".9"]     {  max-width: 90vw;    }
+    [desktop-width="1"]             {  width: 100vw;   }                [desktop-min-width="1"]      {  min-width: 100vw;   }                  [desktop-max-width="1"]      {  max-width: 100vw;   }
+    [desktop-width="1.25"]          {  width: 125vw;   }                [desktop-min-width="1.25"]   {  min-width: 125vw;   }                  [desktop-max-width="1.25"]   {  max-width: 125vw;   }
+    [desktop-width="1.5"]           {  width: 150vw;   }                [desktop-min-width="1.5"]    {  min-width: 150vw;   }                  [desktop-max-width="1.5"]    {  max-width: 150vw;   }
+    [desktop-width="2"]             {  width: 200vw;   }                [desktop-min-width="2"]      {  min-width: 200vw;   }                  [desktop-max-width="2"]      {  max-width: 200vw;   }
+
+
+
+    /* Width "Percentage"                                       Width "Minimum Percentage"                                     Width "Maximum Percentage"
+    ----------------------------------------------------       ------------------------------------------------------         ---------------------------------------------------- */
+    [desktop-width="10"]            {  width: 10%;    }                 [desktop-min-width="10"]     {  min-width: 10%;    }                   [desktop-max-width="10"]     {  max-width: 10%;    }
+    [desktop-width="20"]            {  width: 20%;    }                 [desktop-min-width="20"]     {  min-width: 20%;    }                   [desktop-max-width="20"]     {  max-width: 20%;    }
+    [desktop-width="25"]            {  width: 25%;    }                 [desktop-min-width="25"]     {  min-width: 25%;    }                   [desktop-max-width="25"]     {  max-width: 25%;    }
+    [desktop-width="30"]            {  width: 30%;    }                 [desktop-min-width="30"]     {  min-width: 30%;    }                   [desktop-max-width="30"]     {  max-width: 30%;    }
+    [desktop-width="33"]            {  width: 33%;    }                 [desktop-min-width="33"]     {  min-width: 33%;    }                   [desktop-max-width="33"]     {  max-width: 33%;    }
+    [desktop-width="40"]            {  width: 40%;    }                 [desktop-min-width="40"]     {  min-width: 40%;    }                   [desktop-max-width="40"]     {  max-width: 40%;    }
+    [desktop-width="50"]            {  width: 50%;    }                 [desktop-min-width="50"]     {  min-width: 50%;    }                   [desktop-max-width="50"]     {  max-width: 50%;    }
+    [desktop-width="60"]            {  width: 60%;    }                 [desktop-min-width="60"]     {  min-width: 60%;    }                   [desktop-max-width="60"]     {  max-width: 60%;    }
+    [desktop-width="66"]            {  width: 66%;    }                 [desktop-min-width="66"]     {  min-width: 66%;    }                   [desktop-max-width="66"]     {  max-width: 66%;    }
+    [desktop-width="70"]            {  width: 70%;    }                 [desktop-min-width="70"]     {  min-width: 70%;    }                   [desktop-max-width="70"]     {  max-width: 70%;    }
+    [desktop-width="75"]            {  width: 75%;    }                 [desktop-min-width="75"]     {  min-width: 75%;    }                   [desktop-max-width="75"]     {  max-width: 75%;    }
+    [desktop-width="80"]            {  width: 80%;    }                 [desktop-min-width="80"]     {  min-width: 80%;    }                   [desktop-max-width="80"]     {  max-width: 80%;    }
+    [desktop-width="90"]            {  width: 90%;    }                 [desktop-min-width="90"]     {  min-width: 90%;    }                   [desktop-max-width="90"]     {  max-width: 90%;    }
+    [desktop-width="100"]           {  width: 100%;   }                 [desktop-min-width="100"]    {  min-width: 100%;   }                   [desktop-max-width="100"]    {  max-width: 100%;   }
+    [desktop-width="125"]           {  width: 125%;   }                 [desktop-min-width="125"]    {  min-width: 125%;   }                   [desktop-max-width="125"]    {  max-width: 125%;   }
+    [desktop-width="150"]           {  width: 150%;   }                 [desktop-min-width="150"]    {  min-width: 150%;   }                   [desktop-max-width="150"]    {  max-width: 150%;   }
+    [desktop-width="200"]           {  width: 200%;   }                 [desktop-min-width="200"]    {  min-width: 200%;   }                   [desktop-max-width="200"]    {  max-width: 200%;   }
+
+
+
+
+
+
+
+/*
+    Margin
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+
+
+    /* Margin (rem)
+    -------------------------------------------------- */
+    [desktop-margin="0"]          {  margin: 0;       }
+    [desktop-margin=".25"]        {  margin: .25rem;  }
+    [desktop-margin=".5"]         {  margin: .5rem;   }
+    [desktop-margin=".75"]        {  margin: .75rem;  }
+    [desktop-margin="1"]          {  margin: 1rem;    }
+    [desktop-margin="1.25"]       {  margin: 1.25rem; }
+    [desktop-margin="1.5"]        {  margin: 1.5rem;  }
+    [desktop-margin="1.75"]       {  margin: 1.75rem; }
+    [desktop-margin="2"]          {  margin: 2rem;    }
+    [desktop-margin="2.25"]       {  margin: 2.25rem; }
+    [desktop-margin="2.5"]        {  margin: 2.5rem;  }
+    [desktop-margin="2.75"]       {  margin: 2.75rem; }
+    [desktop-margin="3"]          {  margin: 3rem;    }
+
+
+    /* Margin (rem) "X" Axis                                      Margin (rem) "Y" Axis
+    ----------------------------------------------------         ------------------------------------------------------ */
+    [desktop-margin-x=".25"]      {  margin: 0 .25rem;    }            [desktop-margin-y=".25"]     {  margin: .25rem  0; }
+    [desktop-margin-x=".5"]       {  margin: 0 .5rem;     }            [desktop-margin-y=".5"]      {  margin: .5rem   0; }
+    [desktop-margin-x=".75"]      {  margin: 0 .75rem;    }            [desktop-margin-y=".75"]     {  margin: .75rem  0; }
+    [desktop-margin-x="1"]        {  margin: 0 1rem;      }            [desktop-margin-y="1"]       {  margin: 1rem    0; }
+    [desktop-margin-x="1.25"]     {  margin: 0 1.25rem;   }            [desktop-margin-y="1.25"]    {  margin: 1.25rem 0; }
+    [desktop-margin-x="1.5"]      {  margin: 0 1.5rem;    }            [desktop-margin-y="1.5"]     {  margin: 1.5rem  0; }
+    [desktop-margin-x="1.75"]     {  margin: 0 1.75rem;   }            [desktop-margin-y="1.75"]    {  margin: 1.75rem 0; }
+    [desktop-margin-x="2"]        {  margin: 0 2rem;      }            [desktop-margin-y="2"]       {  margin: 2rem    0; }
+    [desktop-margin-x="2.25"]     {  margin: 0 2.25rem;   }            [desktop-margin-y="2.25"]    {  margin: 2.25rem 0; }
+    [desktop-margin-x="2.5"]      {  margin: 0 2.5rem;    }            [desktop-margin-y="2.5"]     {  margin: 2.5rem  0; }
+    [desktop-margin-x="2.75"]     {  margin: 0 2.75rem;   }            [desktop-margin-y="2.75"]    {  margin: 2.75rem 0; }
+    [desktop-margin-x="3"]        {  margin: 0 3rem;      }            [desktop-margin-y="3"]       {  margin: 3rem    0; }
+
+
+    /* Margin (rem) "Top"                                         Margin (rem) "Right"                                          Margin (rem) "Bottom"                                         Margin (rem) "Left"
+    ----------------------------------------------------         ------------------------------------------------------        ---------------------------------------------------------     ------------------------------------------------------ */
+    [desktop-margin-t=".25"]      {  margin-top: .25rem;  }              [desktop-margin-r=".25"]     {  margin-right: .25rem;  }               [desktop-margin-b=".25"]     {  margin-bottom: .25rem;  }               [desktop-margin-l=".25"]     {  margin-left: .25rem;  }
+    [desktop-margin-t=".5"]       {  margin-top: .5rem;   }              [desktop-margin-r=".5"]      {  margin-right: .5rem;   }               [desktop-margin-b=".5"]      {  margin-bottom: .5rem;   }               [desktop-margin-l=".5"]      {  margin-left: .5rem;   }
+    [desktop-margin-t=".75"]      {  margin-top: .75rem;  }              [desktop-margin-r=".75"]     {  margin-right: .75rem;  }               [desktop-margin-b=".75"]     {  margin-bottom: .75rem;  }               [desktop-margin-l=".75"]     {  margin-left: .75rem;  }
+    [desktop-margin-t="1"]        {  margin-top: 1rem;    }              [desktop-margin-r="1"]       {  margin-right: 1rem;    }               [desktop-margin-b="1"]       {  margin-bottom: 1rem;    }               [desktop-margin-l="1"]       {  margin-left: 1rem;    }
+    [desktop-margin-t="1.25"]     {  margin-top: 1.25rem; }              [desktop-margin-r="1.25"]    {  margin-right: 1.25rem; }               [desktop-margin-b="1.25"]    {  margin-bottom: 1.25rem; }               [desktop-margin-l="1.25"]    {  margin-left: 1.25rem; }
+    [desktop-margin-t="1.5"]      {  margin-top: 1.5rem;  }              [desktop-margin-r="1.5"]     {  margin-right: 1.5rem;  }               [desktop-margin-b="1.5"]     {  margin-bottom: 1.5rem;  }               [desktop-margin-l="1.5"]     {  margin-left: 1.5rem;  }
+    [desktop-margin-t="1.75"]     {  margin-top: 1.75rem; }              [desktop-margin-r="1.75"]    {  margin-right: 1.75rem; }               [desktop-margin-b="1.75"]    {  margin-bottom: 1.75rem; }               [desktop-margin-l="1.75"]    {  margin-left: 1.75rem; }
+    [desktop-margin-t="2"]        {  margin-top: 2rem;    }              [desktop-margin-r="2"]       {  margin-right: 2rem;    }               [desktop-margin-b="2"]       {  margin-bottom: 2rem;    }               [desktop-margin-l="2"]       {  margin-left: 2rem;    }
+    [desktop-margin-t="2.25"]     {  margin-top: 2.25rem; }              [desktop-margin-r="2.25"]    {  margin-right: 2.25rem; }               [desktop-margin-b="2.25"]    {  margin-bottom: 2.25rem; }               [desktop-margin-l="2.25"]    {  margin-left: 2.25rem; }
+    [desktop-margin-t="2.5"]      {  margin-top: 2.5rem;  }              [desktop-margin-r="2.5"]     {  margin-right: 2.5rem;  }               [desktop-margin-b="2.5"]     {  margin-bottom: 2.5rem;  }               [desktop-margin-l="2.5"]     {  margin-left: 2.5rem;  }
+    [desktop-margin-t="2.75"]     {  margin-top: 2.75rem; }              [desktop-margin-r="2.75"]    {  margin-right: 2.75rem; }               [desktop-margin-b="2.75"]    {  margin-bottom: 2.75rem; }               [desktop-margin-l="2.75"]    {  margin-left: 2.75rem; }
+    [desktop-margin-t="3"]        {  margin-top: 3rem;    }              [desktop-margin-r="3"]       {  margin-right: 3rem;    }               [desktop-margin-b="3"]       {  margin-bottom: 3rem;    }               [desktop-margin-l="3"]       {  margin-left: 3rem;    }
+
+
+
+    /* Margin (page)
+    -------------------------------------------------- */
+    [desktop-margin="10"]            {  margin: 10vh 10vw;  }
+    [desktop-margin="20"]            {  margin: 20vh 20vw;  }
+    [desktop-margin="25"]            {  margin: 25vh 25vw;  }
+    [desktop-margin="30"]            {  margin: 30vh 30vw;  }
+    [desktop-margin="33"]            {  margin: 33.33vh 33.33vw; }
+    [desktop-margin="40"]            {  margin: 40vh 40vw;  }
+    [desktop-margin="50"]            {  margin: 50vh 50vw;  }
+    [desktop-margin="60"]            {  margin: 60vh 60vw;  }
+    [desktop-margin="66"]            {  margin: 66.66vh 66.66vw; }
+    [desktop-margin="70"]            {  margin: 70vh 70vw;  }
+    [desktop-margin="75"]            {  margin: 75vh 75vw;  }
+    [desktop-margin="80"]            {  margin: 80vh 80vw;  }
+    [desktop-margin="90"]            {  margin: 90vh 90vw;  }
+    [desktop-margin="100"]           {  margin: 100vh 100vw;  }
+    [desktop-margin="125"]           {  margin: 125vh 125vw;  }
+    [desktop-margin="150"]           {  margin: 150vh 150vw;  }
+    [desktop-margin="200"]           {  margin: 200vh 200vw;  }
+
+
+    /* Margin (page) "X" Axis                                     Margin (page) "Y" Axis
+    ----------------------------------------------------         ------------------------------------------------------ */
+    [desktop-margin-x="10"]          {  margin: 0 10vw;    }              [desktop-margin-y="10"]          {  margin: 10vh 0;    }
+    [desktop-margin-x="20"]          {  margin: 0 20vw;    }              [desktop-margin-y="20"]          {  margin: 20vh 0;    }
+    [desktop-margin-x="25"]          {  margin: 0 25vw;    }              [desktop-margin-y="25"]          {  margin: 25vh 0;    }
+    [desktop-margin-x="30"]          {  margin: 0 30vw;    }              [desktop-margin-y="30"]          {  margin: 30vw 0;    }
+    [desktop-margin-x="33"]          {  margin: 0 33.33vw; }              [desktop-margin-y="33"]          {  margin: 33.33vh 0; }
+    [desktop-margin-x="40"]          {  margin: 0 40vw;    }              [desktop-margin-y="40"]          {  margin: 40vh 0;    }
+    [desktop-margin-x="50"]          {  margin: 0 50vw;    }              [desktop-margin-y="50"]          {  margin: 50vh 0;    }
+    [desktop-margin-x="60"]          {  margin: 0 60vw;    }              [desktop-margin-y="60"]          {  margin: 60vh 0;    }
+    [desktop-margin-x="66"]          {  margin: 0 66.66vw; }              [desktop-margin-y="66"]          {  margin: 66.66vh 0; }
+    [desktop-margin-x="70"]          {  margin: 0 70vw;    }              [desktop-margin-y="70"]          {  margin: 70vh 0;    }
+    [desktop-margin-x="75"]          {  margin: 0 75vw;    }              [desktop-margin-y="75"]          {  margin: 75vh 0;    }
+    [desktop-margin-x="80"]          {  margin: 0 80vw;    }              [desktop-margin-y="80"]          {  margin: 80vh 0;    }
+    [desktop-margin-x="90"]          {  margin: 0 90vw;    }              [desktop-margin-y="90"]          {  margin: 90vh 0;    }
+    [desktop-margin-x="100"]         {  margin: 0 100vw;   }              [desktop-margin-y="100"]         {  margin: 100vh 0;   }
+    [desktop-margin-x="125"]         {  margin: 0 125vw;   }              [desktop-margin-y="125"]         {  margin: 120vh 0;   }
+    [desktop-margin-x="150"]         {  margin: 0 150vw;   }              [desktop-margin-y="150"]         {  margin: 150vh 0;   }
+    [desktop-margin-x="200"]         {  margin: 0 200vw;   }              [desktop-margin-y="200"]         {  margin: 200vh 0;   }
+
+
+    /* Margin (page) "Top"                                        Margin (page) "Right"                                         Margin (page) "Bottom"                                        Margin (page) "Left"
+    ----------------------------------------------------         ------------------------------------------------------        ---------------------------------------------------------     ------------------------------------------------------ */
+    [desktop-margin-t="10"]          {  margin-top: 10vh;  }              [desktop-margin-r="10"]            {  margin-right: 10vw;  }          [desktop-margin-b="10"]            {  margin-bottom: 10vh;  }         [desktop-margin-l="10"]            {  margin-left: 10vw; }
+    [desktop-margin-t="20"]          {  margin-top: 20vh;  }              [desktop-margin-r="20"]            {  margin-right: 20vw;  }          [desktop-margin-b="20"]            {  margin-bottom: 20vh;  }         [desktop-margin-l="20"]            {  margin-left: 20vw; }
+    [desktop-margin-t="25"]          {  margin-top: 25vh;  }              [desktop-margin-r="25"]            {  margin-right: 25vw;  }          [desktop-margin-b="25"]            {  margin-bottom: 25vh;  }         [desktop-margin-l="25"]            {  margin-left: 25vw; }
+    [desktop-margin-t="30"]          {  margin-top: 30vh;  }              [desktop-margin-r="30"]            {  margin-right: 30vw;  }          [desktop-margin-b="30"]            {  margin-bottom: 30vh;  }         [desktop-margin-l="30"]            {  margin-left: 30vw; }
+    [desktop-margin-t="33"]          {  margin-top: 33.33vh; }            [desktop-margin-r="33"]            {  margin-right: 33.33vw; }        [desktop-margin-b="33"]            {  margin-bottom: 33.33vh; }       [desktop-margin-l="33"]            {  margin-left: 33.33vw; }
+    [desktop-margin-t="40"]          {  margin-top: 40vh;  }              [desktop-margin-r="40"]            {  margin-right: 40vw;  }          [desktop-margin-b="40"]            {  margin-bottom: 40vh;  }         [desktop-margin-l="40"]            {  margin-left: 40vw; }
+    [desktop-margin-t="50"]          {  margin-top: 50vh;  }              [desktop-margin-r="50"]            {  margin-right: 50vw;  }          [desktop-margin-b="50"]            {  margin-bottom: 50vh;  }         [desktop-margin-l="50"]            {  margin-left: 50vw; }
+    [desktop-margin-t="60"]          {  margin-top: 60vh;  }              [desktop-margin-r="60"]            {  margin-right: 60vw;  }          [desktop-margin-b="60"]            {  margin-bottom: 60vh;  }         [desktop-margin-l="60"]            {  margin-left: 60vw; }
+    [desktop-margin-t="66"]          {  margin-top: 66.66vh; }            [desktop-margin-r="66"]            {  margin-right: 66.66vw; }        [desktop-margin-b="66"]            {  margin-bottom: 66.66vh; }       [desktop-margin-l="66"]            {  margin-left: 66.66vw; }
+    [desktop-margin-t="70"]          {  margin-top: 70vh;  }              [desktop-margin-r="70"]            {  margin-right: 70vw;  }          [desktop-margin-b="70"]            {  margin-bottom: 70vh;  }         [desktop-margin-l="70"]            {  margin-left: 70vw; }
+    [desktop-margin-t="75"]          {  margin-top: 75vh;  }              [desktop-margin-r="75"]            {  margin-right: 75vw;  }          [desktop-margin-b="75"]            {  margin-bottom: 75vh;  }         [desktop-margin-l="75"]            {  margin-left: 75vw; }
+    [desktop-margin-t="80"]          {  margin-top: 80vh;  }              [desktop-margin-r="80"]            {  margin-right: 80vw;  }          [desktop-margin-b="80"]            {  margin-bottom: 80vh;  }         [desktop-margin-l="80"]            {  margin-left: 80vw; }
+    [desktop-margin-t="90"]          {  margin-top: 90vh;  }              [desktop-margin-r="90"]            {  margin-right: 90vw;  }          [desktop-margin-b="90"]            {  margin-bottom: 90vh;  }         [desktop-margin-l="90"]            {  margin-left: 90vw; }
+    [desktop-margin-t="100"]         {  margin-top: 100vh;  }             [desktop-margin-r="100"]           {  margin-right: 100vw;  }         [desktop-margin-b="100"]           {  margin-bottom: 100vh;  }        [desktop-margin-l="100"]           {  margin-left: 100vw; }
+    [desktop-margin-t="125"]         {  margin-top: 125vh;  }             [desktop-margin-r="125"]           {  margin-right: 125vw;  }         [desktop-margin-b="125"]           {  margin-bottom: 125vh;  }        [desktop-margin-l="125"]           {  margin-left: 125vw; }
+    [desktop-margin-t="150"]         {  margin-top: 150vh;  }             [desktop-margin-r="150"]           {  margin-right: 150vw;  }         [desktop-margin-b="150"]           {  margin-bottom: 150vh;  }        [desktop-margin-l="150"]           {  margin-left: 150vw; }
+    [desktop-margin-t="200"]         {  margin-top: 200vh;  }             [desktop-margin-r="200"]           {  margin-right: 200vw;  }         [desktop-margin-b="200"]           {  margin-bottom: 200vh;  }        [desktop-margin-l="200"]           {  margin-left: 200vw; }
+
+
+
+/*
+    Padding
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+
+
+    /* Padding (rem)
+    -------------------------------------------------- */
+    [desktop-padding="0"]          {  padding: 0;       }
+    [desktop-padding=".25"]        {  padding: .25rem;  }
+    [desktop-padding=".5"]         {  padding: .5rem;   }
+    [desktop-padding=".75"]        {  padding: .75rem;  }
+    [desktop-padding="1"]          {  padding: 1rem;    }
+    [desktop-padding="1.25"]       {  padding: 1.25rem; }
+    [desktop-padding="1.5"]        {  padding: 1.5rem;  }
+    [desktop-padding="1.75"]       {  padding: 1.75rem; }
+    [desktop-padding="2"]          {  padding: 2rem;    }
+    [desktop-padding="2.25"]       {  padding: 2.25rem; }
+    [desktop-padding="2.5"]        {  padding: 2.5rem;  }
+    [desktop-padding="2.75"]       {  padding: 2.75rem; }
+    [desktop-padding="3"]          {  padding: 3rem;    }
+
+
+    /* Padding (rem) "X" Axis                                      Padding (rem) "Y" Axis
+    ----------------------------------------------------         ------------------------------------------------------ */
+    [desktop-padding-x=".25"]      {  padding: 0 .25rem;    }            [desktop-padding-y=".25"]     {  padding: .25rem  0; }
+    [desktop-padding-x=".5"]       {  padding: 0 .5rem;     }            [desktop-padding-y=".5"]      {  padding: .5rem   0; }
+    [desktop-padding-x=".75"]      {  padding: 0 .75rem;    }            [desktop-padding-y=".75"]     {  padding: .75rem  0; }
+    [desktop-padding-x="1"]        {  padding: 0 1rem;      }            [desktop-padding-y="1"]       {  padding: 1rem    0; }
+    [desktop-padding-x="1.25"]     {  padding: 0 1.25rem;   }            [desktop-padding-y="1.25"]    {  padding: 1.25rem 0; }
+    [desktop-padding-x="1.5"]      {  padding: 0 1.5rem;    }            [desktop-padding-y="1.5"]     {  padding: 1.5rem  0; }
+    [desktop-padding-x="1.75"]     {  padding: 0 1.75rem;   }            [desktop-padding-y="1.75"]    {  padding: 1.75rem 0; }
+    [desktop-padding-x="2"]        {  padding: 0 2rem;      }            [desktop-padding-y="2"]       {  padding: 2rem    0; }
+    [desktop-padding-x="2.25"]     {  padding: 0 2.25rem;   }            [desktop-padding-y="2.25"]    {  padding: 2.25rem 0; }
+    [desktop-padding-x="2.5"]      {  padding: 0 2.5rem;    }            [desktop-padding-y="2.5"]     {  padding: 2.5rem  0; }
+    [desktop-padding-x="2.75"]     {  padding: 0 2.75rem;   }            [desktop-padding-y="2.75"]    {  padding: 2.75rem 0; }
+    [desktop-padding-x="3"]        {  padding: 0 3rem;      }            [desktop-padding-y="3"]       {  padding: 3rem    0; }
+
+
+    /* Padding (rem) "Top"                                         Padding (rem) "Right"                                          Padding (rem) "Bottom"                                         Padding (rem) "Left"
+    ----------------------------------------------------         ------------------------------------------------------        ---------------------------------------------------------     ------------------------------------------------------ */
+    [desktop-padding-t=".25"]      {  padding-top: .25rem;  }              [desktop-padding-r=".25"]     {  padding-right: .25rem;  }               [desktop-padding-b=".25"]     {  padding-bottom: .25rem;  }               [desktop-padding-l=".25"]     {  padding-left: .25rem;  }
+    [desktop-padding-t=".5"]       {  padding-top: .5rem;   }              [desktop-padding-r=".5"]      {  padding-right: .5rem;   }               [desktop-padding-b=".5"]      {  padding-bottom: .5rem;   }               [desktop-padding-l=".5"]      {  padding-left: .5rem;   }
+    [desktop-padding-t=".75"]      {  padding-top: .75rem;  }              [desktop-padding-r=".75"]     {  padding-right: .75rem;  }               [desktop-padding-b=".75"]     {  padding-bottom: .75rem;  }               [desktop-padding-l=".75"]     {  padding-left: .75rem;  }
+    [desktop-padding-t="1"]        {  padding-top: 1rem;    }              [desktop-padding-r="1"]       {  padding-right: 1rem;    }               [desktop-padding-b="1"]       {  padding-bottom: 1rem;    }               [desktop-padding-l="1"]       {  padding-left: 1rem;    }
+    [desktop-padding-t="1.25"]     {  padding-top: 1.25rem; }              [desktop-padding-r="1.25"]    {  padding-right: 1.25rem; }               [desktop-padding-b="1.25"]    {  padding-bottom: 1.25rem; }               [desktop-padding-l="1.25"]    {  padding-left: 1.25rem; }
+    [desktop-padding-t="1.5"]      {  padding-top: 1.5rem;  }              [desktop-padding-r="1.5"]     {  padding-right: 1.5rem;  }               [desktop-padding-b="1.5"]     {  padding-bottom: 1.5rem;  }               [desktop-padding-l="1.5"]     {  padding-left: 1.5rem;  }
+    [desktop-padding-t="1.75"]     {  padding-top: 1.75rem; }              [desktop-padding-r="1.75"]    {  padding-right: 1.75rem; }               [desktop-padding-b="1.75"]    {  padding-bottom: 1.75rem; }               [desktop-padding-l="1.75"]    {  padding-left: 1.75rem; }
+    [desktop-padding-t="2"]        {  padding-top: 2rem;    }              [desktop-padding-r="2"]       {  padding-right: 2rem;    }               [desktop-padding-b="2"]       {  padding-bottom: 2rem;    }               [desktop-padding-l="2"]       {  padding-left: 2rem;    }
+    [desktop-padding-t="2.25"]     {  padding-top: 2.25rem; }              [desktop-padding-r="2.25"]    {  padding-right: 2.25rem; }               [desktop-padding-b="2.25"]    {  padding-bottom: 2.25rem; }               [desktop-padding-l="2.25"]    {  padding-left: 2.25rem; }
+    [desktop-padding-t="2.5"]      {  padding-top: 2.5rem;  }              [desktop-padding-r="2.5"]     {  padding-right: 2.5rem;  }               [desktop-padding-b="2.5"]     {  padding-bottom: 2.5rem;  }               [desktop-padding-l="2.5"]     {  padding-left: 2.5rem;  }
+    [desktop-padding-t="2.75"]     {  padding-top: 2.75rem; }              [desktop-padding-r="2.75"]    {  padding-right: 2.75rem; }               [desktop-padding-b="2.75"]    {  padding-bottom: 2.75rem; }               [desktop-padding-l="2.75"]    {  padding-left: 2.75rem; }
+    [desktop-padding-t="3"]        {  padding-top: 3rem;    }              [desktop-padding-r="3"]       {  padding-right: 3rem;    }               [desktop-padding-b="3"]       {  padding-bottom: 3rem;    }               [desktop-padding-l="3"]       {  padding-left: 3rem;    }
+
+
+
+    /* Padding (page)
+    -------------------------------------------------- */
+    [desktop-padding="10"]            {  padding: 10vh 10vw;  }
+    [desktop-padding="20"]            {  padding: 20vh 20vw;  }
+    [desktop-padding="25"]            {  padding: 25vh 25vw;  }
+    [desktop-padding="30"]            {  padding: 30vh 30vw;  }
+    [desktop-padding="33"]            {  padding: 33.33vh 33.33vw; }
+    [desktop-padding="40"]            {  padding: 40vh 40vw;  }
+    [desktop-padding="50"]            {  padding: 50vh 50vw;  }
+    [desktop-padding="60"]            {  padding: 60vh 60vw;  }
+    [desktop-padding="66"]            {  padding: 66.66vh 66.66vw; }
+    [desktop-padding="70"]            {  padding: 70vh 70vw;  }
+    [desktop-padding="75"]            {  padding: 75vh 75vw;  }
+    [desktop-padding="80"]            {  padding: 80vh 80vw;  }
+    [desktop-padding="90"]            {  padding: 90vh 90vw;  }
+    [desktop-padding="100"]           {  padding: 100vh 100vw;  }
+    [desktop-padding="125"]           {  padding: 125vh 125vw;  }
+    [desktop-padding="150"]           {  padding: 150vh 150vw;  }
+    [desktop-padding="200"]           {  padding: 200vh 200vw;  }
+
+
+    /* Padding (page) "X" Axis                                     Padding (page) "Y" Axis
+    ----------------------------------------------------         ------------------------------------------------------ */
+    [desktop-padding-x="10"]          {  padding: 0 10vw;    }              [desktop-padding-y="10"]          {  padding: 10vh 0;    }
+    [desktop-padding-x="20"]          {  padding: 0 20vw;    }              [desktop-padding-y="20"]          {  padding: 20vh 0;    }
+    [desktop-padding-x="25"]          {  padding: 0 25vw;    }              [desktop-padding-y="25"]          {  padding: 25vh 0;    }
+    [desktop-padding-x="30"]          {  padding: 0 30vw;    }              [desktop-padding-y="30"]          {  padding: 30vw 0;    }
+    [desktop-padding-x="33"]          {  padding: 0 33.33vw; }              [desktop-padding-y="33"]          {  padding: 33.33vh 0; }
+    [desktop-padding-x="40"]          {  padding: 0 40vw;    }              [desktop-padding-y="40"]          {  padding: 40vh 0;    }
+    [desktop-padding-x="50"]          {  padding: 0 50vw;    }              [desktop-padding-y="50"]          {  padding: 50vh 0;    }
+    [desktop-padding-x="60"]          {  padding: 0 60vw;    }              [desktop-padding-y="60"]          {  padding: 60vh 0;    }
+    [desktop-padding-x="66"]          {  padding: 0 66.66vw; }              [desktop-padding-y="66"]          {  padding: 66.66vh 0; }
+    [desktop-padding-x="70"]          {  padding: 0 70vw;    }              [desktop-padding-y="70"]          {  padding: 70vh 0;    }
+    [desktop-padding-x="75"]          {  padding: 0 75vw;    }              [desktop-padding-y="75"]          {  padding: 75vh 0;    }
+    [desktop-padding-x="80"]          {  padding: 0 80vw;    }              [desktop-padding-y="80"]          {  padding: 80vh 0;    }
+    [desktop-padding-x="90"]          {  padding: 0 90vw;    }              [desktop-padding-y="90"]          {  padding: 90vh 0;    }
+    [desktop-padding-x="100"]         {  padding: 0 100vw;   }              [desktop-padding-y="100"]         {  padding: 100vh 0;   }
+    [desktop-padding-x="125"]         {  padding: 0 125vw;   }              [desktop-padding-y="125"]         {  padding: 120vh 0;   }
+    [desktop-padding-x="150"]         {  padding: 0 150vw;   }              [desktop-padding-y="150"]         {  padding: 150vh 0;   }
+    [desktop-padding-x="200"]         {  padding: 0 200vw;   }              [desktop-padding-y="200"]         {  padding: 200vh 0;   }
+
+
+    /* Padding (page) "Top"                                        Padding (page) "Right"                                         Padding (page) "Bottom"                                        Padding (page) "Left"
+    ----------------------------------------------------         ------------------------------------------------------        ---------------------------------------------------------     ------------------------------------------------------ */
+    [desktop-padding-t="10"]          {  padding-top: 10vh;  }              [desktop-padding-r="10"]            {  padding-right: 10vw;  }          [desktop-padding-b="10"]            {  padding-bottom: 10vh;  }         [desktop-padding-l="10"]            {  padding-left: 10vw; }
+    [desktop-padding-t="20"]          {  padding-top: 20vh;  }              [desktop-padding-r="20"]            {  padding-right: 20vw;  }          [desktop-padding-b="20"]            {  padding-bottom: 20vh;  }         [desktop-padding-l="20"]            {  padding-left: 20vw; }
+    [desktop-padding-t="25"]          {  padding-top: 25vh;  }              [desktop-padding-r="25"]            {  padding-right: 25vw;  }          [desktop-padding-b="25"]            {  padding-bottom: 25vh;  }         [desktop-padding-l="25"]            {  padding-left: 25vw; }
+    [desktop-padding-t="30"]          {  padding-top: 30vh;  }              [desktop-padding-r="30"]            {  padding-right: 30vw;  }          [desktop-padding-b="30"]            {  padding-bottom: 30vh;  }         [desktop-padding-l="30"]            {  padding-left: 30vw; }
+    [desktop-padding-t="33"]          {  padding-top: 33.33vh; }            [desktop-padding-r="33"]            {  padding-right: 33.33vw; }        [desktop-padding-b="33"]            {  padding-bottom: 33.33vh; }       [desktop-padding-l="33"]            {  padding-left: 33.33vw; }
+    [desktop-padding-t="40"]          {  padding-top: 40vh;  }              [desktop-padding-r="40"]            {  padding-right: 40vw;  }          [desktop-padding-b="40"]            {  padding-bottom: 40vh;  }         [desktop-padding-l="40"]            {  padding-left: 40vw; }
+    [desktop-padding-t="50"]          {  padding-top: 50vh;  }              [desktop-padding-r="50"]            {  padding-right: 50vw;  }          [desktop-padding-b="50"]            {  padding-bottom: 50vh;  }         [desktop-padding-l="50"]            {  padding-left: 50vw; }
+    [desktop-padding-t="60"]          {  padding-top: 60vh;  }              [desktop-padding-r="60"]            {  padding-right: 60vw;  }          [desktop-padding-b="60"]            {  padding-bottom: 60vh;  }         [desktop-padding-l="60"]            {  padding-left: 60vw; }
+    [desktop-padding-t="66"]          {  padding-top: 66.66vh; }            [desktop-padding-r="66"]            {  padding-right: 66.66vw; }        [desktop-padding-b="66"]            {  padding-bottom: 66.66vh; }       [desktop-padding-l="66"]            {  padding-left: 66.66vw; }
+    [desktop-padding-t="70"]          {  padding-top: 70vh;  }              [desktop-padding-r="70"]            {  padding-right: 70vw;  }          [desktop-padding-b="70"]            {  padding-bottom: 70vh;  }         [desktop-padding-l="70"]            {  padding-left: 70vw; }
+    [desktop-padding-t="75"]          {  padding-top: 75vh;  }              [desktop-padding-r="75"]            {  padding-right: 75vw;  }          [desktop-padding-b="75"]            {  padding-bottom: 75vh;  }         [desktop-padding-l="75"]            {  padding-left: 75vw; }
+    [desktop-padding-t="80"]          {  padding-top: 80vh;  }              [desktop-padding-r="80"]            {  padding-right: 80vw;  }          [desktop-padding-b="80"]            {  padding-bottom: 80vh;  }         [desktop-padding-l="80"]            {  padding-left: 80vw; }
+    [desktop-padding-t="90"]          {  padding-top: 90vh;  }              [desktop-padding-r="90"]            {  padding-right: 90vw;  }          [desktop-padding-b="90"]            {  padding-bottom: 90vh;  }         [desktop-padding-l="90"]            {  padding-left: 90vw; }
+    [desktop-padding-t="100"]         {  padding-top: 100vh;  }             [desktop-padding-r="100"]           {  padding-right: 100vw;  }         [desktop-padding-b="100"]           {  padding-bottom: 100vh;  }        [desktop-padding-l="100"]           {  padding-left: 100vw; }
+    [desktop-padding-t="125"]         {  padding-top: 125vh;  }             [desktop-padding-r="125"]           {  padding-right: 125vw;  }         [desktop-padding-b="125"]           {  padding-bottom: 125vh;  }        [desktop-padding-l="125"]           {  padding-left: 125vw; }
+    [desktop-padding-t="150"]         {  padding-top: 150vh;  }             [desktop-padding-r="150"]           {  padding-right: 150vw;  }         [desktop-padding-b="150"]           {  padding-bottom: 150vh;  }        [desktop-padding-l="150"]           {  padding-left: 150vw; }
+    [desktop-padding-t="200"]         {  padding-top: 200vh;  }             [desktop-padding-r="200"]           {  padding-right: 200vw;  }         [desktop-padding-b="200"]           {  padding-bottom: 200vh;  }        [desktop-padding-l="200"]           {  padding-left: 200vw; }
+
+
+
+
+
+
+
+
+/*
+    COLORS
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+
+    /* Background */
+    [desktop-bg="clear"]                           { background: rgba(255,255,255, 0); }
+    [desktop-bg="red"]                             { background: rgba(240,98,146,  1); }
+    [desktop-bg="blue"]                            { background: rgba(100,181,246, 1); }
+    [desktop-bg="purple"]                          { background: rgba(123,31,162,  1); }
+    [desktop-bg="yellow"]                          { background: rgba(246,255,40,  1); }
+    [desktop-bg="green"]                           { background: rgba(0,230,118,   1); }
+    [desktop-bg="white"]                           { background: rgba(255,255,255, 1); }
+    [desktop-bg="black"]                           { background: rgba(0,0,0,       1); }
+    [desktop-bg="gray"]                            { background: rgba(70,70,70,    1); }
+
+    /* Dark BG (MD Spec)*/
+    [desktop-bg="black"][desktop-type="primary"]        { background: rgba(0,0,0, .87); }
+    [desktop-bg="black"][desktop-type="secondary"]      { background: rgba(0,0,0, .54); }
+    [desktop-bg="black"][desktop-type="disabled"]       { background: rgba(0,0,0, .38); }
+    [desktop-bg="black"][desktop-type="divider"]        { background: rgba(0,0,0, .12); }
+
+    [desktop-bg="black"][desktop-fade=".1"]             { background: rgba(0,0,0, .12); }
+    [desktop-bg="black"][desktop-fade=".2"]             { background: rgba(0,0,0, .22); }
+    [desktop-bg="black"][desktop-fade=".3"]             { background: rgba(0,0,0, .32); }
+    [desktop-bg="black"][desktop-fade=".4"]             { background: rgba(0,0,0, .42); }
+    [desktop-bg="black"][desktop-fade=".5"]             { background: rgba(0,0,0, .54); }
+    [desktop-bg="black"][desktop-fade=".6"]             { background: rgba(0,0,0, .62); }
+    [desktop-bg="black"][desktop-fade=".7"]             { background: rgba(0,0,0, .72); }
+    [desktop-bg="black"][desktop-fade=".8"]             { background: rgba(0,0,0, .78); }
+    [desktop-bg="black"][desktop-fade=".9"]             { background: rgba(0,0,0, .87); }
+
+    /* Light BG (MD Spec)*/
+    [desktop-bg="white"][desktop-fade="primary"]        { background: rgba(255,255,255,   1); }
+    [desktop-bg="white"][desktop-fade="secondary"]      { background: rgba(255,255,255,  .7); }
+    [desktop-bg="white"][desktop-fade="disabled"]       { background: rgba(255,255,255,  .5); }
+    [desktop-bg="white"][desktop-fade="divider"]        { background: rgba(255,255,255, .12); }
+
+    [desktop-bg="white"][desktop-fade=".1"]             { background: rgba(255,255,255, .12); }
+    [desktop-bg="white"][desktop-fade=".2"]             { background: rgba(255,255,255, .22); }
+    [desktop-bg="white"][desktop-fade=".3"]             { background: rgba(255,255,255, .32); }
+    [desktop-bg="white"][desktop-fade=".4"]             { background: rgba(255,255,255, .42); }
+    [desktop-bg="white"][desktop-fade=".5"]             { background: rgba(255,255,255, .54); }
+    [desktop-bg="white"][desktop-fade=".6"]             { background: rgba(255,255,255, .62); }
+    [desktop-bg="white"][desktop-fade=".7"]             { background: rgba(255,255,255, .72); }
+    [desktop-bg="white"][desktop-fade=".8"]             { background: rgba(255,255,255, .78); }
+    [desktop-bg="white"][desktop-fade=".9"]             { background: rgba(255,255,255, .87); }
+
+
+    /* Text */
+    [desktop-color="black"]            { color: rgba(0,0,0,       1); }
+    [desktop-color="white"]            { color: rgba(255,255,255, 1); }
+
+
+    /* Dark Text (MD Spec)*/
+    [desktop-color="black"][desktop-type="primary"]        { color: rgba(0,0,0, .87); }
+    [desktop-color="black"][desktop-type="secondary"]      { color: rgba(0,0,0, .54); }
+    [desktop-color="black"][desktop-type="disabled"]       { color: rgba(0,0,0, .38); }
+    [desktop-color="black"][desktop-type="divider"]        { color: rgba(0,0,0, .12); }
+
+
+    /* Light Text (MD Spec)*/
+    [desktop-color="white"][desktop-type="primary"]        { color: rgba(255,255,255,   1); }
+    [desktop-color="white"][desktop-type="secondary"]      { color: rgba(255,255,255,  .7); }
+    [desktop-color="white"][desktop-type="disabled"]       { color: rgba(255,255,255,  .5); }
+    [desktop-color="white"][desktop-type="divider"]        { color: rgba(255,255,255, .12); }
+
+
+/*
+    OPACITY
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+
+    /* Visibility */
+    [desktop-visible="1"]                   { opacity:   1; }
+    [desktop-visible="0"]                   { opacity:   0; }
+
+    /* Opacity */
+    [desktop-opacity=".1"]                  { opacity: .12; }
+    [desktop-opacity=".2"]                  { opacity: .22; }
+    [desktop-opacity=".3"]                  { opacity: .32; }
+    [desktop-opacity=".4"]                  { opacity: .42; }
+    [desktop-opacity=".5"]                  { opacity: .54; }
+    [desktop-opacity=".6"]                  { opacity: .62; }
+    [desktop-opacity=".7"]                  { opacity: .72; }
+    [desktop-opacity=".8"]                  { opacity: .78; }
+    [desktop-opacity=".9"]                  { opacity: .87; }
+
+    /* Dark */
+    [desktop-opacity="dark-primary"]        { opacity: .87; }
+    [desktop-opacity="dark-secondary"]      { opacity: .54; }
+    [desktop-opacity="dark-disabled"]       { opacity: .38; }
+
+    /* Light */
+    [desktop-opacity="light-primary"]       { opacity:   1; }
+    [desktop-opacity="light-secondary"]     { opacity:  .7; }
+    [desktop-opacity="light-disabled"]      { opacity:  .5; }
+
+
+    [desktop-opacity="divider"]             { opacity: .12; }
+
+
+/*
+    STYLES
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+
+    /* Visibility */
+    [desktop-radius="1"]                   { border-radius: 100%; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* Margin: 50vh                            Height: 50vh
+    ----------------------------------        ----------------------------------
+    [desktop-margin=".5"]     { margin: 50vh; }        [desktop-height=".5"]     { height: 50vh }
+    [desktop-margin="50"]     { margin: 50vh; }        [desktop-height="50"]     { height: 50vh }
+    [desktop-margin="05"]     { margin: 50vh; }        [desktop-height="05"]     { height: 50vh }
+    [desktop-margin="1/2"]    { margin: 50vh; }        [desktop-height="1/2"]    { height: 50vh }
+    [desktop-margin="50vh"]   { margin: 50vh; }        [desktop-height="50vh"]   { height: 50vh }
+
+    [desktop-margin=".5"]     { margin: 50vh; }        [desktop-height=".5"]     { height: 50vh }
+    [desktop-margin=".5"]     { margin: 50vh; }        [desktop-height=".5"]     { height: 50vh }
+
+    */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+</style>

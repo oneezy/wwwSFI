@@ -1,0 +1,88 @@
+<!--
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    HEADER COMPONENT
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/easy-fx-scroll/easy-fx-scroll.html">
+<link rel="import" href="../elements/fx-page/fx-page.html">
+<link rel="import" href="component-header.html">
+<link rel="import" href="component-main.html">
+<link rel="import" href="component-page.html">
+<link rel="import" href="component-footer.html">
+
+
+<dom-module id="business-app">
+
+
+    <template>
+
+        <!-- Styles -->
+        <style is="custom-style">
+            h1 { margin: 3rem 0 0; }
+            .square { width: 200px; height: 200px; background-color: #00796b; margin: 2px; }
+            .fx-scroll { transition: 1s; position: relative; }
+            .shown { opacity: 1; visibility: visible; right: 0; }
+            .hidden { opacity: 0; visibility: hidden; }
+            .hidden.from-left { right: 100px; }
+        </style>
+
+        <!-- Header -->
+        <component-header></component-header>
+        
+        <easy-fx-scroll full>
+            <div data-fx-scroll class="square from-left"></div>
+            <div data-fx-scroll class="square from-left"></div>
+            <div data-fx-scroll class="square from-left"></div>
+            <div data-fx-scroll class="square from-left"></div>
+            <div data-fx-scroll class="square from-left"></div>
+            <div data-fx-scroll class="square from-left"></div>
+            <div data-fx-scroll class="square from-left"></div>
+        </easy-fx-scroll>
+        <!-- Main pages -->
+        <!-- <component-main>
+
+                <fx-page blue min-height="1" id="Services">
+                    <easy-fx-scroll full>
+                        <div data-fx-scroll class="square from-left"></div>
+                        <div data-fx-scroll class="square from-left"></div>
+                        <div data-fx-scroll class="square from-left"></div>
+                        <div data-fx-scroll class="square from-left"></div>
+                        <div data-fx-scroll class="square from-left"></div>
+                        <div data-fx-scroll class="square from-left"></div>
+                        <div data-fx-scroll class="square from-left"></div>
+                    </easy-fx-scroll>
+                </fx-page>
+
+                <fx-page yellow height="1" id="Company">
+                    <easy-fx-scroll full>
+                        <h1 data-fx-scroll>Company</h1>
+                    </easy-fx-scroll>
+                </fx-page>
+
+                <fx-page green height="1" id="Testimonials">
+                    <easy-fx-scroll full>
+                        <h1 data-fx-scroll>Testimonials</h1>
+                    </easy-fx-scroll>
+                </fx-page>
+
+                <fx-page purple height="1" id="Contact">
+                    <easy-fx-scroll full>
+                        <h1 data-fx-scroll>Contact</h1>
+                    </easy-fx-scroll>
+                </fx-page>
+
+        </component-main> -->
+
+
+    </template>
+
+    <!-- SCRIPTS -->
+    <script>
+        Polymer({
+
+            is: 'business-app'
+
+        });
+    </script>
+</dom-module>

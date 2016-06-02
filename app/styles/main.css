@@ -1,0 +1,32 @@
+
+/*
+    RESET
+--------------------------------------- */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html * { -webkit-overflow-scrolling: touch; }
+html { display: block; }
+body { background: #fff; font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #333; }
+img { max-width: 100%; }
+a { text-decoration: none; color: #000; }
+h2 {  }
+
+
+/*
+    CUSTOM STYLES
+--------------------------------------- */
+/* Polymer */
+.focus-target { outline: none; }
+.no-style { -webkit-appearance: none; border: 0; padding: 0; background: transparent; }
+
+/*
+    TOUCH DEVICES
+--------------------------------------- */
+@media screen and (min-width: 0) and (max-width: 1024px) {
+    * {
+     outline: none; touch-callout: none; text-size-adjust: none; select: none; highlight: none; tap-highlight-color: rgba(0,0,0,0); overflow-scrolling: touch;
+    -webkit-touch-callout: none; -webkit-text-size-adjust: none; -webkit-user-select: none; -webkit-highlight: none; -webkit-tap-highlight-color: rgba(0,0,0,0); -webkit-overflow-scrolling: touch;
+    -ms-user-touch-callout: none; -ms-user-text-size-adjust: none; -ms-user-select: none; -ms-user-highlight: none; -ms-user-tap-highlight-color: rgba(0,0,0,0); -ms-user-overflow-scrolling: touch;
+    -moz-user-touch-callout: none; -moz-user-text-size-adjust: none; -moz-user-select: none; -moz-user-highlight: none; -moz-user-tap-highlight-color: rgba(0,0,0,0); -moz-user-overflow-scrolling: touch;
+    -khtml-user-touch-callout: none; -khtml-user-text-size-adjust: none; -khtml-user-select: none; -khtml-user-highlight: none; -khtml-user-tap-highlight-color: rgba(0,0,0,0); -khtml-user-overflow-scrolling: touch;
+    }
+}

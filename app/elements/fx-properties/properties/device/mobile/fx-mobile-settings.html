@@ -1,0 +1,551 @@
+<!--
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    SETTINGS (Mobile)
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+<style>
+@media (min-width: 0) and (max-width: 768px) {
+
+    [mobile-display="none"]             { display: none; }
+    [mobile-display="inline"]           { display: inline; }
+    [mobile-display="inline-block"]     { display: inline-block; }
+    [mobile-display="block"]            { display: block; }
+
+
+/*
+    Height
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+
+
+    /* Height "Names"
+    --------------------------------------------------- */
+    [mobile-height="quarter"]       {  height: 25vh;    }
+    [mobile-height="third"]         {  height: 33.33vh; }
+    [mobile-height="half"]          {  height: 50vh;    }
+    [mobile-height="sixth"]         {  height: 66.66vh; }
+    [mobile-height="threequarter"]  {  height: 75vh;    }
+    [mobile-height="full"]          {  height: 100vh;   }
+    [mobile-height="fullquarter"]   {  height: 125vh;   }
+    [mobile-height="fullhalf"]      {  height: 150vh;   }
+    [mobile-height="double"]        {  height: 200vh;   }
+
+
+
+    /* Height "Exact"                                             Height "Minimum"                                                 Height "Maximum"
+    ----------------------------------------------------         ------------------------------------------------------           ---------------------------------------------------- */
+    [mobile-height=".1"]            {  height: 10vh;    }                [mobile-min-height=".1"]     {  min-height: 10vh;    }                  [mobile-max-height=".1"]     {  max-height: 10vh;    }
+    [mobile-height=".2"]            {  height: 20vh;    }                [mobile-min-height=".2"]     {  min-height: 20vh;    }                  [mobile-max-height=".2"]     {  max-height: 20vh;    }
+    [mobile-height=".25"]           {  height: 25vh;    }                [mobile-min-height=".25"]    {  min-height: 25vh;    }                  [mobile-max-height=".25"]    {  max-height: 25vh;    }
+    [mobile-height=".3"]            {  height: 30vh;    }                [mobile-min-height=".3"]     {  min-height: 30vh;    }                  [mobile-max-height=".3"]     {  max-height: 30vh;    }
+    [mobile-height=".33"]           {  height: 33.33vh; }                [mobile-min-height=".33"]    {  min-height: 33.33vh; }                  [mobile-max-height=".33"]    {  max-height: 33.33vh; }
+    [mobile-height=".4"]            {  height: 40vh;    }                [mobile-min-height=".4"]     {  min-height: 40vh;    }                  [mobile-max-height=".4"]     {  max-height: 40vh;    }
+    [mobile-height=".5"]            {  height: 50vh;    }                [mobile-min-height=".5"]     {  min-height: 50vh;    }                  [mobile-max-height=".5"]     {  max-height: 50vh;    }
+    [mobile-height=".6"]            {  height: 60vh;    }                [mobile-min-height=".6"]     {  min-height: 60vh;    }                  [mobile-max-height=".6"]     {  max-height: 60vh;    }
+    [mobile-height=".66"]           {  height: 66.66vh; }                [mobile-min-height=".66"]    {  min-height: 66.66vh; }                  [mobile-max-height=".66"]    {  max-height: 66.66vh; }
+    [mobile-height=".7"]            {  height: 70vh;    }                [mobile-min-height=".7"]     {  min-height: 70vh;    }                  [mobile-max-height=".7"]     {  max-height: 70vh;    }
+    [mobile-height=".75"]           {  height: 75vh;    }                [mobile-min-height=".75"]    {  min-height: 75vh;    }                  [mobile-max-height=".75"]    {  max-height: 75vh;    }
+    [mobile-height=".8"]            {  height: 80vh;    }                [mobile-min-height=".8"]     {  min-height: 80vh;    }                  [mobile-max-height=".8"]     {  max-height: 80vh;    }
+    [mobile-height=".9"]            {  height: 90vh;    }                [mobile-min-height=".9"]     {  min-height: 90vh;    }                  [mobile-max-height=".9"]     {  max-height: 90vh;    }
+    [mobile-height="1"]             {  height: 100vh;   }                [mobile-min-height="1"]      {  min-height: 100vh;   }                  [mobile-max-height="1"]      {  max-height: 100vh;   }
+    [mobile-height="1.25"]          {  height: 125vh;   }                [mobile-min-height="1.25"]   {  min-height: 125vh;   }                  [mobile-max-height="1.25"]   {  max-height: 125vh;   }
+    [mobile-height="1.5"]           {  height: 150vh;   }                [mobile-min-height="1.5"]    {  min-height: 150vh;   }                  [mobile-max-height="1.5"]    {  max-height: 150vh;   }
+    [mobile-height="2"]             {  height: 200vh;   }                [mobile-min-height="2"]      {  min-height: 200vh;   }                  [mobile-max-height="2"]      {  max-height: 200vh;   }
+
+
+
+    /* Height "Percentage"                                        Height "Minimum Percentage"                                      Height "Maximum Percentage"
+    ----------------------------------------------------         ------------------------------------------------------           ---------------------------------------------------- */
+    [mobile-height="10"]            {  height: 10%;    }                 [mobile-min-height="10"]     {  min-height: 10%;    }                   [mobile-max-height="10"]     {  max-height: 10%;    }
+    [mobile-height="20"]            {  height: 20%;    }                 [mobile-min-height="20"]     {  min-height: 20%;    }                   [mobile-max-height="20"]     {  max-height: 20%;    }
+    [mobile-height="25"]            {  height: 25%;    }                 [mobile-min-height="25"]     {  min-height: 25%;    }                   [mobile-max-height="25"]     {  max-height: 25%;    }
+    [mobile-height="30"]            {  height: 30%;    }                 [mobile-min-height="30"]     {  min-height: 30%;    }                   [mobile-max-height="30"]     {  max-height: 30%;    }
+    [mobile-height="33"]            {  height: 33%;    }                 [mobile-min-height="33"]     {  min-height: 33%;    }                   [mobile-max-height="33"]     {  max-height: 33%;    }
+    [mobile-height="40"]            {  height: 40%;    }                 [mobile-min-height="40"]     {  min-height: 40%;    }                   [mobile-max-height="40"]     {  max-height: 40%;    }
+    [mobile-height="50"]            {  height: 50%;    }                 [mobile-min-height="50"]     {  min-height: 50%;    }                   [mobile-max-height="50"]     {  max-height: 50%;    }
+    [mobile-height="60"]            {  height: 60%;    }                 [mobile-min-height="60"]     {  min-height: 60%;    }                   [mobile-max-height="60"]     {  max-height: 60%;    }
+    [mobile-height="66"]            {  height: 66%;    }                 [mobile-min-height="66"]     {  min-height: 66%;    }                   [mobile-max-height="66"]     {  max-height: 66%;    }
+    [mobile-height="70"]            {  height: 70%;    }                 [mobile-min-height="70"]     {  min-height: 70%;    }                   [mobile-max-height="70"]     {  max-height: 70%;    }
+    [mobile-height="75"]            {  height: 75%;    }                 [mobile-min-height="75"]     {  min-height: 75%;    }                   [mobile-max-height="75"]     {  max-height: 75%;    }
+    [mobile-height="80"]            {  height: 80%;    }                 [mobile-min-height="80"]     {  min-height: 80%;    }                   [mobile-max-height="80"]     {  max-height: 80%;    }
+    [mobile-height="90"]            {  height: 90%;    }                 [mobile-min-height="90"]     {  min-height: 90%;    }                   [mobile-max-height="90"]     {  max-height: 90%;    }
+    [mobile-height="100"]           {  height: 100%;   }                 [mobile-min-height="100"]    {  min-height: 100%;   }                   [mobile-max-height="100"]    {  max-height: 100%;   }
+    [mobile-height="125"]           {  height: 125%;   }                 [mobile-min-height="125"]    {  min-height: 125%;   }                   [mobile-max-height="125"]    {  max-height: 125%;   }
+    [mobile-height="150"]           {  height: 150%;   }                 [mobile-min-height="150"]    {  min-height: 150%;   }                   [mobile-max-height="150"]    {  max-height: 150%;   }
+    [mobile-height="200"]           {  height: 200%;   }                 [mobile-min-height="200"]    {  min-height: 200%;   }                   [mobile-max-height="200"]    {  max-height: 200%;   }
+
+
+
+
+
+
+
+/*
+    Width
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+
+
+    /* Width "Names"
+    --------------------------------------------------- */
+    [mobile-width="quarter"]       {  width: 25vw;    }
+    [mobile-width="third"]         {  width: 33.33vw; }
+    [mobile-width="half"]          {  width: 50vw;    }
+    [mobile-width="sixth"]         {  width: 66.66vw; }
+    [mobile-width="threequarter"]  {  width: 75vw;    }
+    [mobile-width="full"]          {  width: 100vw;   }
+    [mobile-width="fullquarter"]   {  width: 125vw;   }
+    [mobile-width="fullhalf"]      {  width: 150vw;   }
+    [mobile-width="double"]        {  width: 200vw;   }
+
+
+
+    /* Width "Exact"                                            Width "Minimum"                                                Width "Maximum"
+    ----------------------------------------------------       ------------------------------------------------------         ---------------------------------------------------- */
+    [mobile-width=".1"]            {  width: 10vw;    }                [mobile-min-width=".1"]     {  min-width: 10vw;    }                  [mobile-max-width=".1"]     {  max-width: 10vw;    }
+    [mobile-width=".2"]            {  width: 20vw;    }                [mobile-min-width=".2"]     {  min-width: 20vw;    }                  [mobile-max-width=".2"]     {  max-width: 20vw;    }
+    [mobile-width=".25"]           {  width: 25vw;    }                [mobile-min-width=".25"]    {  min-width: 25vw;    }                  [mobile-max-width=".25"]    {  max-width: 25vw;    }
+    [mobile-width=".3"]            {  width: 30vw;    }                [mobile-min-width=".3"]     {  min-width: 30vw;    }                  [mobile-max-width=".3"]     {  max-width: 30vw;    }
+    [mobile-width=".33"]           {  width: 33.33vw; }                [mobile-min-width=".33"]    {  min-width: 33.33vw; }                  [mobile-max-width=".33"]    {  max-width: 33.33vw; }
+    [mobile-width=".4"]            {  width: 40vw;    }                [mobile-min-width=".4"]     {  min-width: 40vw;    }                  [mobile-max-width=".4"]     {  max-width: 40vw;    }
+    [mobile-width=".5"]            {  width: 50vw;    }                [mobile-min-width=".5"]     {  min-width: 50vw;    }                  [mobile-max-width=".5"]     {  max-width: 50vw;    }
+    [mobile-width=".6"]            {  width: 60vw;    }                [mobile-min-width=".6"]     {  min-width: 60vw;    }                  [mobile-max-width=".6"]     {  max-width: 60vw;    }
+    [mobile-width=".66"]           {  width: 66.66vw; }                [mobile-min-width=".66"]    {  min-width: 66.66vw; }                  [mobile-max-width=".66"]    {  max-width: 66.66vw; }
+    [mobile-width=".7"]            {  width: 70vw;    }                [mobile-min-width=".7"]     {  min-width: 70vw;    }                  [mobile-max-width=".7"]     {  max-width: 70vw;    }
+    [mobile-width=".75"]           {  width: 75vw;    }                [mobile-min-width=".75"]    {  min-width: 75vw;    }                  [mobile-max-width=".75"]    {  max-width: 75vw;    }
+    [mobile-width=".8"]            {  width: 80vw;    }                [mobile-min-width=".8"]     {  min-width: 80vw;    }                  [mobile-max-width=".8"]     {  max-width: 80vw;    }
+    [mobile-width=".9"]            {  width: 90vw;    }                [mobile-min-width=".9"]     {  min-width: 90vw;    }                  [mobile-max-width=".9"]     {  max-width: 90vw;    }
+    [mobile-width="1"]             {  width: 100vw;   }                [mobile-min-width="1"]      {  min-width: 100vw;   }                  [mobile-max-width="1"]      {  max-width: 100vw;   }
+    [mobile-width="1.25"]          {  width: 125vw;   }                [mobile-min-width="1.25"]   {  min-width: 125vw;   }                  [mobile-max-width="1.25"]   {  max-width: 125vw;   }
+    [mobile-width="1.5"]           {  width: 150vw;   }                [mobile-min-width="1.5"]    {  min-width: 150vw;   }                  [mobile-max-width="1.5"]    {  max-width: 150vw;   }
+    [mobile-width="2"]             {  width: 200vw;   }                [mobile-min-width="2"]      {  min-width: 200vw;   }                  [mobile-max-width="2"]      {  max-width: 200vw;   }
+
+
+
+    /* Width "Percentage"                                       Width "Minimum Percentage"                                     Width "Maximum Percentage"
+    ----------------------------------------------------       ------------------------------------------------------         ---------------------------------------------------- */
+    [mobile-width="10"]            {  width: 10%;    }                 [mobile-min-width="10"]     {  min-width: 10%;    }                   [mobile-max-width="10"]     {  max-width: 10%;    }
+    [mobile-width="20"]            {  width: 20%;    }                 [mobile-min-width="20"]     {  min-width: 20%;    }                   [mobile-max-width="20"]     {  max-width: 20%;    }
+    [mobile-width="25"]            {  width: 25%;    }                 [mobile-min-width="25"]     {  min-width: 25%;    }                   [mobile-max-width="25"]     {  max-width: 25%;    }
+    [mobile-width="30"]            {  width: 30%;    }                 [mobile-min-width="30"]     {  min-width: 30%;    }                   [mobile-max-width="30"]     {  max-width: 30%;    }
+    [mobile-width="33"]            {  width: 33%;    }                 [mobile-min-width="33"]     {  min-width: 33%;    }                   [mobile-max-width="33"]     {  max-width: 33%;    }
+    [mobile-width="40"]            {  width: 40%;    }                 [mobile-min-width="40"]     {  min-width: 40%;    }                   [mobile-max-width="40"]     {  max-width: 40%;    }
+    [mobile-width="50"]            {  width: 50%;    }                 [mobile-min-width="50"]     {  min-width: 50%;    }                   [mobile-max-width="50"]     {  max-width: 50%;    }
+    [mobile-width="60"]            {  width: 60%;    }                 [mobile-min-width="60"]     {  min-width: 60%;    }                   [mobile-max-width="60"]     {  max-width: 60%;    }
+    [mobile-width="66"]            {  width: 66%;    }                 [mobile-min-width="66"]     {  min-width: 66%;    }                   [mobile-max-width="66"]     {  max-width: 66%;    }
+    [mobile-width="70"]            {  width: 70%;    }                 [mobile-min-width="70"]     {  min-width: 70%;    }                   [mobile-max-width="70"]     {  max-width: 70%;    }
+    [mobile-width="75"]            {  width: 75%;    }                 [mobile-min-width="75"]     {  min-width: 75%;    }                   [mobile-max-width="75"]     {  max-width: 75%;    }
+    [mobile-width="80"]            {  width: 80%;    }                 [mobile-min-width="80"]     {  min-width: 80%;    }                   [mobile-max-width="80"]     {  max-width: 80%;    }
+    [mobile-width="90"]            {  width: 90%;    }                 [mobile-min-width="90"]     {  min-width: 90%;    }                   [mobile-max-width="90"]     {  max-width: 90%;    }
+    [mobile-width="100"]           {  width: 100%;   }                 [mobile-min-width="100"]    {  min-width: 100%;   }                   [mobile-max-width="100"]    {  max-width: 100%;   }
+    [mobile-width="125"]           {  width: 125%;   }                 [mobile-min-width="125"]    {  min-width: 125%;   }                   [mobile-max-width="125"]    {  max-width: 125%;   }
+    [mobile-width="150"]           {  width: 150%;   }                 [mobile-min-width="150"]    {  min-width: 150%;   }                   [mobile-max-width="150"]    {  max-width: 150%;   }
+    [mobile-width="200"]           {  width: 200%;   }                 [mobile-min-width="200"]    {  min-width: 200%;   }                   [mobile-max-width="200"]    {  max-width: 200%;   }
+
+
+
+
+
+
+
+/*
+    Margin
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+
+
+    /* Margin (rem)
+    -------------------------------------------------- */
+    [mobile-margin="0"]          {  margin: 0;       }
+    [mobile-margin=".25"]        {  margin: .25rem;  }
+    [mobile-margin=".5"]         {  margin: .5rem;   }
+    [mobile-margin=".75"]        {  margin: .75rem;  }
+    [mobile-margin="1"]          {  margin: 1rem;    }
+    [mobile-margin="1.25"]       {  margin: 1.25rem; }
+    [mobile-margin="1.5"]        {  margin: 1.5rem;  }
+    [mobile-margin="1.75"]       {  margin: 1.75rem; }
+    [mobile-margin="2"]          {  margin: 2rem;    }
+    [mobile-margin="2.25"]       {  margin: 2.25rem; }
+    [mobile-margin="2.5"]        {  margin: 2.5rem;  }
+    [mobile-margin="2.75"]       {  margin: 2.75rem; }
+    [mobile-margin="3"]          {  margin: 3rem;    }
+
+
+    /* Margin (rem) "X" Axis                                      Margin (rem) "Y" Axis
+    ----------------------------------------------------         ------------------------------------------------------ */
+    [mobile-margin-x=".25"]      {  margin: 0 .25rem;    }            [mobile-margin-y=".25"]     {  margin: .25rem  0; }
+    [mobile-margin-x=".5"]       {  margin: 0 .5rem;     }            [mobile-margin-y=".5"]      {  margin: .5rem   0; }
+    [mobile-margin-x=".75"]      {  margin: 0 .75rem;    }            [mobile-margin-y=".75"]     {  margin: .75rem  0; }
+    [mobile-margin-x="1"]        {  margin: 0 1rem;      }            [mobile-margin-y="1"]       {  margin: 1rem    0; }
+    [mobile-margin-x="1.25"]     {  margin: 0 1.25rem;   }            [mobile-margin-y="1.25"]    {  margin: 1.25rem 0; }
+    [mobile-margin-x="1.5"]      {  margin: 0 1.5rem;    }            [mobile-margin-y="1.5"]     {  margin: 1.5rem  0; }
+    [mobile-margin-x="1.75"]     {  margin: 0 1.75rem;   }            [mobile-margin-y="1.75"]    {  margin: 1.75rem 0; }
+    [mobile-margin-x="2"]        {  margin: 0 2rem;      }            [mobile-margin-y="2"]       {  margin: 2rem    0; }
+    [mobile-margin-x="2.25"]     {  margin: 0 2.25rem;   }            [mobile-margin-y="2.25"]    {  margin: 2.25rem 0; }
+    [mobile-margin-x="2.5"]      {  margin: 0 2.5rem;    }            [mobile-margin-y="2.5"]     {  margin: 2.5rem  0; }
+    [mobile-margin-x="2.75"]     {  margin: 0 2.75rem;   }            [mobile-margin-y="2.75"]    {  margin: 2.75rem 0; }
+    [mobile-margin-x="3"]        {  margin: 0 3rem;      }            [mobile-margin-y="3"]       {  margin: 3rem    0; }
+
+
+    /* Margin (rem) "Top"                                         Margin (rem) "Right"                                          Margin (rem) "Bottom"                                         Margin (rem) "Left"
+    ----------------------------------------------------         ------------------------------------------------------        ---------------------------------------------------------     ------------------------------------------------------ */
+    [mobile-margin-t=".25"]      {  margin-top: .25rem;  }              [mobile-margin-r=".25"]     {  margin-right: .25rem;  }               [mobile-margin-b=".25"]     {  margin-bottom: .25rem;  }               [mobile-margin-l=".25"]     {  margin-left: .25rem;  }
+    [mobile-margin-t=".5"]       {  margin-top: .5rem;   }              [mobile-margin-r=".5"]      {  margin-right: .5rem;   }               [mobile-margin-b=".5"]      {  margin-bottom: .5rem;   }               [mobile-margin-l=".5"]      {  margin-left: .5rem;   }
+    [mobile-margin-t=".75"]      {  margin-top: .75rem;  }              [mobile-margin-r=".75"]     {  margin-right: .75rem;  }               [mobile-margin-b=".75"]     {  margin-bottom: .75rem;  }               [mobile-margin-l=".75"]     {  margin-left: .75rem;  }
+    [mobile-margin-t="1"]        {  margin-top: 1rem;    }              [mobile-margin-r="1"]       {  margin-right: 1rem;    }               [mobile-margin-b="1"]       {  margin-bottom: 1rem;    }               [mobile-margin-l="1"]       {  margin-left: 1rem;    }
+    [mobile-margin-t="1.25"]     {  margin-top: 1.25rem; }              [mobile-margin-r="1.25"]    {  margin-right: 1.25rem; }               [mobile-margin-b="1.25"]    {  margin-bottom: 1.25rem; }               [mobile-margin-l="1.25"]    {  margin-left: 1.25rem; }
+    [mobile-margin-t="1.5"]      {  margin-top: 1.5rem;  }              [mobile-margin-r="1.5"]     {  margin-right: 1.5rem;  }               [mobile-margin-b="1.5"]     {  margin-bottom: 1.5rem;  }               [mobile-margin-l="1.5"]     {  margin-left: 1.5rem;  }
+    [mobile-margin-t="1.75"]     {  margin-top: 1.75rem; }              [mobile-margin-r="1.75"]    {  margin-right: 1.75rem; }               [mobile-margin-b="1.75"]    {  margin-bottom: 1.75rem; }               [mobile-margin-l="1.75"]    {  margin-left: 1.75rem; }
+    [mobile-margin-t="2"]        {  margin-top: 2rem;    }              [mobile-margin-r="2"]       {  margin-right: 2rem;    }               [mobile-margin-b="2"]       {  margin-bottom: 2rem;    }               [mobile-margin-l="2"]       {  margin-left: 2rem;    }
+    [mobile-margin-t="2.25"]     {  margin-top: 2.25rem; }              [mobile-margin-r="2.25"]    {  margin-right: 2.25rem; }               [mobile-margin-b="2.25"]    {  margin-bottom: 2.25rem; }               [mobile-margin-l="2.25"]    {  margin-left: 2.25rem; }
+    [mobile-margin-t="2.5"]      {  margin-top: 2.5rem;  }              [mobile-margin-r="2.5"]     {  margin-right: 2.5rem;  }               [mobile-margin-b="2.5"]     {  margin-bottom: 2.5rem;  }               [mobile-margin-l="2.5"]     {  margin-left: 2.5rem;  }
+    [mobile-margin-t="2.75"]     {  margin-top: 2.75rem; }              [mobile-margin-r="2.75"]    {  margin-right: 2.75rem; }               [mobile-margin-b="2.75"]    {  margin-bottom: 2.75rem; }               [mobile-margin-l="2.75"]    {  margin-left: 2.75rem; }
+    [mobile-margin-t="3"]        {  margin-top: 3rem;    }              [mobile-margin-r="3"]       {  margin-right: 3rem;    }               [mobile-margin-b="3"]       {  margin-bottom: 3rem;    }               [mobile-margin-l="3"]       {  margin-left: 3rem;    }
+
+
+
+    /* Margin (page)
+    -------------------------------------------------- */
+    [mobile-margin="10"]            {  margin: 10vh 10vw;  }
+    [mobile-margin="20"]            {  margin: 20vh 20vw;  }
+    [mobile-margin="25"]            {  margin: 25vh 25vw;  }
+    [mobile-margin="30"]            {  margin: 30vh 30vw;  }
+    [mobile-margin="33"]            {  margin: 33.33vh 33.33vw; }
+    [mobile-margin="40"]            {  margin: 40vh 40vw;  }
+    [mobile-margin="50"]            {  margin: 50vh 50vw;  }
+    [mobile-margin="60"]            {  margin: 60vh 60vw;  }
+    [mobile-margin="66"]            {  margin: 66.66vh 66.66vw; }
+    [mobile-margin="70"]            {  margin: 70vh 70vw;  }
+    [mobile-margin="75"]            {  margin: 75vh 75vw;  }
+    [mobile-margin="80"]            {  margin: 80vh 80vw;  }
+    [mobile-margin="90"]            {  margin: 90vh 90vw;  }
+    [mobile-margin="100"]           {  margin: 100vh 100vw;  }
+    [mobile-margin="125"]           {  margin: 125vh 125vw;  }
+    [mobile-margin="150"]           {  margin: 150vh 150vw;  }
+    [mobile-margin="200"]           {  margin: 200vh 200vw;  }
+
+
+    /* Margin (page) "X" Axis                                     Margin (page) "Y" Axis
+    ----------------------------------------------------         ------------------------------------------------------ */
+    [mobile-margin-x="10"]          {  margin: 0 10vw;    }              [mobile-margin-y="10"]          {  margin: 10vh 0;    }
+    [mobile-margin-x="20"]          {  margin: 0 20vw;    }              [mobile-margin-y="20"]          {  margin: 20vh 0;    }
+    [mobile-margin-x="25"]          {  margin: 0 25vw;    }              [mobile-margin-y="25"]          {  margin: 25vh 0;    }
+    [mobile-margin-x="30"]          {  margin: 0 30vw;    }              [mobile-margin-y="30"]          {  margin: 30vw 0;    }
+    [mobile-margin-x="33"]          {  margin: 0 33.33vw; }              [mobile-margin-y="33"]          {  margin: 33.33vh 0; }
+    [mobile-margin-x="40"]          {  margin: 0 40vw;    }              [mobile-margin-y="40"]          {  margin: 40vh 0;    }
+    [mobile-margin-x="50"]          {  margin: 0 50vw;    }              [mobile-margin-y="50"]          {  margin: 50vh 0;    }
+    [mobile-margin-x="60"]          {  margin: 0 60vw;    }              [mobile-margin-y="60"]          {  margin: 60vh 0;    }
+    [mobile-margin-x="66"]          {  margin: 0 66.66vw; }              [mobile-margin-y="66"]          {  margin: 66.66vh 0; }
+    [mobile-margin-x="70"]          {  margin: 0 70vw;    }              [mobile-margin-y="70"]          {  margin: 70vh 0;    }
+    [mobile-margin-x="75"]          {  margin: 0 75vw;    }              [mobile-margin-y="75"]          {  margin: 75vh 0;    }
+    [mobile-margin-x="80"]          {  margin: 0 80vw;    }              [mobile-margin-y="80"]          {  margin: 80vh 0;    }
+    [mobile-margin-x="90"]          {  margin: 0 90vw;    }              [mobile-margin-y="90"]          {  margin: 90vh 0;    }
+    [mobile-margin-x="100"]         {  margin: 0 100vw;   }              [mobile-margin-y="100"]         {  margin: 100vh 0;   }
+    [mobile-margin-x="125"]         {  margin: 0 125vw;   }              [mobile-margin-y="125"]         {  margin: 120vh 0;   }
+    [mobile-margin-x="150"]         {  margin: 0 150vw;   }              [mobile-margin-y="150"]         {  margin: 150vh 0;   }
+    [mobile-margin-x="200"]         {  margin: 0 200vw;   }              [mobile-margin-y="200"]         {  margin: 200vh 0;   }
+
+
+    /* Margin (page) "Top"                                        Margin (page) "Right"                                         Margin (page) "Bottom"                                        Margin (page) "Left"
+    ----------------------------------------------------         ------------------------------------------------------        ---------------------------------------------------------     ------------------------------------------------------ */
+    [mobile-margin-t="10"]          {  margin-top: 10vh;  }              [mobile-margin-r="10"]            {  margin-right: 10vw;  }          [mobile-margin-b="10"]            {  margin-bottom: 10vh;  }         [mobile-margin-l="10"]            {  margin-left: 10vw; }
+    [mobile-margin-t="20"]          {  margin-top: 20vh;  }              [mobile-margin-r="20"]            {  margin-right: 20vw;  }          [mobile-margin-b="20"]            {  margin-bottom: 20vh;  }         [mobile-margin-l="20"]            {  margin-left: 20vw; }
+    [mobile-margin-t="25"]          {  margin-top: 25vh;  }              [mobile-margin-r="25"]            {  margin-right: 25vw;  }          [mobile-margin-b="25"]            {  margin-bottom: 25vh;  }         [mobile-margin-l="25"]            {  margin-left: 25vw; }
+    [mobile-margin-t="30"]          {  margin-top: 30vh;  }              [mobile-margin-r="30"]            {  margin-right: 30vw;  }          [mobile-margin-b="30"]            {  margin-bottom: 30vh;  }         [mobile-margin-l="30"]            {  margin-left: 30vw; }
+    [mobile-margin-t="33"]          {  margin-top: 33.33vh; }            [mobile-margin-r="33"]            {  margin-right: 33.33vw; }        [mobile-margin-b="33"]            {  margin-bottom: 33.33vh; }       [mobile-margin-l="33"]            {  margin-left: 33.33vw; }
+    [mobile-margin-t="40"]          {  margin-top: 40vh;  }              [mobile-margin-r="40"]            {  margin-right: 40vw;  }          [mobile-margin-b="40"]            {  margin-bottom: 40vh;  }         [mobile-margin-l="40"]            {  margin-left: 40vw; }
+    [mobile-margin-t="50"]          {  margin-top: 50vh;  }              [mobile-margin-r="50"]            {  margin-right: 50vw;  }          [mobile-margin-b="50"]            {  margin-bottom: 50vh;  }         [mobile-margin-l="50"]            {  margin-left: 50vw; }
+    [mobile-margin-t="60"]          {  margin-top: 60vh;  }              [mobile-margin-r="60"]            {  margin-right: 60vw;  }          [mobile-margin-b="60"]            {  margin-bottom: 60vh;  }         [mobile-margin-l="60"]            {  margin-left: 60vw; }
+    [mobile-margin-t="66"]          {  margin-top: 66.66vh; }            [mobile-margin-r="66"]            {  margin-right: 66.66vw; }        [mobile-margin-b="66"]            {  margin-bottom: 66.66vh; }       [mobile-margin-l="66"]            {  margin-left: 66.66vw; }
+    [mobile-margin-t="70"]          {  margin-top: 70vh;  }              [mobile-margin-r="70"]            {  margin-right: 70vw;  }          [mobile-margin-b="70"]            {  margin-bottom: 70vh;  }         [mobile-margin-l="70"]            {  margin-left: 70vw; }
+    [mobile-margin-t="75"]          {  margin-top: 75vh;  }              [mobile-margin-r="75"]            {  margin-right: 75vw;  }          [mobile-margin-b="75"]            {  margin-bottom: 75vh;  }         [mobile-margin-l="75"]            {  margin-left: 75vw; }
+    [mobile-margin-t="80"]          {  margin-top: 80vh;  }              [mobile-margin-r="80"]            {  margin-right: 80vw;  }          [mobile-margin-b="80"]            {  margin-bottom: 80vh;  }         [mobile-margin-l="80"]            {  margin-left: 80vw; }
+    [mobile-margin-t="90"]          {  margin-top: 90vh;  }              [mobile-margin-r="90"]            {  margin-right: 90vw;  }          [mobile-margin-b="90"]            {  margin-bottom: 90vh;  }         [mobile-margin-l="90"]            {  margin-left: 90vw; }
+    [mobile-margin-t="100"]         {  margin-top: 100vh;  }             [mobile-margin-r="100"]           {  margin-right: 100vw;  }         [mobile-margin-b="100"]           {  margin-bottom: 100vh;  }        [mobile-margin-l="100"]           {  margin-left: 100vw; }
+    [mobile-margin-t="125"]         {  margin-top: 125vh;  }             [mobile-margin-r="125"]           {  margin-right: 125vw;  }         [mobile-margin-b="125"]           {  margin-bottom: 125vh;  }        [mobile-margin-l="125"]           {  margin-left: 125vw; }
+    [mobile-margin-t="150"]         {  margin-top: 150vh;  }             [mobile-margin-r="150"]           {  margin-right: 150vw;  }         [mobile-margin-b="150"]           {  margin-bottom: 150vh;  }        [mobile-margin-l="150"]           {  margin-left: 150vw; }
+    [mobile-margin-t="200"]         {  margin-top: 200vh;  }             [mobile-margin-r="200"]           {  margin-right: 200vw;  }         [mobile-margin-b="200"]           {  margin-bottom: 200vh;  }        [mobile-margin-l="200"]           {  margin-left: 200vw; }
+
+
+
+/*
+    Padding
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+
+
+    /* Padding (rem)
+    -------------------------------------------------- */
+    [mobile-padding="0"]          {  padding: 0;       }
+    [mobile-padding=".25"]        {  padding: .25rem;  }
+    [mobile-padding=".5"]         {  padding: .5rem;   }
+    [mobile-padding=".75"]        {  padding: .75rem;  }
+    [mobile-padding="1"]          {  padding: 1rem;    }
+    [mobile-padding="1.25"]       {  padding: 1.25rem; }
+    [mobile-padding="1.5"]        {  padding: 1.5rem;  }
+    [mobile-padding="1.75"]       {  padding: 1.75rem; }
+    [mobile-padding="2"]          {  padding: 2rem;    }
+    [mobile-padding="2.25"]       {  padding: 2.25rem; }
+    [mobile-padding="2.5"]        {  padding: 2.5rem;  }
+    [mobile-padding="2.75"]       {  padding: 2.75rem; }
+    [mobile-padding="3"]          {  padding: 3rem;    }
+
+
+    /* Padding (rem) "X" Axis                                      Padding (rem) "Y" Axis
+    ----------------------------------------------------         ------------------------------------------------------ */
+    [mobile-padding-x=".25"]      {  padding: 0 .25rem;    }            [mobile-padding-y=".25"]     {  padding: .25rem  0; }
+    [mobile-padding-x=".5"]       {  padding: 0 .5rem;     }            [mobile-padding-y=".5"]      {  padding: .5rem   0; }
+    [mobile-padding-x=".75"]      {  padding: 0 .75rem;    }            [mobile-padding-y=".75"]     {  padding: .75rem  0; }
+    [mobile-padding-x="1"]        {  padding: 0 1rem;      }            [mobile-padding-y="1"]       {  padding: 1rem    0; }
+    [mobile-padding-x="1.25"]     {  padding: 0 1.25rem;   }            [mobile-padding-y="1.25"]    {  padding: 1.25rem 0; }
+    [mobile-padding-x="1.5"]      {  padding: 0 1.5rem;    }            [mobile-padding-y="1.5"]     {  padding: 1.5rem  0; }
+    [mobile-padding-x="1.75"]     {  padding: 0 1.75rem;   }            [mobile-padding-y="1.75"]    {  padding: 1.75rem 0; }
+    [mobile-padding-x="2"]        {  padding: 0 2rem;      }            [mobile-padding-y="2"]       {  padding: 2rem    0; }
+    [mobile-padding-x="2.25"]     {  padding: 0 2.25rem;   }            [mobile-padding-y="2.25"]    {  padding: 2.25rem 0; }
+    [mobile-padding-x="2.5"]      {  padding: 0 2.5rem;    }            [mobile-padding-y="2.5"]     {  padding: 2.5rem  0; }
+    [mobile-padding-x="2.75"]     {  padding: 0 2.75rem;   }            [mobile-padding-y="2.75"]    {  padding: 2.75rem 0; }
+    [mobile-padding-x="3"]        {  padding: 0 3rem;      }            [mobile-padding-y="3"]       {  padding: 3rem    0; }
+
+
+    /* Padding (rem) "Top"                                         Padding (rem) "Right"                                          Padding (rem) "Bottom"                                         Padding (rem) "Left"
+    ----------------------------------------------------         ------------------------------------------------------        ---------------------------------------------------------     ------------------------------------------------------ */
+    [mobile-padding-t=".25"]      {  padding-top: .25rem;  }              [mobile-padding-r=".25"]     {  padding-right: .25rem;  }               [mobile-padding-b=".25"]     {  padding-bottom: .25rem;  }               [mobile-padding-l=".25"]     {  padding-left: .25rem;  }
+    [mobile-padding-t=".5"]       {  padding-top: .5rem;   }              [mobile-padding-r=".5"]      {  padding-right: .5rem;   }               [mobile-padding-b=".5"]      {  padding-bottom: .5rem;   }               [mobile-padding-l=".5"]      {  padding-left: .5rem;   }
+    [mobile-padding-t=".75"]      {  padding-top: .75rem;  }              [mobile-padding-r=".75"]     {  padding-right: .75rem;  }               [mobile-padding-b=".75"]     {  padding-bottom: .75rem;  }               [mobile-padding-l=".75"]     {  padding-left: .75rem;  }
+    [mobile-padding-t="1"]        {  padding-top: 1rem;    }              [mobile-padding-r="1"]       {  padding-right: 1rem;    }               [mobile-padding-b="1"]       {  padding-bottom: 1rem;    }               [mobile-padding-l="1"]       {  padding-left: 1rem;    }
+    [mobile-padding-t="1.25"]     {  padding-top: 1.25rem; }              [mobile-padding-r="1.25"]    {  padding-right: 1.25rem; }               [mobile-padding-b="1.25"]    {  padding-bottom: 1.25rem; }               [mobile-padding-l="1.25"]    {  padding-left: 1.25rem; }
+    [mobile-padding-t="1.5"]      {  padding-top: 1.5rem;  }              [mobile-padding-r="1.5"]     {  padding-right: 1.5rem;  }               [mobile-padding-b="1.5"]     {  padding-bottom: 1.5rem;  }               [mobile-padding-l="1.5"]     {  padding-left: 1.5rem;  }
+    [mobile-padding-t="1.75"]     {  padding-top: 1.75rem; }              [mobile-padding-r="1.75"]    {  padding-right: 1.75rem; }               [mobile-padding-b="1.75"]    {  padding-bottom: 1.75rem; }               [mobile-padding-l="1.75"]    {  padding-left: 1.75rem; }
+    [mobile-padding-t="2"]        {  padding-top: 2rem;    }              [mobile-padding-r="2"]       {  padding-right: 2rem;    }               [mobile-padding-b="2"]       {  padding-bottom: 2rem;    }               [mobile-padding-l="2"]       {  padding-left: 2rem;    }
+    [mobile-padding-t="2.25"]     {  padding-top: 2.25rem; }              [mobile-padding-r="2.25"]    {  padding-right: 2.25rem; }               [mobile-padding-b="2.25"]    {  padding-bottom: 2.25rem; }               [mobile-padding-l="2.25"]    {  padding-left: 2.25rem; }
+    [mobile-padding-t="2.5"]      {  padding-top: 2.5rem;  }              [mobile-padding-r="2.5"]     {  padding-right: 2.5rem;  }               [mobile-padding-b="2.5"]     {  padding-bottom: 2.5rem;  }               [mobile-padding-l="2.5"]     {  padding-left: 2.5rem;  }
+    [mobile-padding-t="2.75"]     {  padding-top: 2.75rem; }              [mobile-padding-r="2.75"]    {  padding-right: 2.75rem; }               [mobile-padding-b="2.75"]    {  padding-bottom: 2.75rem; }               [mobile-padding-l="2.75"]    {  padding-left: 2.75rem; }
+    [mobile-padding-t="3"]        {  padding-top: 3rem;    }              [mobile-padding-r="3"]       {  padding-right: 3rem;    }               [mobile-padding-b="3"]       {  padding-bottom: 3rem;    }               [mobile-padding-l="3"]       {  padding-left: 3rem;    }
+
+
+
+    /* Padding (page)
+    -------------------------------------------------- */
+    [mobile-padding="10"]            {  padding: 10vh 10vw;  }
+    [mobile-padding="20"]            {  padding: 20vh 20vw;  }
+    [mobile-padding="25"]            {  padding: 25vh 25vw;  }
+    [mobile-padding="30"]            {  padding: 30vh 30vw;  }
+    [mobile-padding="33"]            {  padding: 33.33vh 33.33vw; }
+    [mobile-padding="40"]            {  padding: 40vh 40vw;  }
+    [mobile-padding="50"]            {  padding: 50vh 50vw;  }
+    [mobile-padding="60"]            {  padding: 60vh 60vw;  }
+    [mobile-padding="66"]            {  padding: 66.66vh 66.66vw; }
+    [mobile-padding="70"]            {  padding: 70vh 70vw;  }
+    [mobile-padding="75"]            {  padding: 75vh 75vw;  }
+    [mobile-padding="80"]            {  padding: 80vh 80vw;  }
+    [mobile-padding="90"]            {  padding: 90vh 90vw;  }
+    [mobile-padding="100"]           {  padding: 100vh 100vw;  }
+    [mobile-padding="125"]           {  padding: 125vh 125vw;  }
+    [mobile-padding="150"]           {  padding: 150vh 150vw;  }
+    [mobile-padding="200"]           {  padding: 200vh 200vw;  }
+
+
+    /* Padding (page) "X" Axis                                     Padding (page) "Y" Axis
+    ----------------------------------------------------         ------------------------------------------------------ */
+    [mobile-padding-x="10"]          {  padding: 0 10vw;    }              [mobile-padding-y="10"]          {  padding: 10vh 0;    }
+    [mobile-padding-x="20"]          {  padding: 0 20vw;    }              [mobile-padding-y="20"]          {  padding: 20vh 0;    }
+    [mobile-padding-x="25"]          {  padding: 0 25vw;    }              [mobile-padding-y="25"]          {  padding: 25vh 0;    }
+    [mobile-padding-x="30"]          {  padding: 0 30vw;    }              [mobile-padding-y="30"]          {  padding: 30vw 0;    }
+    [mobile-padding-x="33"]          {  padding: 0 33.33vw; }              [mobile-padding-y="33"]          {  padding: 33.33vh 0; }
+    [mobile-padding-x="40"]          {  padding: 0 40vw;    }              [mobile-padding-y="40"]          {  padding: 40vh 0;    }
+    [mobile-padding-x="50"]          {  padding: 0 50vw;    }              [mobile-padding-y="50"]          {  padding: 50vh 0;    }
+    [mobile-padding-x="60"]          {  padding: 0 60vw;    }              [mobile-padding-y="60"]          {  padding: 60vh 0;    }
+    [mobile-padding-x="66"]          {  padding: 0 66.66vw; }              [mobile-padding-y="66"]          {  padding: 66.66vh 0; }
+    [mobile-padding-x="70"]          {  padding: 0 70vw;    }              [mobile-padding-y="70"]          {  padding: 70vh 0;    }
+    [mobile-padding-x="75"]          {  padding: 0 75vw;    }              [mobile-padding-y="75"]          {  padding: 75vh 0;    }
+    [mobile-padding-x="80"]          {  padding: 0 80vw;    }              [mobile-padding-y="80"]          {  padding: 80vh 0;    }
+    [mobile-padding-x="90"]          {  padding: 0 90vw;    }              [mobile-padding-y="90"]          {  padding: 90vh 0;    }
+    [mobile-padding-x="100"]         {  padding: 0 100vw;   }              [mobile-padding-y="100"]         {  padding: 100vh 0;   }
+    [mobile-padding-x="125"]         {  padding: 0 125vw;   }              [mobile-padding-y="125"]         {  padding: 120vh 0;   }
+    [mobile-padding-x="150"]         {  padding: 0 150vw;   }              [mobile-padding-y="150"]         {  padding: 150vh 0;   }
+    [mobile-padding-x="200"]         {  padding: 0 200vw;   }              [mobile-padding-y="200"]         {  padding: 200vh 0;   }
+
+
+    /* Padding (page) "Top"                                        Padding (page) "Right"                                         Padding (page) "Bottom"                                        Padding (page) "Left"
+    ----------------------------------------------------         ------------------------------------------------------        ---------------------------------------------------------     ------------------------------------------------------ */
+    [mobile-padding-t="10"]          {  padding-top: 10vh;  }              [mobile-padding-r="10"]            {  padding-right: 10vw;  }          [mobile-padding-b="10"]            {  padding-bottom: 10vh;  }         [mobile-padding-l="10"]            {  padding-left: 10vw; }
+    [mobile-padding-t="20"]          {  padding-top: 20vh;  }              [mobile-padding-r="20"]            {  padding-right: 20vw;  }          [mobile-padding-b="20"]            {  padding-bottom: 20vh;  }         [mobile-padding-l="20"]            {  padding-left: 20vw; }
+    [mobile-padding-t="25"]          {  padding-top: 25vh;  }              [mobile-padding-r="25"]            {  padding-right: 25vw;  }          [mobile-padding-b="25"]            {  padding-bottom: 25vh;  }         [mobile-padding-l="25"]            {  padding-left: 25vw; }
+    [mobile-padding-t="30"]          {  padding-top: 30vh;  }              [mobile-padding-r="30"]            {  padding-right: 30vw;  }          [mobile-padding-b="30"]            {  padding-bottom: 30vh;  }         [mobile-padding-l="30"]            {  padding-left: 30vw; }
+    [mobile-padding-t="33"]          {  padding-top: 33.33vh; }            [mobile-padding-r="33"]            {  padding-right: 33.33vw; }        [mobile-padding-b="33"]            {  padding-bottom: 33.33vh; }       [mobile-padding-l="33"]            {  padding-left: 33.33vw; }
+    [mobile-padding-t="40"]          {  padding-top: 40vh;  }              [mobile-padding-r="40"]            {  padding-right: 40vw;  }          [mobile-padding-b="40"]            {  padding-bottom: 40vh;  }         [mobile-padding-l="40"]            {  padding-left: 40vw; }
+    [mobile-padding-t="50"]          {  padding-top: 50vh;  }              [mobile-padding-r="50"]            {  padding-right: 50vw;  }          [mobile-padding-b="50"]            {  padding-bottom: 50vh;  }         [mobile-padding-l="50"]            {  padding-left: 50vw; }
+    [mobile-padding-t="60"]          {  padding-top: 60vh;  }              [mobile-padding-r="60"]            {  padding-right: 60vw;  }          [mobile-padding-b="60"]            {  padding-bottom: 60vh;  }         [mobile-padding-l="60"]            {  padding-left: 60vw; }
+    [mobile-padding-t="66"]          {  padding-top: 66.66vh; }            [mobile-padding-r="66"]            {  padding-right: 66.66vw; }        [mobile-padding-b="66"]            {  padding-bottom: 66.66vh; }       [mobile-padding-l="66"]            {  padding-left: 66.66vw; }
+    [mobile-padding-t="70"]          {  padding-top: 70vh;  }              [mobile-padding-r="70"]            {  padding-right: 70vw;  }          [mobile-padding-b="70"]            {  padding-bottom: 70vh;  }         [mobile-padding-l="70"]            {  padding-left: 70vw; }
+    [mobile-padding-t="75"]          {  padding-top: 75vh;  }              [mobile-padding-r="75"]            {  padding-right: 75vw;  }          [mobile-padding-b="75"]            {  padding-bottom: 75vh;  }         [mobile-padding-l="75"]            {  padding-left: 75vw; }
+    [mobile-padding-t="80"]          {  padding-top: 80vh;  }              [mobile-padding-r="80"]            {  padding-right: 80vw;  }          [mobile-padding-b="80"]            {  padding-bottom: 80vh;  }         [mobile-padding-l="80"]            {  padding-left: 80vw; }
+    [mobile-padding-t="90"]          {  padding-top: 90vh;  }              [mobile-padding-r="90"]            {  padding-right: 90vw;  }          [mobile-padding-b="90"]            {  padding-bottom: 90vh;  }         [mobile-padding-l="90"]            {  padding-left: 90vw; }
+    [mobile-padding-t="100"]         {  padding-top: 100vh;  }             [mobile-padding-r="100"]           {  padding-right: 100vw;  }         [mobile-padding-b="100"]           {  padding-bottom: 100vh;  }        [mobile-padding-l="100"]           {  padding-left: 100vw; }
+    [mobile-padding-t="125"]         {  padding-top: 125vh;  }             [mobile-padding-r="125"]           {  padding-right: 125vw;  }         [mobile-padding-b="125"]           {  padding-bottom: 125vh;  }        [mobile-padding-l="125"]           {  padding-left: 125vw; }
+    [mobile-padding-t="150"]         {  padding-top: 150vh;  }             [mobile-padding-r="150"]           {  padding-right: 150vw;  }         [mobile-padding-b="150"]           {  padding-bottom: 150vh;  }        [mobile-padding-l="150"]           {  padding-left: 150vw; }
+    [mobile-padding-t="200"]         {  padding-top: 200vh;  }             [mobile-padding-r="200"]           {  padding-right: 200vw;  }         [mobile-padding-b="200"]           {  padding-bottom: 200vh;  }        [mobile-padding-l="200"]           {  padding-left: 200vw; }
+
+
+
+
+
+
+
+
+/*
+    COLORS
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+
+    /* Background */
+    [mobile-bg="clear"]                           { background: rgba(255,255,255, 0); }
+    [mobile-bg="red"]                             { background: rgba(240,98,146,  1); }
+    [mobile-bg="blue"]                            { background: rgba(100,181,246, 1); }
+    [mobile-bg="purple"]                          { background: rgba(123,31,162,  1); }
+    [mobile-bg="yellow"]                          { background: rgba(246,255,40,  1); }
+    [mobile-bg="green"]                           { background: rgba(0,230,118,   1); }
+    [mobile-bg="white"]                           { background: rgba(255,255,255, 1); }
+    [mobile-bg="black"]                           { background: rgba(0,0,0,       1); }
+    [mobile-bg="gray"]                            { background: rgba(70,70,70,    1); }
+
+    /* Dark BG (MD Spec)*/
+    [mobile-bg="black"][mobile-type="primary"]        { background: rgba(0,0,0, .87); }
+    [mobile-bg="black"][mobile-type="secondary"]      { background: rgba(0,0,0, .54); }
+    [mobile-bg="black"][mobile-type="disabled"]       { background: rgba(0,0,0, .38); }
+    [mobile-bg="black"][mobile-type="divider"]        { background: rgba(0,0,0, .12); }
+
+    [mobile-bg="black"][mobile-fade=".1"]             { background: rgba(0,0,0, .12); }
+    [mobile-bg="black"][mobile-fade=".2"]             { background: rgba(0,0,0, .22); }
+    [mobile-bg="black"][mobile-fade=".3"]             { background: rgba(0,0,0, .32); }
+    [mobile-bg="black"][mobile-fade=".4"]             { background: rgba(0,0,0, .42); }
+    [mobile-bg="black"][mobile-fade=".5"]             { background: rgba(0,0,0, .54); }
+    [mobile-bg="black"][mobile-fade=".6"]             { background: rgba(0,0,0, .62); }
+    [mobile-bg="black"][mobile-fade=".7"]             { background: rgba(0,0,0, .72); }
+    [mobile-bg="black"][mobile-fade=".8"]             { background: rgba(0,0,0, .78); }
+    [mobile-bg="black"][mobile-fade=".9"]             { background: rgba(0,0,0, .87); }
+
+    /* Light BG (MD Spec)*/
+    [mobile-bg="white"][mobile-fade="primary"]        { background: rgba(255,255,255,   1); }
+    [mobile-bg="white"][mobile-fade="secondary"]      { background: rgba(255,255,255,  .7); }
+    [mobile-bg="white"][mobile-fade="disabled"]       { background: rgba(255,255,255,  .5); }
+    [mobile-bg="white"][mobile-fade="divider"]        { background: rgba(255,255,255, .12); }
+
+    [mobile-bg="white"][mobile-fade=".1"]             { background: rgba(255,255,255, .12); }
+    [mobile-bg="white"][mobile-fade=".2"]             { background: rgba(255,255,255, .22); }
+    [mobile-bg="white"][mobile-fade=".3"]             { background: rgba(255,255,255, .32); }
+    [mobile-bg="white"][mobile-fade=".4"]             { background: rgba(255,255,255, .42); }
+    [mobile-bg="white"][mobile-fade=".5"]             { background: rgba(255,255,255, .54); }
+    [mobile-bg="white"][mobile-fade=".6"]             { background: rgba(255,255,255, .62); }
+    [mobile-bg="white"][mobile-fade=".7"]             { background: rgba(255,255,255, .72); }
+    [mobile-bg="white"][mobile-fade=".8"]             { background: rgba(255,255,255, .78); }
+    [mobile-bg="white"][mobile-fade=".9"]             { background: rgba(255,255,255, .87); }
+
+
+    /* Text */
+    [mobile-color="black"]            { color: rgba(0,0,0,       1); }
+    [mobile-color="white"]            { color: rgba(255,255,255, 1); }
+
+
+    /* Dark Text (MD Spec)*/
+    [mobile-color="black"][mobile-type="primary"]        { color: rgba(0,0,0, .87); }
+    [mobile-color="black"][mobile-type="secondary"]      { color: rgba(0,0,0, .54); }
+    [mobile-color="black"][mobile-type="disabled"]       { color: rgba(0,0,0, .38); }
+    [mobile-color="black"][mobile-type="divider"]        { color: rgba(0,0,0, .12); }
+
+
+    /* Light Text (MD Spec)*/
+    [mobile-color="white"][mobile-type="primary"]        { color: rgba(255,255,255,   1); }
+    [mobile-color="white"][mobile-type="secondary"]      { color: rgba(255,255,255,  .7); }
+    [mobile-color="white"][mobile-type="disabled"]       { color: rgba(255,255,255,  .5); }
+    [mobile-color="white"][mobile-type="divider"]        { color: rgba(255,255,255, .12); }
+
+
+/*
+    OPACITY
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+
+    /* Visibility */
+    [mobile-visible="1"]                   { opacity:   1; }
+    [mobile-visible="0"]                   { opacity:   0; }
+
+    /* Opacity */
+    [mobile-opacity=".1"]                  { opacity: .12; }
+    [mobile-opacity=".2"]                  { opacity: .22; }
+    [mobile-opacity=".3"]                  { opacity: .32; }
+    [mobile-opacity=".4"]                  { opacity: .42; }
+    [mobile-opacity=".5"]                  { opacity: .54; }
+    [mobile-opacity=".6"]                  { opacity: .62; }
+    [mobile-opacity=".7"]                  { opacity: .72; }
+    [mobile-opacity=".8"]                  { opacity: .78; }
+    [mobile-opacity=".9"]                  { opacity: .87; }
+
+    /* Dark */
+    [mobile-opacity="dark-primary"]        { opacity: .87; }
+    [mobile-opacity="dark-secondary"]      { opacity: .54; }
+    [mobile-opacity="dark-disabled"]       { opacity: .38; }
+
+    /* Light */
+    [mobile-opacity="light-primary"]       { opacity:   1; }
+    [mobile-opacity="light-secondary"]     { opacity:  .7; }
+    [mobile-opacity="light-disabled"]      { opacity:  .5; }
+
+
+    [mobile-opacity="divider"]             { opacity: .12; }
+
+
+/*
+    STYLES
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+
+    /* Visibility */
+    [mobile-radius="1"]                   { border-radius: 100%; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* Margin: 50vh                            Height: 50vh
+    ----------------------------------        ----------------------------------
+    [mobile-margin=".5"]     { margin: 50vh; }        [mobile-height=".5"]     { height: 50vh }
+    [mobile-margin="50"]     { margin: 50vh; }        [mobile-height="50"]     { height: 50vh }
+    [mobile-margin="05"]     { margin: 50vh; }        [mobile-height="05"]     { height: 50vh }
+    [mobile-margin="1/2"]    { margin: 50vh; }        [mobile-height="1/2"]    { height: 50vh }
+    [mobile-margin="50vh"]   { margin: 50vh; }        [mobile-height="50vh"]   { height: 50vh }
+
+    [mobile-margin=".5"]     { margin: 50vh; }        [mobile-height=".5"]     { height: 50vh }
+    [mobile-margin=".5"]     { margin: 50vh; }        [mobile-height=".5"]     { height: 50vh }
+
+    */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+</style>

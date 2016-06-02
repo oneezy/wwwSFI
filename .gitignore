@@ -1,0 +1,7 @@
+node_modules
+dist
+bower_components
+resources
+desktop.ini
+.tmp
+.publish/
