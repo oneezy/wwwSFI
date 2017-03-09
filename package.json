@@ -20,7 +20,7 @@
     "gulp-rename": "^1.2.0",
     "gulp-replace": "^0.5.4",
     "gulp-size": "^2.0.0",
-    "gulp-uglify": "^2.0.0",
+    "gulp-uglify": "2.0.1",
     "gulp-useref": "^3.0.5",
     "gulp-vulcanize": "^6.0.0",
     "merge-stream": "^1.0.0",
