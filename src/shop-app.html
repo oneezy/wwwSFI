@@ -1,0 +1,639 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/steel-properties/steel-classes.html">
+<link rel="import" href="../bower_components/app-layout/app-header/app-header.html">
+<link rel="import" href="../bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
+<link rel="import" href="../bower_components/app-layout/app-toolbar/app-toolbar.html">
+<link rel="import" href="../bower_components/app-layout/helpers/helpers.html">
+<link rel="import" href="../bower_components/app-route/app-location.html">
+<link rel="import" href="../bower_components/app-route/app-route.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../bower_components/iron-media-query/iron-media-query.html">
+<link rel="import" href="../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../bower_components/iron-selector/iron-selector.html">
+<link rel="import" href="../bower_components/super-icons/super-icons.html">
+
+<!-- <link rel="import" href="fonts/fonts.html"> -->
+<link rel="import" href="data-category-cms.html">
+<!-- Since 'home' is the default route, eagerly load it. -->
+<link rel="import" href="shop-home.html">
+
+<dom-module id="shop-app">
+    <template>
+
+<style is="custom-style">
+
+    :root {
+
+        /* Super Album (Theme)
+        ******************************************************************/
+        --primary-color: rgba(70,70,70, 1);   /* Gray */
+        --accent-color:  rgba(183,28,28, 1);  /* Red */
+
+        /* Dark */
+        --dark-primary: rgba(0, 0, 0, .87);
+        --dark-secondary: rgba(0, 0, 0, .54);
+        --dark-disabled: rgba(0, 0, 0, .38);
+        --dark-divider: rgba(0, 0, 0, .12);
+
+        /* Dark Accent*/
+        --dark-accent-primary: rgba(0, 0, 0, .87);
+        --dark-accent-secondary: rgba(0, 0, 0, .54);
+        --dark-accent-disabled: rgba(0, 0, 0, .38);
+        --dark-accent-divider: rgba(0, 0, 0, .12);
+
+        /* Lite */
+        --lite-primary: rgba(256, 256, 256, 1);
+        --lite-secondary: rgba(256, 256, 256, .7);
+        --lite-disabled: rgba(256, 256, 256, .5);
+        --lite-divider: rgba(256, 256, 256, .12);
+    }
+
+    :host {
+
+        position: relative;
+
+        --app-primary-color: #212121;
+        --app-primary-color-fade: rgba(32,32,32, .78);
+        --app-secondary-color: #9e9e9e;
+        --app-secondary-color-fade: rgba(158,158,158,.95);
+        --app-tertiary-color: rgba(117,117,117, 1);
+        --app-accent-color: #b71c1c;
+        --app-accent-secondary-color: #ffffff;
+        --app-color-white: #ffffff;
+
+        --paper-button-ink-color: var(--app-accent-secondary-color);
+        --paper-icon-button-ink-color: var(--app-accent-secondary-color);
+        --paper-spinner-color: var(--app-accent-secondary-color);
+        color: var(--app-primary-color);
+        text-decoration: none;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+
+
+/* STICKY FOOTER
+*******************************************************************************************/
+    :host {
+        display: -webkit-box;    -webkit-box-orient: vertical;       /* Super Old */
+        display: -ms-flexbox;    -ms-flex-direction: column;         /* Microsoft */
+        display: -webkit-flex;   -webkit-flex-direction: column;     /* Webkit */
+        display: flex;           flex-direction: column;             /* Standard */
+
+        height: 100%;
+        min-height: 100vh;
+        background: white;
+    }
+
+    iron-pages {
+        -webkit-box-flex: 1;      /* Super Old */
+        -ms-flex: 1 0 auto;       /* Microsoft */
+        -webkit-flex: 1 0 auto;   /* Webkit */
+        flex: 1 0 auto;           /* Standard */
+    }
+
+/* STICKY FOOTER
+*******************************************************************************************/
+
+    app-header {
+        @apply(--layout-fixed-top);
+        z-index: 1;
+        box-shadow: inset 0px -4px 0px 0px rgba(256,256,256, .14);
+        background: rgba(0,0,0, .78);
+
+        --app-header-shadow: {
+            box-shadow: inset 0px 5px 6px -3px rgba(0, 0, 0, .78);
+            height: 10px;
+            bottom: -10px;
+        };
+    }
+
+    iron-pages { margin: 0 0 6rem; }
+    app-toolbar {  }
+
+    paper-icon-button { color: var(--app-color-white); opacity: .5; transition: opacity .22s ease-in-out; }
+    paper-icon-button:hover { opacity: 1; transition: opacity .22s ease-in-out; }
+    a { text-decoration: none; }
+
+    .logo { line-height: 0 !important; }
+    .logo * { line-height: 0 !important; }
+    .logo a { color: var(--app-primary-color); display: inline-block; pointer-events: auto; }
+    .logo a img { width: 80px; }
+    .left-bar { width: 40px; }
+    .menu-btn { display: none; }
+    .cart-btn-container { position: relative; width: 40px; margin-left: auto; }
+    .announcer { position: fixed; height: 0; overflow: hidden; }
+
+    :host(:not([page=detail])) .back-btn {
+        display: none;
+    }
+
+    [hidden] { display: none !important; }
+
+    #tabContainer { position: relative; height: 66px; }
+
+    component-tabs, component-tab { height: 64px; color: var(--app-primary-color); text-transform: uppercase;
+
+        --component-tab-overlay: {
+            background: -moz-linear-gradient(left,  rgba(255,255,255,0) 0%, rgba(255,255,255, .25) 50%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
+            background: -webkit-linear-gradient(left,  rgba(255,255,255,0) 0%,rgba(255,255,255, .25) 50%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(to right,  rgba(255,255,255,0) 0%,rgba(255,255,255, .25) 50%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+
+            border-bottom: 4px solid var(--app-accent-color);
+        };
+    }
+
+    component-tabs { height: 100%; }
+    component-tab { margin: 0; }
+    component-tab a { outline: none; height: 100%; padding: 0 20px; font-size: 13px; font-weight: 500; text-decoration: none; color: var(--app-color-white); }
+
+    .cart-badge {
+        position: absolute; top: -2px; right: 0; width: 20px; height: 20px; border-radius: 50%; font-size: 12px; font-weight: 900; pointer-events: none; transition: color .22s ease-in-out;
+        background-color: var(--app-accent-color);
+        color: var(--app-color-white);
+        @apply(--layout-vertical);
+        @apply(--layout-center-center);
+    }
+
+    app-drawer { z-index: 3;
+
+        --app-drawer-content-container: {
+            width: 290px;
+            background-color: var(--app-primary-color);
+        }
+    }
+
+    app-drawer .drawer-map                   { height: 25vh; width: 290px; position: relative; border-bottom: 4px solid silver; }
+    app-drawer .drawer-map google-map        { -webkit-filter: grayscale(1); filter: grayscale(1); }
+    app-drawer .drawer-map img               { display: inline-block; max-width: 100%; position: absolute; left: calc(50% - 40px); top: calc(100% - 24px); z-index: 1; }
+    app-drawer .drawer-map component-pulse   { position: absolute; left: calc(50% - 10px); top: calc(50% - 10px); z-index: 1; }
+
+    app-drawer .drawer-map:after             { content: ""; display: block; position: absolute; top: 0; right: 0; bottom: 0; left: 0; background: black; opacity: .5; z-index: 0; }
+
+    app-drawer .drawer-list                  { margin: 0 20px; background: var(--app-primary-color); }
+    app-drawer .drawer-list a                { display: block; padding: 0 16px; line-height: 40px; text-transform: uppercase; text-decoration: none; color: var(--app-color-white); border-top: 1px solid transparent; border-bottom: 1px solid transparent; }
+    app-drawer .drawer-list a.iron-selected  { background: rgba(256,256,256, .72); color: var(--app-primary-color); font-weight: bold; border-top: 1px solid white; border-bottom: 1px solid white; }
+
+    app-drawer .info-links a                 { display: block; color: var(--app-tertiary-color); line-height: 24px; padding: 0 16px; }
+    app-drawer .info-links a iron-icon       { color: white; width: 18px; height: 18px; padding: 0 5px 0 0; }
+
+    cart-modal { z-index: 2; }
+    footer { position: absolute; bottom: 0; left: 0; right: 0; text-align: center; margin: 20px; line-height: 24px; }
+    footer > a { color: var(--app-secondary-color); text-decoration: none; }
+    footer > a:hover { text-decoration: underline; }
+
+    shop-detail { padding: 100px 0 0; }
+    shop-cart { padding: 100px 0 0; }
+    shop-checkout { padding: 100px 0 0; }
+
+    component-footer {  }
+    :host([page=home]) component-footer { margin-top: 0; }
+
+
+
+
+
+/* small screen */
+@media (min-width: 0) and (max-width: 768px) {
+
+    .menu-btn { display: block; }
+    :host([page=detail]) .menu-btn { display: none; }
+
+}
+
+</style>
+
+    <app-analytics key="UA-83424752-1"></app-analytics>
+
+    <!-- app-location and app-route elements provide the state of the URL for the app. -->
+    <app-location route="{{route}}"></app-location>
+    <app-route
+        route="{{route}}"
+        pattern="/:page"
+        data="{{routeData}}"
+        tail="{{subroute}}"></app-route>
+
+
+    <!-- Media Queries -->
+    <iron-media-query query="max-width: 767px" query-matches="{{smallScreen}}"></iron-media-query>
+    <iron-media-query query="(min-width: 0) and (max-width: 768px)" query-matches="{{mobile}}"></iron-media-query>
+    <iron-media-query query="(min-width: 769px) and (max-width: 1024px)" query-matches="{{tablet}}"></iron-media-query>
+    <iron-media-query query="(min-width: 1025px)" query-matches="{{desktop}}"></iron-media-query>
+
+
+    <!-- data-category provides the list of categories. -->
+    <data-category-cms categories="{{categories}}"></data-category-cms>
+
+    <!-- data-cart maintains the state of the user's shopping cart (in localstorage) and calculates the total amount. -->
+    <data-cart id="cart" cart="{{cart}}" num-items="{{numItems}}" total="{{total}}"></data-cart>
+
+
+
+    <!-- APP HEADER -->
+    <!-- APP HEADER -->
+    <!-- APP HEADER -->
+    <app-header role="navigation" id="header" effects="waterfall" condenses reveals fixed>
+    <!-- <app-header role="navigation" id="header" effects="resize-snapped-title waterfall blend-background parallax-background" class="main-header" condenses reveals> -->
+
+
+      <!-- TOOLBAR -->
+      <!-- TOOLBAR -->
+      <!-- TOOLBAR -->
+      <app-toolbar class="flex-horizontal">
+
+        <!-- Leftbar Buttons
+        --------------------------------------------------->
+        <div class="left-bar">
+          <!-- menu button -->
+          <paper-icon-button class="menu-btn" icon="menu" on-tap="_toggleDrawer" aria-label="Categories"></paper-icon-button>
+
+          <!-- back button -->
+          <a class="back-btn" href="/list/[[categoryName]]" tabindex="-1">
+            <paper-icon-button icon="arrow-back" aria-label="Go back"></paper-icon-button>
+          </a>
+        </div>
+
+        <!-- Logo
+        --------------------------------------------------->
+        <div class="logo tablet-margin-l-1 desktop-margin-l-1 mobile-flex-1 mobile-text-center">
+            <a href="/" aria-label="SFI">
+                <img src="../images/logo.svg" alt="Sulphur Fuel Injection" />
+            </a>
+        </div>
+
+        <!-- Phone Number
+        --------------------------------------------------->
+        <div class="phone-number mobile-none">
+            <a href="tel:3376260004" aria-label="Phone Number">
+                <span class="margin-l-1 white">(337) 626-0004</span>
+            </a>
+        </div>
+
+        <!-- Tabs (lazy loaded)
+        --------------------------------------------------->
+        <div id="tabContainer" class="flex-1 flex-horizontal layout-end tablet-margin-r-1 desktop-margin-r-1" primary$="[[_shouldShowTabs]]" hidden$="[[!_shouldShowTabs]]">
+          <template is="dom-if" if="[[_shouldRenderTabs]]">
+
+            <component-tabs selected="[[categoryName]]" attr-for-selected="name" noink>
+              <template is="dom-repeat" items="[[categories]]" as="category" initial-count="4">
+                <component-tab name="[[category.name]]" noink>
+                  <a href="/list/[[category.name]]" class="flex-vertical center-center">[[category.headline]]</a>
+                </component-tab>
+              </template>
+    </component-tabs>
+
+    </template>
+    </div>
+
+    <!-- Cart
+        --------------------------------------------------->
+    <div class="cart-btn-container">
+        <!-- cart button -->
+        <a href="/cart" tabindex="-1">
+            <paper-icon-button icon="shopping-cart" aria-label$="Shopping cart: [[_computePluralizedQuantity(numItems)]]"></paper-icon-button>
+        </a>
+
+        <!-- cart badge -->
+        <div class="cart-badge" aria-hidden="true" hidden$="[[!numItems]]">[[numItems]]</div>
+    </div>
+    </app-toolbar>
+    <!-- TOOLBAR -->
+    <!-- TOOLBAR -->
+    <!-- TOOLBAR -->
+
+
+    </app-header>
+    <!-- APP HEADER -->
+    <!-- APP HEADER -->
+    <!-- APP HEADER -->
+
+
+
+
+
+    <!-- DRAWER -->
+    <!-- DRAWER -->
+    <!-- DRAWER -->
+    <!-- Lazy-create the drawer for small screen sizes. -->
+    <template is="dom-if" if="[[_shouldRenderDrawer]]">
+      <!-- Two-way bind `drawerOpened` since app-drawer can update `opened` itself. -->
+      <app-drawer opened="{{drawerOpened}}" swipe-open tabindex="0">
+        <!--
+        <section class="drawer-img">
+            <img src="../images/shop-icon-192.png" alt="Sulphur Fuel Injection">
+        </section> -->
+
+        <section class="drawer-map">
+            <google-map disable-default-ui latitude="30.2372787" longitude="-93.3304759" zoom="15" api-key="AIzaSyA5SYKRx5yogz5_NUsMvQtCy1plDAamKYE">
+                <google-map-marker latitude="30.2372787" longitude="-93.3304759" icon="images/map_marker.gif">
+                </google-map-marker>
+            </google-map>
+
+
+            <component-pulse></component-pulse>
+            <img src="../images/logo-fill.svg" alt="Sulphur Fuel Injection" />
+        </section>
+
+        <iron-selector role="navigation" class="drawer-list" selected="[[categoryName]]" attr-for-selected="name">
+          <template is="dom-repeat" items="[[categories]]" as="category" initial-count="4">
+            <a name="[[category.name]]" href="/list/[[category.name]]">[[category.headline]]</a>
+          </template>
+    </iron-selector>
+
+    <section class="info-links">
+
+        <!-- Call -->
+        <a href="tel:3376260004" aria-label="Phone Number">
+            <iron-icon icon="super-icons:phone"></iron-icon>
+            tel: (337) 626-0004
+        </a>
+
+        <!-- Fax -->
+        <a href="tel:3376260005" aria-label="Fax Number">
+            <iron-icon icon="super-icons:print"></iron-icon>
+            fax: (337) 626-0005
+        </a>
+
+        <!-- Email -->
+        <a href="mailo:questions@sulphurfuelinjection.com" aria-label="Email Address">
+            <iron-icon icon="super-icons:email"></iron-icon>
+            questions@sulphurfuelinjection.com
+        </a>
+
+        <!-- Location -->
+        <a href="https://www.google.com/maps/place/Sulphur+Fuel+Injection/@30.2360406,-93.3144457,17z/data=!3m1!4b1!4m15!1m9!4m8!1m0!1m6!1m2!1s0x863b8ee90c5001cd:0x84cdcf8337373941!2sSulphur+Fuel+Injection,+121+Industrial+Dr,+Sulphur,+LA+70663!2m2!1d-93.312257!2d30.236036!3m4!1s0x863b8ee90c5001cd:0x84cdcf8337373941!8m2!3d30.236036!4d-93.312257"
+            aria-label="Location" target="_blank">
+            <iron-icon icon="super-icons:map"></iron-icon>
+            3427 E. Napoleon St, Sulphur, LA 70663
+        </a>
+
+        <!-- Business Hours -->
+        <a href="tel:3376260004" aria-label="Business Hours">
+            <iron-icon icon="super-icons:time"></iron-icon>
+            Monday - Friday | 7:30am to 4:00pm
+        </a>
+
+        <a href="/company" aria-label="Our Company">
+            <iron-icon icon="super-icons:home"></iron-icon>
+            Learn about us
+        </a>
+
+    </section>
+
+    </app-drawer>
+    </template>
+    <!-- DRAWER -->
+    <!-- DRAWER -->
+    <!-- DRAWER -->
+
+    <iron-pages role="main" selected="[[page]]" attr-for-selected="name" selected-attribute="visible">
+        <!-- home view -->
+        <shop-home name="home" categories="[[categories]]"></shop-home>
+        <!-- list view of items in a category -->
+        <shop-list name="list" route="[[subroute]]" offline="[[offline]]"></shop-list>
+        <!-- detail view of one item -->
+        <shop-detail name="detail" route="[[subroute]]" offline="[[offline]]"></shop-detail>
+        <!-- cart view -->
+        <shop-cart name="cart" cart="[[cart]]" total="[[total]]" num-items="[[numItems]]"></shop-cart>
+        <!-- checkout view -->
+        <shop-checkout name="checkout" cart="[[cart]]" total="[[total]]" route="{{subroute}}" num-items="[[numItems]]"></shop-checkout>
+        <!-- about us -->
+        <shop-company name="company" some-old-bull="yes"></shop-company>
+        <!-- location -->
+        <shop-location name="location" some-old-bull="yes"></shop-location>
+    </iron-pages>
+
+    <!-- Business Footer
+    ------------------------------------------------------------->
+    <component-footer id="Footer" class="bg-gray"></component-footer>
+
+    <!-- a11y announcer -->
+    <div class="announcer" aria-live="assertive">[[_a11yLabel]]</div>
+
+    </template>
+
+    <script>
+        // performance logging
+        window.performance && performance.mark && performance.mark('shop-app - before register');
+
+        Polymer({
+
+            is: 'shop-app',
+
+            properties: {
+
+                page: {
+                    type: String,
+                    reflectToAttribute: true,
+                    observer: '_pageChanged'
+                },
+
+                numItems: {
+                    type: Number,
+                    value: 0
+                },
+
+                _shouldShowTabs: {
+                    computed: '_computeShouldShowTabs(page, smallScreen)'
+                },
+
+                _shouldRenderTabs: {
+                    computed: '_computeShouldRenderTabs(_shouldShowTabs, loadComplete)'
+                },
+
+                _shouldRenderDrawer: {
+                    computed: '_computeShouldRenderDrawer(smallScreen, loadComplete)'
+                }
+            },
+
+            observers: [
+                '_routePageChanged(routeData.page)'
+            ],
+
+            listeners: {
+                'add-cart-item': '_onAddCartItem',
+                'set-cart-item': '_onSetCartItem',
+                'clear-cart': '_onClearCart',
+                'change-section': '_onChangeSection',
+                'announce': '_onAnnounce',
+                'dom-change': '_domChange'
+            },
+
+            created: function() {
+                window.performance && performance.mark && performance.mark('shop-app.created');
+                // Custom elements polyfill safe way to indicate an element has been upgraded.
+                this.removeAttribute('unresolved');
+            },
+
+            ready: function() {
+                // listen for online/offline
+                Polymer.RenderStatus.afterNextRender(this, function() {
+                    this.listen(window, 'online', '_notifyNetworkStatus');
+                    this.listen(window, 'offline', '_notifyNetworkStatus');
+                });
+            },
+
+            _routePageChanged: function(page) {
+                this.page = page || 'home';
+                // Scroll to the top of the page on every *route* change. Use `Polymer.AppLayout.scroll`
+                // with `behavior: 'silent'` to disable header scroll effects during the scroll.
+                Polymer.AppLayout.scroll({
+                    top: 0,
+                    behavior: 'silent'
+                });
+                // Close the drawer - in case the *route* change came from a link in the drawer.
+                this.drawerOpened = false;
+            },
+
+            _pageChanged: function(page, oldPage) {
+                if (page != null) {
+                    // home route is eagerly loaded
+                    if (page == 'home') {
+                        this._pageLoaded(Boolean(oldPage));
+                        // other routes are lazy loaded
+                    } else {
+                        this.importHref(
+                            this.resolveUrl('shop-' + page + '.html'),
+                            function() {
+                                this._pageLoaded(Boolean(oldPage));
+                            }, null, true);
+                    }
+                }
+            },
+
+            // (SEO)
+            _pageLoaded: function(shouldResetLayout) {
+                this._ensureLazyLoaded();
+                if (shouldResetLayout) {
+                    // The size of the header depends on the page (e.g. on some pages the tabs
+                    // do not appear), so reset the header's layout only when switching pages.
+                    this.async(function() {
+                        this.$.header.resetLayout();
+                    }, 1);
+                }
+            },
+
+            _ensureLazyLoaded: function() {
+                // load lazy resources after render and set `loadComplete` when done.
+                if (!this.loadComplete) {
+                    Polymer.RenderStatus.afterNextRender(this, function() {
+                        this.importHref(this.resolveUrl('app-resources.html'), function() {
+                            // Register service worker if supported.
+                            if ('serviceWorker' in navigator) {
+                                navigator.serviceWorker.register('/service-worker.js');
+                            }
+                            this._notifyNetworkStatus();
+                            this.loadComplete = true;
+                        });
+                    });
+                }
+            },
+
+            _notifyNetworkStatus: function() {
+                var oldOffline = this.offline;
+                this.offline = !navigator.onLine;
+                // Show the snackbar if the user is offline when starting a new session
+                // or if the network status changed.
+                if (this.offline || (!this.offline && oldOffline === true)) {
+                    if (!this._networkSnackbar) {
+                        this._networkSnackbar = document.createElement('component-snackbar');
+                        Polymer.dom(this.root).appendChild(this._networkSnackbar);
+                    }
+                    Polymer.dom(this._networkSnackbar).innerHTML = this.offline ?
+                        'You are offline' : 'You are online';
+                    this._networkSnackbar.open();
+                }
+            },
+
+            _toggleDrawer: function() {
+                this.drawerOpened = !this.drawerOpened;
+            },
+
+            // Elements in the app can notify section changes.
+            // Response by a11y announcing the section and syncronizing the category.
+            _onChangeSection: function(event) {
+                var detail = event.detail;
+                this.categoryName = detail.category || '';
+                // Announce the page's title
+                if (detail.title) {
+                    document.title = detail.title + ' | Sulphur Fuel Injection';
+                    this._announce(detail.title);
+                }
+            },
+
+            _onAddCartItem: function(event) {
+                if (!this._cartModal) {
+                    this._cartModal = document.createElement('cart-modal');
+                    Polymer.dom(this.root).appendChild(this._cartModal);
+                }
+                this.$.cart.addItem(event.detail);
+                this._cartModal.open();
+                this._announce('Item added to the service quote');
+            },
+
+            _onSetCartItem: function(event) {
+                var detail = event.detail;
+                this.$.cart.setItem(detail);
+                if (detail.quantity === 0) {
+                    this._announce('Item deleted');
+                } else {
+                    this._announce('Quantity changed to ' + detail.quantity);
+                }
+            },
+
+            _onClearCart: function() {
+                this.$.cart.clearCart();
+                this._announce('Cart cleared');
+            },
+
+            // Elements in the app can notify a change to be a11y announced.
+            _onAnnounce: function(e) {
+                this._announce(e.detail);
+            },
+
+            // A11y announce the given message.
+            _announce: function(message) {
+                this._a11yLabel = '';
+                this.debounce('_a11yAnnouncer', function() {
+                    this._a11yLabel = message;
+                }, 100);
+            },
+
+            // This is for performance logging only.
+            _domChange: function(e) {
+                if (window.performance && performance.mark && !this.__loggedDomChange) {
+                    var target = Polymer.dom(e).rootTarget;
+                    if (target.domHost.is.match(this.page)) {
+                        this.__loggedDomChange = true;
+                        performance.mark(target.domHost.is + '.domChange');
+                    }
+                }
+            },
+
+            _computeShouldShowTabs: function(page, smallScreen) {
+                return (page === 'home' || page === 'list' || page === 'detail') && !smallScreen;
+            },
+
+            _computeShouldRenderTabs: function(_shouldShowTabs, loadComplete) {
+                return _shouldShowTabs && loadComplete;
+            },
+
+            _computeShouldRenderDrawer: function(smallScreen, loadComplete) {
+                return smallScreen && loadComplete;
+            },
+
+            _computePluralizedQuantity: function(quantity) {
+                return quantity + ' ' + (quantity === 1 ? 'item' : 'items');
+            }
+
+        });
+    </script>
+
+</dom-module>

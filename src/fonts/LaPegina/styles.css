@@ -1,0 +1,8 @@
+
+@font-face {
+  font-family: 'LaPejina-ffp';
+  src: url('LaPejina-ffp.eot?#iefix') format('embedded-opentype'),  url('LaPejina-ffp.otf')  format('opentype'),
+	     url('LaPejina-ffp.woff') format('woff'), url('LaPejina-ffp.ttf')  format('truetype'), url('LaPejina-ffp.svg#LaPejina-ffp') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

@@ -1,7 +1,6 @@
-node_modules
-dist
 bower_components
-resources
-desktop.ini
-.tmp
-.publish/
+node_modules
+build
+test
+_resources
+.vscode

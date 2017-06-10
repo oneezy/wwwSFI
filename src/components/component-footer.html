@@ -1,0 +1,405 @@
+<!--
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    _FOOTER (component)
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/social-media-icons/social-media-icons.html">
+<link rel="import" href="../../bower_components/iron-label/iron-label.html">
+<link rel="import" href="../../bower_components/steel-properties/steel-classes.html">
+<link rel="import" href="../../bower_components/fx-skew/fx-skew.html">
+<link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
+<link rel="import" href="../../bower_components/paper-dialog-scrollable/paper-dialog-scrollable.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/super-icons/super-icons.html">
+
+
+<dom-module id="component-footer">
+
+<style is="custom-style" include="styles-main">
+:host {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    text-decoration: none;
+    position: relative;
+    z-index: 1;
+}
+
+    fx-skew                               { text-align: left; }
+    footer                                { position: relative; z-index: 0; }
+    h4                                    { color: #fff; font-weight: 100; margin: 0 0 .5rem; text-transform: uppercase; }
+    a                                     { color: var(--app-color-white); opacity: .42; transition: opacity .22s ease-in-out; text-decoration: none;   }
+    a:hover                               { color: var(--app-color-white); opacity: 1; transition: opacity .22s ease-in-out; }
+
+    iron-label span                       { color: white; opacity: .5; transition: opacity .22s ease-in-out; font-size: 14px; }
+    iron-label a                          { color: white; opacity: .5; transition: opacity .22s ease-in-out; font-size: 14px; }
+    iron-label iron-icon                  { color: white; opacity: 1; transition: opacity .22s ease-in-out; width: 20px; }
+    iron-label:hover iron-icon            { color: var(--app-accent-color); opacity: 1; transition: all .22s ease-in-out; }
+    iron-label:hover *                    { opacity: 1; transition: opacity .22s ease-in-out; }
+
+    social-media-icons                    { line-height: 0; opacity: .5; margin: 0 1rem 0 0; transition: opacity .22s ease-in-out; padding: 4px; border-radius: 5px;
+                                            color: var(--app-accent-color);
+                                            border: 1px solid var(--app-accent-color); }
+
+    social-media-super-icons:hover              { cursor: pointer; opacity: 1; transition: opacity .22s ease-in-out; }
+
+    .footer-logo                          { -webkit-filter: grayscale(100%) invert(1); filter: grayscale(100%) invert(1); }
+    .footer-bottom                        { background: rgba(0,0,0, .07); padding: .5rem 1rem; }
+    .footer-bottom .footer-logo           { opacity: .12; transition: opacity .22s ease-in-out; }
+    .footer-bottom:hover .footer-logo     { opacity: .22; transition: opacity .22s ease-in-out; }
+
+    .payment-methods iron-label                            { line-height: 1.2 }
+    .payment-methods iron-label:hover *                    { opacity: 1; transition: opacity .22s ease-in-out; }
+    .payment-methods iron-label iron-icon                  { color: var(--app-color-white); opacity: .42; width: 36px; height: 36px; }
+    .payment-methods iron-label:hover iron-icon            { color: var(--app-color-white); opacity: 1; transition: all .22s ease-in-out; }
+
+    main                                  { margin: 0 auto; }
+
+
+</style>
+
+<style is="custom-style">
+    .logo {
+        --iron-icon-fill-color: rgba(0,0,0, 1);
+        --iron-icon-height: 64px;
+        --iron-icon-width: 64px;
+      }
+</style>
+
+<template>
+    <fx-skew class="bg-gray"></fx-skew>
+
+    <footer class="flex-vertical nowrap">
+
+        <!-- Footer Top -->
+        <section class="wrapper flex-horizontal mobile-flex-vertical between-between mobile-center-start width-100 mobile-width-90 tablet-width-90 text-normal">
+
+
+            <div class="flex-vertical start-stretch flex-1 mobile-margin-b-2">
+                <h4>Get A Quote</h4>
+
+                <a href="/list/common_rail_fuel_systems">Common Rail</a>
+                <a href="/list/diesel_fuel_pumps">Fuel Pumps</a>
+                <a href="/list/diesel_fuel_injectors">Fuel Injectors</a>
+                <a href="/list/dp_filters">DP Filters</a>
+            </div>
+
+            <div class="flex-vertical start-stretch flex-1 mobile-margin-b-2">
+                <h4>Legal</h4>
+
+                <!-- Modal Links
+                --------------------------->
+                <a href="javascript:void(0)" class="link-button" on-tap="_openshipping">Shipping Policy</a>
+                <!-- <a href="javascript:void(0)" class="link-button" on-tap="_openwarranty">Warranty Policy</a> -->
+                <a href="javascript:void(0)" class="link-button" on-tap="_openprivacy">Privacy Policy</a>
+                <a href="javascript:void(0)" class="link-button" on-tap="_opensecurity">Security Policy</a>
+                <a href="javascript:void(0)" class="link-button" on-tap="_openterms">Terms & Conditions</a>
+
+                <!-- Modal Dialogs
+                --------------------------->
+
+                <!-- Shipping -->
+                <paper-dialog id="modalshipping" class="modal-shipping" on-iron-overlay-opened="patchOverlay" with-backdrop>
+                    <h2>Shipping Policy</h2>
+
+                    <paper-dialog-scrollable>
+                        <p>
+                            Would you like to ship us your item and let our professional technicians rebuild it? Great!
+                            Follow the instructions below and we will have your item rebuilt good as new:
+                        </p>
+
+                        <h3>Item Details</h3>
+                        <ul>
+                            <li>Fill in all the information on our Rebuild Order Form and click the submit button</li>
+                            <li>We'll email your details over to our sales team (sales@sulphurfuelinjection.com) and also send a copy to the email address you provided</li>
+                            <li>Print out a copy of the Rebuild Form and include it inside the box you're shipping your order in. If you don't own a printer, no problem! Just write your name, phone number, email and problem you're having on a piece of paper so our technicians can help you properly.</li>
+                        </ul>
+
+                        <h3>Preparing Item</h3>
+                        <ul>
+                            <li>Completely drain all oil by flipping item down in a drain pan for a few hours</li>
+                            <li>Wrap and seal your item in at least 1 or 2 plastic bags to prevent any leakage</li>
+                            <li>Place item and printed rebuild form in a sturdy snug-fitting cardboard box and wrap securely with heavy-duty strapping tape</li>
+                        </ul>
+
+                        <h3>Shipping Item</h3>
+                        <ul>
+                            <li>You can use any shipping company you choose (USPS, UPS, FEDEX, etc.)</li>
+                            <li>Ship your item to 3427 E. Napoleon St, Sulphur, LA 70663</li>
+                        </ul>
+                    </paper-dialog-scrollable>
+
+                    <div class="buttons">
+                        <paper-button dialog-dismiss>Cancel</paper-button>
+                        <paper-button dialog-confirm autofocus>OK</paper-button>
+                    </div>
+                </paper-dialog>
+
+
+                <!-- <paper-dialog id="modalshipping" class="modal-shipping" on-iron-overlay-opened="patchOverlay" with-backdrop>
+                  <h2>Scrolling</h2>
+                  <paper-dialog-scrollable>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                      irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                      irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                      irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                      irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                      irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                      irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                      irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                      irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                  </paper-dialog-scrollable>
+                  <div class="buttons">
+                    <paper-button dialog-dismiss>Cancel</paper-button>
+                    <paper-button dialog-confirm autofocus>OK</paper-button>
+                  </div>
+                </paper-dialog> -->
+
+                <!-- Warranty -->
+                <!-- <paper-dialog id="modalwarranty" class="modal-warranty" on-iron-overlay-opened="patchOverlay" with-backdrop>
+                    <h2>Warranty Policy</h2>
+                    <paper-dialog-scrollable>
+                        <p>
+                            Sulphur Fuel Injection, Ltd. Warranties that it will replace or repair any parts found to be
+                            defective due to faulty material or workmanship, on units completely rebuilt, within 1 year
+                            from date of sale. The obligation under this warranty, statutory or otherwise, is limited to
+                            the replacement or repair of parts found defective upon inspection at Sulphur Fuel Injection,
+                            Ltd. shop.  Sulphur Fuel Injection, Ltd. shall in no event be liable for consequential damages
+                            or contingent liabilities arising out of the failure of parts to operate properly nor for the cost
+                            of labor or transportation charges in connection with the replacement of defective parts. No express,
+                            implied or statutory warranty other than herein set forth is made or authorized by Sulphur Fuel Injection, Ltd.
+                        </p>
+                    </paper-dialog-scrollable>
+
+                    <div class="buttons">
+                        <paper-button dialog-dismiss>Cancel</paper-button>
+                        <paper-button dialog-confirm autofocus>OK</paper-button>
+                    </div>
+                </paper-dialog> -->
+
+                <!-- Privacy -->
+                <paper-dialog id="modalprivacy" class="modal-privacy" on-iron-overlay-opened="patchOverlay" with-backdrop>
+                    <h2>Privacy Policy</h2>
+                    <paper-dialog-scrollable>
+                        <p>
+                            For each visitor to our web page, our web server automatically recognizes no information regarding
+                            the domain or email address. We collect the email address of those who communicate with us via email,
+                            aggregate information on what pages consumers access volunteered by the consumer, such as survey
+                            information and/or site registrations. The information we collect is used for internal review and
+                            is then discarded, used to the content of our web page, used to customize the content and/or layout
+                            of our page for individual consumer and used by us that you do not want to receive email from
+                            our company.
+                        </p>
+                    </paper-dialog-scrollable>
+
+                    <div class="buttons">
+                        <paper-button dialog-dismiss>Cancel</paper-button>
+                        <paper-button dialog-confirm autofocus>OK</paper-button>
+                    </div>
+                </paper-dialog>
+
+                <!-- Security -->
+                <paper-dialog id="modalsecurity" class="modal-security" on-iron-overlay-opened="patchOverlay" with-backdrop>
+                    <h2>Security Policy</h2>
+
+                    <paper-dialog-scrollable>
+                        <p>
+                            Our industry standard Secure Sockets Layer (SSL) software is among the best software available
+                            today for secure commerce transactions. Because it encrypts all of your personal information, such
+                            as credit card number, name, & address, your payment and personal information is always safe.
+                            Sulphur Fuel Injection, Ltd. fully complies with Payment Security Data Security Standards (PCI DSS).
+                        </p>
+                    </paper-dialog-scrollable>
+
+                    <div class="buttons">
+                        <paper-button dialog-dismiss>Cancel</paper-button>
+                        <paper-button dialog-confirm autofocus>OK</paper-button>
+                    </div>
+                </paper-dialog>
+
+                <!-- Terms -->
+                <paper-dialog id="modalterms" class="modal-terms" on-iron-overlay-opened="patchOverlay" with-backdrop>
+                    <h2>Terms and Conditions</h2>
+
+                    <paper-dialog-scrollable>
+                        <p>
+                            You understand and agree that the owners of this site shall not be liable for any direct, indirect
+                            incidental, consequential or exemplary damages, including but not limited to, damages for loss of profits,
+                            data or other intangible losses (even if the owners of this site have been advised of and or service(s)
+                            or any misuse of the product(s) and or service(s) in a manner not in accordance with their intended use.)
+                        </p>
+                    </paper-dialog-scrollable>
+
+                    <div class="buttons">
+                        <paper-button dialog-dismiss>Cancel</paper-button>
+                        <paper-button dialog-confirm autofocus>OK</paper-button>
+                    </div>
+                </paper-dialog>
+            </div>
+
+
+            <!-- Payment Methods -->
+            <div class="flex-vertical start-stretch flex-1 mobile-margin-b-2 payment-methods">
+                <h4>Payment Methods</h4>
+                <!-- Visa -->
+                <iron-label>
+                    <iron-icon id="visa" class="margin-r-5" icon="super-icons:cc-visa" tabindex="0"></iron-icon>
+                    <span>Visa</span>
+                </iron-label>
+
+                <!-- Mastercard -->
+                <iron-label>
+                    <iron-icon id="mastercard" class="margin-r-5" icon="super-icons:cc-mastercard" tabindex="0"></iron-icon>
+                    <span>Mastercard</span>
+                </iron-label>
+
+                <!-- American Express -->
+                <iron-label>
+                    <iron-icon id="amex" class="margin-r-5" icon="super-icons:cc-amex" tabindex="0"></iron-icon>
+                    <span>American Express</span>
+                </iron-label>
+
+                <!-- Discover -->
+                <iron-label>
+                    <iron-icon id="discover" class="margin-r-5" icon="super-icons:cc-discover" tabindex="0"></iron-icon>
+                    <span>Discover</span>
+                </iron-label>
+            </div>
+
+
+            <!-- Connect -->
+            <div class="flex-vertical start-stretch flex-2 tablet-flex-2 mobile-margin-b-2">
+                <h4>Connect</h4>
+
+                <div class="flex-vertical start-start margin-b-1">
+                    <!-- Phone -->
+                    <iron-label>
+                        <iron-icon icon="super-icons:phone" class="margin-r-5"></iron-icon>
+                        <a href="tel:3376260004" target="_blank" aria-label="Call us at (337) 626-0004">tel: (337) 626-0004</a>
+                    </iron-label>
+
+                    <!-- Fax -->
+                    <iron-label>
+                        <iron-icon icon="super-icons:print" class="margin-r-5"></iron-icon>
+                        <a href="tel:3376260005" target="_blank" aria-label="Fax us at (337) 626-0005">fax: (337) 626-0005</a>
+                    </iron-label>
+
+                    <!-- Email -->
+                    <iron-label>
+                        <iron-icon icon="super-icons:email" class="margin-r-5"></iron-icon>
+                        <a href="mailto:questions@sulphurfuelinjection.com?Subject=SFI%20Question" target="_blank" aria-label="Email Us at questions@sulphurfuelinjection.com">questions@sulphurfuelinjection.com</a>
+                    </iron-label>
+
+                    <!-- Location -->
+                    <iron-label>
+                        <iron-icon icon="super-icons:map" class="margin-r-5"></iron-icon>
+                        <a href="https://www.google.com/maps/place/Sulphur+Fuel+Injection/@30.2360406,-93.3144457,17z/data=!3m1!4b1!4m15!1m9!4m8!1m0!1m6!1m2!1s0x863b8ee90c5001cd:0x84cdcf8337373941!2sSulphur+Fuel+Injection,+121+Industrial+Dr,+Sulphur,+LA+70663!2m2!1d-93.312257!2d30.236036!3m4!1s0x863b8ee90c5001cd:0x84cdcf8337373941!8m2!3d30.236036!4d-93.312257" aria-label="Visit us at 3427 E. Napoleon St, Sulphur, LA 70663" target="_blank">3427 E. Napoleon St, Sulphur, LA 70663</a>
+                    </iron-label>
+
+                    <!-- Hours of Operation -->
+                    <iron-label>
+                        <iron-icon icon="super-icons:time" class="margin-r-5"></iron-icon>
+                        <a href="javascript:void(0)" aria-label="Our hours are Monday through Friday, 7a.m. to 4p.m.">Monday - Friday | 7:30am to 4:00pm</a>
+                    </iron-label>
+
+                    <!-- About Us -->
+                    <iron-label>
+                        <iron-icon icon="super-icons:home" class="margin-r-5"></iron-icon>
+                        <a href="/company" aria-label="Learn more about our company">Learn more</a>
+                    </iron-label>
+                </div>
+
+                <!-- Social Media -->
+                <!-- <div class="flex-horizontal">
+                    <social-media-icons icon="facebook"></social-media-icons>
+                    <social-media-icons icon="youtube" ></social-media-icons>
+                    <social-media-icons icon="twitter" ></social-media-icons>
+                    <social-media-icons icon="linkedin"></social-media-icons>
+                </div> -->
+
+            </div>
+        </section>
+
+
+        <!-- Footer Bottom -->
+        <section class="flex-auto flex-horizontal between-center footer-bottom">
+
+            <!-- Credentials -->
+            <!-- <div class="flex-1 text-left">
+                <iron-icon icon="super-icons:cc-mastercard"></iron-icon>
+                <iron-icon icon="super-icons:cc-mastercard"></iron-icon>
+                <iron-icon icon="super-icons:cc-mastercard"></iron-icon>
+                <iron-icon icon="super-icons:cc-mastercard"></iron-icon>
+            </div> -->
+
+            <!-- Copyright -->
+            <div class="flex-1 text-center">
+                <img src="../../images/logo-small.svg" alt="Sulphur Fuel Injection" class="footer-logo">
+                <!-- <span class="black">Copyright © 2016</span> -->
+            </div>
+
+            <!-- Payment Methods -->
+            <!-- <div class="flex-3 text-right">
+                <iron-icon id="visa" icon="super-icons:cc-mastercard" tabindex="0"></iron-icon>
+                <iron-icon id="mastercard" icon="super-icons:cc-mastercard" tabindex="0"></iron-icon>
+                <iron-icon id="amex" icon="super-icons:cc-mastercard" tabindex="0"></iron-icon>
+                <iron-icon id="discover" icon="super-icons:cc-mastercard" tabindex="0"></iron-icon>
+
+                <paper-tooltip for="visa" position="top" animation-delay="0">Visa</paper-tooltip>
+                <paper-tooltip for="mastercard" position="top" animation-delay="0">Mastercard</paper-tooltip>
+                <paper-tooltip for="amex" position="top" animation-delay="0">American Express</paper-tooltip>
+                <paper-tooltip for="discover" position="top" animation-delay="0">Discover</paper-tooltip>
+            </div> -->
+
+        </section>
+
+
+
+    </footer>
+
+
+</template>
+
+
+<script>
+    Polymer({
+
+        is: 'component-footer',
+
+        _openshipping: function() {
+            this.$.modalshipping.toggle();
+        },
+
+        _openwarranty: function() {
+            this.$.modalwarranty.toggle();
+        },
+
+        _openprivacy: function() {
+            this.$.modalprivacy.toggle();
+        },
+
+        _opensecurity: function() {
+            this.$.modalsecurity.toggle();
+        },
+
+        _openterms: function() {
+            this.$.modalterms.toggle();
+        },
+
+        patchOverlay: function (e) {
+            if (e.target.withBackdrop) {
+                e.target.parentNode.insertBefore(e.target.backdropElement, e.target);
+            }
+        }
+    });
+</script>
+
+</dom-module>

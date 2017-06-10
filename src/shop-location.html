@@ -1,0 +1,265 @@
+<!--
+
+
+SHOP LOCATION (page)
+-------------------------------------------------------------------------------------------------------------------------->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../bower_components/app-route/app-route.html">
+<link rel="import" href="../bower_components/super-hover/super-hover.html">
+<link rel="import" href="../bower_components/iron-image/iron-image.html">
+<link rel="import" href="styles-main.html">
+<link rel="import" href="styles-fonts.html">
+<link rel="import" href="components/component-button.html">
+<link rel="import" href="components/component-image.html">
+<link rel="import" href="components/component-page.html">
+<link rel="import" href="components/component-pulse.html">
+
+<dom-module id="shop-location">
+    <template>
+
+<style is="custom-style" include="styles-main styles-fonts component-button component-page">
+
+    :host {
+        display: block;
+        position: relative;
+        height: 100%;
+        min-height: 100%;
+    }
+    
+    .photo-wrapper {
+        @apply(--layout-vertical);
+        @apply(--layout-center-center);
+    }
+
+    .photos h3 {  }
+
+/*  Mobile
+****************************************************************/
+@media (min-width: 0) and (max-width: 768px) {
+
+/*
+    component-page {
+        --component-page-bg: {
+            background-image: url(../images/location.jpg);
+        };
+    }*/
+
+}
+
+
+
+/*  Tablet
+****************************************************************/
+@media (min-width: 769px) and (max-width: 1024px) {
+
+/*
+    component-page {
+        --component-page-bg: {
+            background-image: url(../images/location.jpg);
+        };
+    }*/
+
+}
+
+
+
+/*  Desktop
+****************************************************************/
+@media (min-width: 1025px) {
+
+/*
+    component-page {
+        --component-page-bg: {
+            background-image: url(../images/location.jpg);
+        };
+    }*/
+
+}
+
+
+
+
+
+
+/*  APP BOX
+****************************************************************/
+
+    /*component-page  {
+      --component-page-bg: {
+
+        background-position: bottom;
+        padding-bottom: 100px;
+        margin-top: -400px;
+        height: 800px;
+        width: 100%;
+      };
+    }*/
+
+    .hero-image                     { height: 25vh; }
+    .super-hover-map                { height: 450px; padding: 0 0 25px; }
+    .map-location img               { display: inline-block; max-width: 100%; position: absolute; left: calc(50% - 40px); top: calc(100% - 24px); z-index: 1; }
+
+    /*google-map        { -webkit-filter: grayscale(1); filter: grayscale(1); }*/
+    /*component-pulse   { position: absolute; left: calc(50% - 10px); top: calc(50% - 10px); z-index: 1; }*/
+
+    .map-location:after             { content: ""; display: block; position: absolute; top: 0; right: 0; bottom: 0; left: 0; background: black; opacity: .5; z-index: 0; }
+
+</style>
+
+
+
+
+<!-- APP ROUTE
+------------------------------------------------------------------------->
+    <!--
+    <app-route
+        route="[[route]]"
+        pattern="/:category"
+        data="{{routeData}}">
+    </app-route> -->
+
+
+
+
+
+<!--
+    MAIN CONTENT
+-------------------------------------------------------------------------------------------------------------->
+<component-page>
+
+
+    <!-- TOP
+    ---------------------------------------------->
+
+    <!-- Parallax BG -->
+    <!-- <component-image
+        alt="Our Company"
+        src="../images/bg_location.jpg"
+        placeholder-img="../images/bg_location_placeholder.jpg" class="hero-image" background>
+    </component-image> -->
+
+    <!-- Hero Image -->
+    <!-- <google-map-directions map="{{map}}"
+      start-address="San Francisco"
+      end-address="Mountain View"
+      travel-mode="BICYCLING"
+      waypoints='[{"location": "Palo Alto"}, {"location": "San Mateo"}]'></google-map-directions> -->
+      <google-map id="map"
+                  class="hero-image"
+                  disable-default-ui
+                  latitude="30.2372787"
+                  longitude="-93.3304759"
+                  zoom="18"
+                  api-key="AIzaSyA5SYKRx5yogz5_NUsMvQtCy1plDAamKYE">
+
+        <google-map-marker latitude="30.2372987"
+                           longitude="-93.3304759"
+                           icon="../images/map_marker.gif">
+        </google-map-marker>
+      </google-map>
+
+
+
+    <!-- Top Content -->
+    <h1>Our Location</h1>
+    <h2>3427 E. Napoleon St, Sulphur, LA 70663</h2>
+
+    <section class="photo-wrapper bottom super-hover-map">
+        
+        <a class="bottom" href="https://www.google.com/maps/place/Sulphur+Fuel+Injection/@30.2360406,-93.3144457,17z/data=!3m1!4b1!4m15!1m9!4m8!1m0!1m6!1m2!1s0x863b8ee90c5001cd:0x84cdcf8337373941!2sSulphur+Fuel+Injection,+121+Industrial+Dr,+Sulphur,+LA+70663!2m2!1d-93.312257!2d30.236036!3m4!1s0x863b8ee90c5001cd:0x84cdcf8337373941!8m2!3d30.236036!4d-93.312257" aria-label="Get Directions" target="_blank">
+            <section class="photo-wrapper">
+                    <super-hover>
+                        <iron-image src="../images/photos/directions/thumbnail-directions-01.jpg" sizing="cover"></iron-image>
+                    </super-hover>
+                    <h3>Get Directions</h3>
+            </section>
+        </a>
+        
+    </section>
+
+
+    <!-- BOTTOM
+    ---------------------------------------------->
+    <!-- <h4>{{someOldBull}}</h4> -->
+
+
+
+    <p>
+        Business hours are Monday through Friday, 7:30am to 4:00pm Central Standard Time. All internet orders, emails, and faxes are processed during our normal business hours.
+    </p>
+<!--
+    <component-button>
+        <a href="https://www.google.com/maps/place/Sulphur+Fuel+Injection/@30.2360406,-93.3144457,17z/data=!3m1!4b1!4m15!1m9!4m8!1m0!1m6!1m2!1s0x863b8ee90c5001cd:0x84cdcf8337373941!2sSulphur+Fuel+Injection,+121+Industrial+Dr,+Sulphur,+LA+70663!2m2!1d-93.312257!2d30.236036!3m4!1s0x863b8ee90c5001cd:0x84cdcf8337373941!8m2!3d30.236036!4d-93.312257" aria-label="Get Directions" target="_blank">Get Directions</a>
+    </component-button>
+-->
+
+
+    </component-page>
+    </template>
+
+    <script>
+        Polymer({
+
+            is: 'shop-location',
+
+            listeners: {
+                'map.google-map-ready': '_disableMarkerOptimization'
+            },
+            _disableMarkerOptimization: function _disableMarkerOptimization() {
+                this.$.map.markers.forEach(function(m) {
+                    m.marker.setOptions({
+                        optimized: false
+                    });
+                });
+            },
+
+            properties: {
+
+                fullContent: {
+                    type: Boolean,
+                    value: false,
+                    notify: true
+                },
+
+                someOldBull: {
+                    type: String
+                },
+
+                myDate: {
+                    value: function() {
+                        return Date()
+                    }
+                }
+            },
+
+            ready: function() {
+                console.log("created: ", this.myDate);
+                console.log("someOldBull", this.someOldBull);
+                console.log("fullContent: ", this.fullContent);
+            },
+
+            attached: function() {
+                console.log("attached: ", this.fullContent);
+                console.log("someOldBull", this.someOldBull);
+            },
+
+            _showContent: function(myBull) {
+                if (myBull === "yes") {
+                    return true;
+                } else {
+                    console.log("wrong content value (use: yes)");
+                    return false;
+                }
+            }
+
+            //  _show: function (myBoolean) {
+            //    console.log(myBoolean);
+            //    return myBoolean;
+            //  }
+
+        });
+    </script>
+
+</dom-module>

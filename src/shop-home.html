@@ -1,0 +1,460 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-swipeable-pages/iron-swipeable-pages.html">
+<link rel="import" href="../bower_components/fx-skew/fx-skew.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../bower_components/fx-arrows/fx-arrows.html">
+<link rel="import" href="../bower_components/iron-media-query/iron-media-query.html">
+<link rel="import" href="../bower_components/app-layout/app-scroll-effects/effects/parallax-background.html">
+<link rel="import" href="../bower_components/app-layout/app-box/app-box.html">
+<link rel="import" href="components/component-button.html">
+<link rel="import" href="components/component-image.html">
+<link rel="import" href="components/component-bg.html">
+<link rel="import" href="shop-company.html">
+<link rel="import" href="shop-location.html">
+<link rel="import" href="styles-fonts.html">
+<link rel="import" href="styles-main.html">
+
+<dom-module id="shop-home">
+
+  <template>
+
+    <style include="component-button styles-fonts styles-main">
+        :host {
+            display: block;
+            position: relative;
+            z-index: 0;
+        }
+
+        [hidden] { display: none; }
+
+        a { text-decoration: none; }
+
+        component-image { position: relative; max-width: 100%; display: block;
+            --component-image-img: {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: -9999px;
+                right: -9999px;
+                max-width: 100%;
+            };
+        }
+
+        component-image::after {
+            display: block;
+            content: '';
+            position: absolute;
+            transition-property: opacity;
+            transition-duration: 0s;
+            transition-delay: 90ms;
+            pointer-events: none;
+            opacity: 0;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            outline: #2196F3 auto 5px;
+            outline: -moz-mac-focusring auto 5px;
+            outline: -webkit-focus-ring-color auto 5px;
+        }
+
+        .top {  }
+        .middle {  }
+        .bottom { height: 100px; }
+
+        .top .top-text { display: inline-block; overflow: hidden; text-align: center; }
+
+        .product-img { outline: none; }
+        .product-img > component-image::after {
+            display: block;
+            content: '';
+            position: absolute;
+            transition-property: opacity;
+            transition-duration: 0s;
+            transition-delay: 90ms;
+            pointer-events: none;
+            opacity: 0;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            outline: #2196F3 auto 5px;
+            outline: -moz-mac-focusring auto 5px;
+            outline: -webkit-focus-ring-color auto 5px;
+        }
+        .product-img:focus > component-image::after { opacity: 1; }
+
+
+/*  Iron Swipeable Pages
+********************************************************/
+    iron-swipeable-pages {  }
+    iron-swipeable-pages > * {
+        -webkit-user-select: none;  /* Chrome all / Safari all */
+        -moz-user-select: none;     /* Firefox all */
+        -ms-user-select: none;      /* IE 10+ */
+        user-select: none;          /* Likely future */
+        cursor: default;
+    }
+    iron-swipeable-pages .page { margin: 0; }
+    iron-swipeable-pages .page .product-img { margin: 0; }
+    iron-swipeable-pages .page .product-link { margin: 0; }
+
+    .next-click,
+    .prev-click {
+        color: rgba(255, 255, 255, 1);
+        position: absolute;
+        top: 56%;
+        z-index: 2;
+        opacity: .5;
+        transition: .25s opacity;
+    }
+
+    .next-click:hover,
+    .prev-click:hover { opacity: 1; transition: .25s opacity; }
+
+    .prev-click { left: 0; }
+    .next-click { right: 0; }
+
+    .page { height: 100%; }
+    .item { overflow: hidden; text-align: center; }
+    .item .product-link {  }
+    .item .product-link h3 { font-size: 18px; opacity: .78; transition: opacity .22s ease-in-out; text-shadow: 1px 1px 0 #000; }
+    .item .product-img { position: relative; display: inline-block; margin: 2rem 1.2rem; width: 185px; height: 185px; border-radius: 100%; box-sizing: border-box; padding: 16px; transition: transform .22s ease-in-out;
+        background: rgba(0,0,0, .64);
+        border: 6px solid rgba(0,0,0, 1); }
+
+    .item .product-img:before,
+    .item .product-img:after { box-sizing: border-box; content: ""; display: block; position: absolute; border-radius: 100%; transition: all .22s ease-in-out;
+        border:    12px solid transparent;
+        top:      -12px;
+        left:     -12px;
+        right:    -12px;
+        bottom:   -12px;
+    }
+
+    .item .product-img:before                     { opacity: .25; border-top: 12px solid var(--app-color-white);     border-left: 12px solid var(--app-color-white);  }
+    .item .product-img:after                      { opacity:  .5; border-bottom: 12px solid var(--app-color-white);  border-right: 12px solid var(--app-color-white); }
+    .item .product-img component-image            { display: block; max-width: 100%; overflow: visible; -webkit-filter: grayscale(1); filter: grayscale(1); transition: all .22s ease-in-out; }
+
+    /* Hover States */
+    .item:hover .product-link h3                  { opacity: 1; }
+    .item:hover .product-img component-image      { opacity: 1; -webkit-filter: grayscale(0); filter: grayscale(0); transform: scale(1.07, 1.07) translate(0, -7px); }
+    .item:hover .product-img                      {  }
+    .item:hover .product-img:before               { transform: rotate(180deg); border-color: var(--app-accent-color); opacity: .5; background: rgba(256,0,0, .11); }
+    .item:hover .product-img:after                { transform: rotate(180deg); opacity: .25; }
+
+    .logo {  }
+    .logo img { width: 350px; }
+
+
+/*  Mobile
+********************************************************/
+@media (min-width: 0) and (max-width: 768px) {
+    component-image {  }
+
+    /* Icons */
+    paper-icon-button iron-icon { height: 64px; width: 64px; }
+
+    /* Selected Animation */
+    .item .product-link h3                                 { transition: opacity .22s ease-in-out .22s; }
+    .item .product-img                                     { transition: transform .22s ease-in-out .22s; }
+    .item .product-img:before, .item .product-img:after    { transition: all .22s ease-in-out .22s; }
+    .item .product-img component-image                     { transition: all .22s ease-in-out .22s; }
+
+    /* Selected States */
+    .iron-selected .item .product-link h3                  { opacity: 1; }
+    .iron-selected .item .product-img component-image      { opacity: 1; -webkit-filter: grayscale(0); filter: grayscale(0); transform: scale(1.07, 1.07) translate(0, -7px); }
+    .iron-selected .item .product-img                      {  }
+    .iron-selected .item .product-img:before               { transform: rotate(180deg); border-color: var(--app-accent-color); opacity: .5; background: rgba(256,0,0, .11); }
+    .iron-selected .item .product-img:after                { transform: rotate(180deg); opacity: .25; }
+
+    .footer { position: fixed; left: 0; bottom: 0; right: 0; z-index: 2; background: #000; }
+    .footer div { background: rgba(0,0,0, .64); }
+    .footer a:nth-child(1) { background: rgba(256,256,256, .42); }
+    .footer a:nth-child(2) { background: rgba(256,256,256, .22); border-left:  4px solid rgba(0, 0, 0, 1); }
+
+    .footer a { border-top: 2px inset rgba(256, 256, 256, 1); color: white; font-size: 15px; text-transform: uppercase; opacity: .5; }
+
+    .footer a paper-button iron-icon { color: white; padding-right: 10px; }
+}
+
+
+/*  Tablet
+********************************************************/
+@media (min-width: 769px) and (max-width: 1024px){
+    .min-height-120 { min-height: 120vh; }
+}
+
+/*  Desktop
+********************************************************/
+@media (min-width: 1025px) {
+    .min-height-120 { min-height: 120vh; }
+}
+
+
+
+
+
+
+
+/*  APP BOX
+****************************************************************/
+
+    /* TOP (Parallax Container) */
+    app-box  {
+
+        --app-box-background-front-layer: {
+          /* background-image: url(bg.jpg);  -->  (bg images only)  */
+          /* background-position: center;    -->  (bg images only)  */
+          /* background-size: cover;         -->  (bg images only)  */
+          /* background-repeat: no-repeat;   -->  (bg images only)  */
+
+          max-width: 100%;
+          max-height: 100%;
+          margin-top: -25%;
+          padding-bottom: 25%;
+        };
+    }
+
+    .hero-image {
+
+      /* Fill Background                Proportionate Scaling          Positioning
+       *************************      *************************      *************************/
+         min-height: 100%;              width: 100%;                   position: absolute;
+         min-width: 1024px;             height: auto;                  top: 0;
+         overflow: hidden;                                             left: 0;
+
+                            /*          ( D U P L I C A T E )          */
+                            /*          ( D U P L I C A T E )          */
+                            /*          ( D U P L I C A T E )          */
+
+
+      --component-image-img: {
+
+      /* Fill Background                Proportionate Scaling          Positioning
+       *************************      *************************      *************************/
+         min-height: 100%;              width: 100%;                   position: absolute;
+         max-width: none;               height: auto;                  top: 0;
+                                                                       bottom: 0;
+                                                                       left: -9999px;
+                                                                       right: -9999px;
+        };
+    }
+</style>
+
+    <!-- Media Queries -->
+    <iron-media-query query="(min-width: 0) and (max-width: 768px)" query-matches="{{mobile}}"></iron-media-query>
+    <iron-media-query query="(min-width: 769px) and (max-width: 1024px)" query-matches="{{tablet}}"></iron-media-query>
+    <iron-media-query query="(min-width: 1025px)" query-matches="{{desktop}}"></iron-media-query>
+
+
+<!-- Home
+-------------------------------------------------------------------------------------------------------------------------->
+
+<main class="flex-vertical min-height-100 bg-black relative z-2"> <!-- height100 !important! (IE11 Fix) -->
+
+    <app-box effects="parallax-background" class="bg-intro">
+
+        <!-- Parallax BG -->
+        <component-image
+            alt="Our Company"
+            src="../images/bg_hero.jpg"
+            placeholder-img="../images/bg_hero_placeholder.jpg" class="hero-image" background>
+        </component-image>
+
+        <article class="flex-vertical height-100 min-height-120 text-center">
+
+            <!-- TOP -->
+            <!-- TOP -->
+            <!-- TOP -->
+            <section class="flex-1 top wrapper">
+                <div class="flex-vertical end-center page">
+
+                    <template is="dom-if" if="{{!mobile}}">
+                    <a href="/" class="logo">
+                        <img src="../images/logo.svg" alt="Sulphur Fuel Injector" />
+                    </a>
+                    </template>
+
+                    <div class="blur">
+                        <h1>Common Rail</h1>
+                        <h2>Fuel Injector Testing</h2>
+                    </div>
+                </div>
+            </section>
+
+
+
+            <!-- MIDDLE (Mobile) -->
+            <!-- MIDDLE (Mobile) -->
+            <!-- MIDDLE (Mobile) -->
+            <paper-icon-button class="prev-click" icon="super-icons:arrow-left"  on-click="_PrevClick" hidden$="{{!mobile}}"></paper-icon-button>
+            <paper-icon-button class="next-click" icon="super-icons:arrow-right" on-click="_NextClick" hidden$="{{!mobile}}"></paper-icon-button>
+
+            <!-- Swipe Pages -->
+            <iron-swipeable-pages class="flex-2 middle" id="swipe" selected="{{selectedService}}" hidden$="{{!mobile}}" show-arrow>
+
+                <template is="dom-repeat" items="[[categories]]" strip-whitespace>
+                <div class="flex-vertical center-center">
+                    <div class="item">
+                        <a class="product-img" href$="/list/[[item.name]]">
+                            <component-image src="[[item.image]]" alt="[[item.headline]]" placeholder-img="[[item.placeholder]]"></component-image>
+                        </a>
+                        <a class="product-link" href$="/list/[[item.name]]">
+                            <h3>[[item.headline]]</h3>
+                        </a>
+                    </div>
+                </div>
+                </template>
+
+            </iron-swipeable-pages>
+
+
+
+            <!-- MIDDLE (Tablet & Desktop) -->
+            <!-- MIDDLE (Tablet & Desktop) -->
+            <!-- MIDDLE (Tablet & Desktop) -->
+            <template is="dom-if" if="{{!mobile}}">
+            <section class="flex-1 middle">
+                <div class="flex-horizontal center-center text-align page">
+                    <template is="dom-repeat" items="[[categories]]" strip-whitespace>
+
+
+                        <div class="item">
+                            <a class="product-img" href$="/list/[[item.name]]">
+                                <component-image src="[[item.image]]" alt="[[item.headline]]" placeholder-img="[[item.placeholder]]"></component-image>
+                            </a>
+                            <a class="product-link" href$="/list/[[item.name]]">
+                                <h3>[[item.headline]]</h3>
+                            </a>
+                        </div>
+
+
+                    </template>
+                </div>
+            </section>
+            </template>
+
+
+
+            <!-- BOTTOM (Mobile) -->
+            <!-- BOTTOM (Mobile) -->
+            <!-- BOTTOM (Mobile) -->
+            <template is="dom-if" if="{{mobile}}">
+            <section class="flex-none footer">
+                <div class="flex-horizontal">
+
+                    <!-- Directions -->
+                    <a class="flex-1" href="https://www.google.com/maps/place/Sulphur+Fuel+Injection/@30.2360406,-93.3144457,17z/data=!3m1!4b1!4m15!1m9!4m8!1m0!1m6!1m2!1s0x863b8ee90c5001cd:0x84cdcf8337373941!2sSulphur+Fuel+Injection,+121+Industrial+Dr,+Sulphur,+LA+70663!2m2!1d-93.312257!2d30.236036!3m4!1s0x863b8ee90c5001cd:0x84cdcf8337373941!8m2!3d30.236036!4d-93.312257" aria-label="Get Directions" target="_blank">
+                        <paper-button class="flex-horizontal padding-1">
+                            <iron-icon icon="super-icons:map"></iron-icon>
+                            Directions
+                        </paper-button>
+                    </a>
+
+                    <!-- Call -->
+                    <a href="tel:3376260004" class="flex-1" aria-label="Call Now">
+                        <paper-button class="flex-horizontal padding-1">
+                            <iron-icon icon="super-icons:phone"></iron-icon>
+                            Call
+                        </paper-button>
+                    </a>
+                </div>
+            </section>
+            <section class="flex-none footer">
+            </section>
+            </template>
+
+
+
+            <!-- BOTTOM (Tablet & Desktop) -->
+            <!-- BOTTOM (Tablet & Desktop) -->
+            <!-- BOTTOM (Tablet & Desktop) -->
+            <template is="dom-if" if="{{!mobile}}">
+            <section class="flex-none text-center bottom">
+                <fx-arrows color="white"></fx-arrows>
+            </section>
+            </template>
+
+
+        </article>
+    </app-box>
+</main>
+
+<fx-skew class="bg-black z-1"></fx-skew>
+
+
+<!-- Company
+-------------------------------------------------------------------------------------------------------------------------->
+    <shop-company name="company" some-old-bull="no"></shop-company>
+
+
+<!-- Map
+-------------------------------------------------------------------------------------------------------------------------->
+    <shop-location name="location"></shop-location>
+
+</template>
+
+  <script>
+
+    Polymer({
+
+      is: 'shop-home',
+
+      properties: {
+
+        categories: {
+          type: Array
+        },
+
+        visible: {
+          type: Boolean,
+          observer: '_visibleChanged'
+        },
+
+        selectedService: {
+            type: Number,
+            value: 0
+        }
+
+      },
+
+      _visibleChanged: function(visible) {
+        if (visible) {
+          this.fire('change-section', { headline: 'Home' });
+        }
+      },
+
+      _PrevClick: function() {
+        var pages = this.$.swipe.querySelectorAll('.item');
+        var max = (pages && pages.length - 1) || 0;
+        this.selectedService = this.selectedService === 0 ? max : (this.selectedService - 1);
+      },
+
+      _NextClick: function() {
+        var pages = this.$.swipe.querySelectorAll('.item');
+        var max = (pages && pages.length - 1) || 0;
+        this.selectedService = this.selectedService === max ? 0 : (this.selectedService + 1);
+      }
+
+    });
+
+
+
+
+
+
+  </script>
+
+</dom-module>

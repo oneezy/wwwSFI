@@ -1,0 +1,879 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/app-route/app-route.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../bower_components/fx-skew/fx-skew.html">
+<link rel="import" href="../bower_components/paper-toast/paper-toast.html">
+<link rel="import" href="components/component-button.html">
+<link rel="import" href="styles-main.html">
+<link rel="import" href="styles-form.html">
+<link rel="import" href="components/component-input.html">
+<link rel="import" href="components/component-textarea-style.html">
+<link rel="import" href="components/component-select.html">
+<link rel="import" href="components/component-checkbox.html">
+
+<dom-module id="shop-checkout">
+
+  <template>
+    <style include="styles-main component-button styles-form component-input component-textarea-style component-select component-checkbox">
+
+      .main-frame {
+        transition: opacity 0.5s;
+        overflow: visible;
+      }
+
+      :host([waiting]) .main-frame {
+        opacity: 0.1;
+      }
+
+      component-input, component-select, component-textarea-style {
+        font-size: 16px;
+      }
+
+      component-select {
+        margin-bottom: 20px;
+      }
+
+      paper-spinner-lite {
+        position: fixed;
+        top: calc(50% - 14px);
+        left: calc(50% - 14px);
+      }
+
+      paper-textarea {
+        --paper-input-container-focus-color:#dd2c00;
+      }
+
+
+      /*
+      .contact-instructions-hidden {
+        display: none;
+        text-align: center;
+      }
+
+      .contact-instructions-visible {
+        display: block;
+        text-align: center;
+        color: #b71c1c;
+        line-height: normal;
+      }
+      */
+
+
+      .billing-address-picker {
+        margin: 28px 0;
+        height: 20px;
+        @apply(--layout-horizontal);
+      }
+
+      .billing-address-picker > label {
+        margin-left: 12px;
+      }
+
+      .grid {
+        margin-top: 40px;
+        @apply(--layout-horizontal);
+      }
+
+      .grid > section {
+        @apply(--layout-flex);
+      }
+
+      .grid > section:not(:first-child) {
+        margin-left: 80px;
+      }
+
+      .row {
+        @apply(--layout-horizontal);
+        @apply(--layout-end);
+      }
+
+      .column {
+        @apply(--layout-vertical);
+      }
+
+      .row > .flex,
+      .input-row > * {
+        @apply(--layout-flex);
+      }
+
+      .input-row > *:not(:first-child) {
+        margin-left: 8px;
+      }
+
+      .component-select-label {
+        line-height: 20px;
+      }
+
+      .order-summary-row {
+        line-height: 24px;
+      }
+
+      .total-row {
+        font-weight: 500;
+        margin: 30px 0;
+      }
+
+      fx-skew            { background: rgba(255, 255, 255, 1); margin: -55vh auto 0; position: relative; z-index: 1; min-height: 50vh; }
+      fx-skew h1         {  }
+
+      .hero-image {
+        position: relative;
+        height: 100vh;
+        max-width: 100%;
+        overflow: hidden;
+        z-index: 0;
+      }
+
+      .hero-image {
+        --component-image-img: {
+          position: fixed;
+          top: 0;
+          bottom: 0;
+          left: -9999px;
+          right: -9999px;
+          width: 100vw;
+          height: 100vh;
+          max-width: 100%;
+          max-height: auto;
+        };
+      }
+
+      .info-links                   { position: relative; border-top: 2px solid black; padding: 1rem 0 0; margin: 4rem 0 0; min-width: 280px; }
+      .info-links img               { width: 150px; position: absolute; bottom: 100%; left: 50%; margin: 0 0 0 -75px; }
+      .info-links a                 { display: block; color: var(--app-tertiary-color); line-height: 24px; padding: 0 16px; text-decoration: none; }
+      .info-links a iron-icon       { color: rgba(0,0,0,.78); width: 18px; height: 18px; padding: 0 5px 0 0; }
+
+
+/*  Mobile
+********************************************************/
+@media (min-width: 0) and (max-width: 768px) {
+
+    paper-toast { margin: 0; height: 64px; min-height: 64px; max-height: 64px; width: 100%; }
+    paper-toast * { background: lime; display: block; }
+
+    .grid {
+        display: block;
+        margin-top: 0;
+    }
+
+    .grid > section:not(:first-child) {
+        margin-left: 0;
+    }
+
+    .info-links { margin: 10rem 0 0; }
+
+    /* Directions and Call */
+    .footer { position: fixed; left: 0; bottom: 0; right: 0; z-index: 2; background: #000; }
+    .footer div { background: rgba(0,0,0, .64); }
+    .footer a { text-decoration: none; }
+    .footer a:nth-child(1) { background: rgba(256,256,256, .42); }
+    .footer a:nth-child(2) { background: rgba(256,256,256, .22); border-left:  4px solid rgba(0, 0, 0, 1); }
+
+    .footer a { border-top: 2px inset rgba(256, 256, 256, 1); color: white; font-size: 15px; text-transform: uppercase; opacity: .5; }
+    .footer a paper-button iron-icon { color: white; padding-right: 10px; }
+}
+
+    </style>
+
+    <iron-media-query query="(min-width: 0) and (max-width: 768px)" query-matches="{{mobile}}"></iron-media-query>
+
+    <div>
+      <iron-pages selected="[[state]]" attr-for-selected="state">
+        <div state="init">
+          <form
+              id="checkoutForm"
+              is="iron-form"
+              class="main-frame"
+              method="post"
+              action= "https://formspree.io/quotes@sulphurfuelinjection.com"
+              on-iron-form-response="_didReceiveResponse"
+              on-iron-form-presubmit="_willSendRequest">
+
+            <div class="subsection" visible$="[[!_hasItems]]">
+              <p class="empty-cart">Your <iron-icon icon="shopping-cart"></iron-icon> is empty.</p>
+            </div>
+
+            <header class="subsection" visible$="[[_hasItems]]">
+              <paper-toast id="toast" text="You must provide either an Email Address or Phone Number." dynamic-align="true" class="flex-vertical items-center"></paper-toast>
+              <h1>Get Quote</h1>
+              <span>Fill in your details so we can Contact You!</span>
+            </header>
+
+            <div class="subsection grid" visible$="[[_hasItems]]">
+              <section>
+                <!-- <h3 id='ValidateWarning' class$="[[instructionsClass]]">You must provide either an Email Address or Phone Number.</h3> -->
+                <h2 id="InfoHeading">Contact Information</h2>
+
+                <div class="row input-row">
+                  <component-input on-change="_toggleValid">
+                    <input type="text" id="contactName" name="Name"
+                        placeholder="Your Name" autofocus required
+                        aria-labelledby="NameLabel InfoHeading">
+                    <shop-md-decorator error-message="Invalid Characters in Name" aria-hidden="true">
+                      <label id="NameLabel">Your Name</label>
+                      <shop-underline></shop-underline>
+                    </shop-md-decorator>
+                  </component-input>
+                </div>
+                <div class="row input-row">
+                  <component-input on-change="_toggledLinked">
+                    <input type="email" id="contactEmail" name="Email" pattern="(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*)@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])"
+                        placeholder="Email"
+                        aria-labelledby="EmailLabel InfoHeading">
+                    <shop-md-decorator error-message="Invalid Email" aria-hidden="true">
+                      <label id="EmailLabel">Email</label>
+                      <shop-underline></shop-underline>
+                    </shop-md-decorator>
+                  </component-input>
+                </div>
+                <div class="row input-row">
+                  <component-input on-change="_toggledLinked">
+                    <input type="tel" id="contactPhone" name="Phone" pattern="^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$"
+                        placeholder="Phone Number"
+                        aria-labelledby="PhoneLabel InfoHeading">
+                    <shop-md-decorator error-message="Invalid Phone Number" aria-hidden="true">
+                      <label id="PhoneLabel">Phone Number</label>
+                      <shop-underline></shop-underline>
+                    </shop-md-decorator>
+                  </component-input>
+                </div>
+                <div class="row input-row">
+                  <component-textarea-style id="textarea-container">
+                    <textarea id="Comments" name="Comments" rows="4"
+                      placeholder="Commments, Questions, and Such"
+                      aria-labelledby="CommentLabel InfoHeading"></textarea>
+                    <!-- <paper-textarea id="Comments" name="Comments" rows="4"
+                      placeholder="Commments, Questions, or Details"
+                      aria-labelledby="CommentLabel InfoHeading"></paper-textarea> -->
+                    <shop-md-decorator error-message="Comments Optional" aria-hidden="true">
+                      <label id="CommentLabel">Commments, Questions, and Such</label>
+                      <shop-underline></shop-underline>
+                    </shop-md-decorator>
+                  </component-textarea-style>
+                </div>
+
+                <h2 id="AddressHeading">Address</h2>
+                <div class="billing-address-picker">
+                  <component-checkbox>
+                    <input type="checkbox" id="setBilling" checked$="[[hasBillingAddress]]" on-change="_toggleBillingAddress" />
+                    <shop-md-decorator aria-hidden="true"></shop-md-decorator>
+                  </component-checkbox>
+                  <label for="setBilling">Provide Your Address</label>
+                </div>
+                <template is="dom-if" if="{{hasBillingAddress}}">
+                  <div class="row input-row">
+                    <component-input on-change="_toggleValid">
+                      <input type="text" id="Address" name="Address" pattern=".{5,}"
+                          placeholder="Address" required$="[[hasBillingAddress]]"
+                          aria-labelledby="AddressLabel AddressHeading">
+                      <shop-md-decorator error-message="Invalid Address" aria-hidden="true">
+                        <label id="AddressLabel">Address</label>
+                        <shop-underline></shop-underline>
+                      </shop-md-decorator>
+                    </component-input>
+                  </div>
+                  <div class="row input-row">
+                    <component-input on-change="_toggleValid">
+                      <input type="text" id="City" name="City" pattern="[A-Za-z\s]{2,}"
+                          placeholder="City" required$="[[hasBillingAddress]]"
+                          aria-labelledby="CityLabel AddressHeading">
+                      <shop-md-decorator error-message="Invalid City" aria-hidden="true">
+                        <label id="CityLabel">City</label>
+                        <shop-underline></shop-underline>
+                      </shop-md-decorator>
+                    </component-input>
+                  </div>
+                  <div class="row input-row">
+                    <component-input on-change="_toggleValid">
+                      <input type="text" id="State" name="State" pattern="[A-Za-z]{2,}"
+                          placeholder="State/Province" required$="[[hasBillingAddress]]"
+                          aria-labelledby="StateLabel AddressHeading">
+                      <shop-md-decorator error-message="Invalid State/Province" aria-hidden="true">
+                        <label id="StateLabel">State/Province</label>
+                        <shop-underline></shop-underline>
+                      </shop-md-decorator>
+                    </component-input>
+                    <component-input on-change="_toggleValid">
+                      <input type="text" id="Zip" name="Zip" pattern="\d{5}(?:[-\s]\d{4})?"
+                          placeholder="Zip/Postal Code" required$="[[hasBillingAddress]]"
+                          aria-labelledby="ZipLabel AddressHeading">
+                      <shop-md-decorator error-message="Invalid Zip/Postal Code" aria-hidden="true">
+                        <label id="ZipLabel">Zip/Postal Code</label>
+                        <shop-underline></shop-underline>
+                      </shop-md-decorator>
+                    </component-input>
+                  </div>
+                  <div class="column">
+                    <label id="CountryLabel" class="component-select-label">Country</label>
+                    <component-select on-change="_toggleValid">
+                      <select id="Country" name="Country" required$="[[hasBillingAddress]]"
+                          aria-labelledby="CountryLabel AddressHeading">
+                        <option value="US" selected>United States</option>
+                        <option value="CA">Canada</option>
+                      </select>
+                      <shop-md-decorator aria-hidden="true">
+                        <shop-underline></shop-underline>
+                      </shop-md-decorator>
+                    </component-select>
+                  </div>
+                </template>
+                <h2>Product Quote Summary</h2>
+                <template is="dom-repeat" items="[[cart]]" as="entry">
+                  <div class="row order-summary-row">
+                    <div class="flex">[[entry.item.NAME]]</div>
+                    <div>[[entry.quantity]]</div>
+                    <!-- <div>[[_getEntryTotal(entry)]]</div> -->
+                  </div>
+                </template>
+                <div class="row total-row">
+                  <div class="flex">Total Items</div>
+                  <div>[[numItems]]</div>
+                  <!-- <div>[[_formatPrice(total)]]</div> -->
+                </div>
+                <component-button responsive id="submitBox">
+                  <input type="button" on-click="_submit" value="Submit Quote">
+                </component-button>
+              </section>
+            </div>
+          </form>
+        </div>
+
+        <!-- Success message UI -->
+        <header state="success">
+
+            <!-- BG Image -->
+            <component-image
+                alt="Sulphur Fuel Injection Location"
+                src="../images/location.jpg"
+                placeholder-img="[[category.placeholder]]" class="hero-image">
+            </component-image>
+
+
+            <!-- Thankyou -->
+            <fx-skew>
+                <div class="main-frame">
+
+                    <section class="flex-vertical items-stretch">
+                        <section class="flex-1 flex-horizontal mobile-flex-vertical">
+                            <div class="flex-2 text-left padding-r-1">
+                                <h1>Thank you!</h1>
+
+                                <p class="margin-0">We've emailed you a copy of the items you're interested in and a member of our sales team will contact you soon.</p>
+                                <p>[[response.successMessage]]</p>
+
+                                <p>If you have any questions, please give us call. Business hours are Monday through Friday, 7am to 4pm Central Standard Time. All internet quotes, emails, and faxes are processed during our normal business hours.</p>
+                            </div>
+
+                            <div class="info-links text-left flex-1">
+                                <!-- Owner Icon -->
+                                <img src="../images/icon_owner.png" class="icon-owner" alt="Bart Winzer" />
+
+                                <!-- Call -->
+                                <a href="tel:3376260004" aria-label="Phone Number">
+                                    <iron-icon icon="super-icons:phone"></iron-icon>
+                                    (337) 626-0004
+                                </a>
+
+                                <!-- Email -->
+                                <a href="mailo:sales@sulphurfuelinjection.com" aria-label="Email Address">
+                                    <iron-icon icon="super-icons:email"></iron-icon>
+                                    sales@sulphurfuelinjection.com
+                                </a>
+
+                                <!-- Location -->
+                                <a href="https://www.google.com/maps/place/Sulphur+Fuel+Injection/@30.2360406,-93.3144457,17z/data=!3m1!4b1!4m15!1m9!4m8!1m0!1m6!1m2!1s0x863b8ee90c5001cd:0x84cdcf8337373941!2sSulphur+Fuel+Injection,+121+Industrial+Dr,+Sulphur,+LA+70663!2m2!1d-93.312257!2d30.236036!3m4!1s0x863b8ee90c5001cd:0x84cdcf8337373941!8m2!3d30.236036!4d-93.312257" aria-label="Location" target="_blank">
+                                    <iron-icon icon="super-icons:map"></iron-icon>
+                                    3427 E. Napoleon St, Sulphur, LA 70663
+                                </a>
+
+                                <!-- Business Hours -->
+                                <a href="tel:3376260004" aria-label="Business Hours">
+                                    <iron-icon icon="super-icons:time"></iron-icon>
+                                    Monday - Friday | 7:30am to 4:00pm
+                                </a>
+                            </div>
+                        </section>
+                    </section>
+                </div>
+            </fx-skew>
+
+
+          <!-- BOTTOM (Mobile) -->
+          <!-- BOTTOM (Mobile) -->
+          <!-- BOTTOM (Mobile) -->
+          <template is="dom-if" if="{{mobile}}">
+          <section class="flex-none footer">
+              <div class="flex-horizontal">
+
+                  <!-- Directions -->
+                  <a class="flex-1" href="https://www.google.com/maps/place/Sulphur+Fuel+Injection/@30.2360406,-93.3144457,17z/data=!3m1!4b1!4m15!1m9!4m8!1m0!1m6!1m2!1s0x863b8ee90c5001cd:0x84cdcf8337373941!2sSulphur+Fuel+Injection,+121+Industrial+Dr,+Sulphur,+LA+70663!2m2!1d-93.312257!2d30.236036!3m4!1s0x863b8ee90c5001cd:0x84cdcf8337373941!8m2!3d30.236036!4d-93.312257" aria-label="Get Directions" target="_blank">
+                      <paper-button class="flex-horizontal padding-1">
+                          <iron-icon icon="super-icons:map"></iron-icon>
+                          Directions
+                      </paper-button>
+                  </a>
+
+                  <!-- Call -->
+                  <a href="tel:3376260004" class="flex-1" aria-label="Call Now">
+                      <paper-button class="flex-horizontal padding-1">
+                          <iron-icon icon="super-icons:phone"></iron-icon>
+                          Call
+                      </paper-button>
+                  </a>
+              </div>
+          </section>
+          </template>
+
+        </header>
+
+        <!-- Error message UI -->
+        <header state="error">
+          <h1>We couldn&acute;t process your order</h1>
+          <p id="errorMessage">[[response.errorMessage]]</p>
+          <component-button responsive>
+            <a href="/checkout">Try again</a>
+          </component-button>
+        </header>
+
+      </iron-pages>
+
+    </div>
+
+    <!-- Handles the routing for the success and error subroutes -->
+    <app-route
+        route="[[route]]"
+        pattern="/:state"
+        on-active-changed="_activeRouteHandler">
+     </app-route>
+
+    <!-- Show spinner when waiting for the server to repond -->
+    <paper-spinner-lite active="[[waiting]]"></paper-spinner-lite>
+
+  </template>
+
+  <script>
+
+    var linkedInput = [
+      {
+        elementName: 'Email',
+        elementDOM: '',
+        isValid: false,
+        index: ''
+      },
+      {
+        elementName: 'Phone',
+        elementDOM: '',
+        isValid: false,
+        index: ''
+      },
+    ];
+
+    Polymer({
+
+      is: 'shop-checkout',
+
+      properties: {
+
+        /**
+         * The route for the state. e.g. `success` and `error` are mounted in the
+         * `checkout/` route.
+         */
+
+        numItems: Number,
+
+        linkedGroup: {
+          type: Array,
+          value: linkedInput
+        },
+
+        validateElement: {
+          type: Object,
+        },
+
+        route: {
+          type: Object,
+          notify: true
+        },
+
+        instructionsClass: {
+          type: String,
+          value: "contact-instructions-hidden"
+        },
+
+        /**
+         * The total price of the contents in the user's cart.
+         */
+        total: Number,
+
+        /**
+         * The state of the form. Valid values are:
+         * `init`, `success` and `error`.
+         */
+        state: {
+          type: String,
+          value: 'init'
+        },
+
+        /**
+         * An array containing the items in the cart.
+         */
+        cart: Array,
+
+        /**
+         * The server's response.
+         */
+        response: Object,
+
+        /**
+         * If true, the user must enter a billing address.
+         */
+        hasBillingAddress: {
+          type: Boolean,
+          value: false
+        },
+
+        /**
+         * If true, shop-checkout is currently visible on the screen.
+         */
+        visible: {
+          type: Boolean,
+          observer: '_visibleChanged'
+        },
+
+        /**
+         * True when waiting for the server to repond.
+         */
+        waiting: {
+          type: Boolean,
+          readOnly: true,
+          reflectToAttribute: true
+        },
+
+        /**
+         * True when waiting for the server to repond.
+         */
+        _hasItems: {
+          type: Boolean,
+          computed: '_computeHasItem(cart.length)'
+        }
+      },
+
+      ready: function () {
+        this.validateElement = document.getElementById('ValidateWarning');
+        var myLinkedGroup = this.linkedGroup;
+        var form = this.$.checkoutForm;
+        for (var el, i = 0; el = form.elements[i], i < form.elements.length; i++) {
+          for (var linkedEl, j=0; linkedEl = myLinkedGroup[j], j < myLinkedGroup.length; j++) {
+            if (el.name == linkedEl.elementName) {
+              linkedEl.elementDOM = el;
+              linkedEl.index = i;
+            }
+          }
+        }
+      },
+
+      _toggleValid: function(e) {
+        var myTarget = e.target;
+        if (myTarget.checkValidity()) {
+          myTarget.removeAttribute('aria-invalid');
+        } else {
+          myTarget.setAttribute('aria-invalid', 'true');
+        }
+      },
+
+      _toggledLinked: function(e) {
+        var myLinkedGroup = this.linkedGroup;
+        var myLength = myLinkedGroup.length;
+        var myTarget = e.target;
+        console.log("My Target's Value is: ", myTarget.value)
+        if (myTarget.checkValidity() && myTarget.value != "") {
+          this.instructionsClass = 'contact-instructions-hidden';
+          for (var i=0; i < myLength; i++) {
+            if (myLinkedGroup[i].elementName == myTarget.name) {
+              myLinkedGroup[i].isValid = true;
+              myLinkedGroup[i].elementDOM.removeAttribute('aria-invalid');
+            } else {
+              myLinkedGroup[i].elementDOM.removeAttribute('aria-invalid');
+            }
+          }
+        } else {
+          for (var j=0; j < myLength; j++) {
+            if (myLinkedGroup[j].elementName == myTarget.name) {
+              myLinkedGroup[j].isValid = false;
+            }
+          }
+        }
+        console.log(myLinkedGroup);
+      },
+
+      _submit: function(e) {
+        if (this._validateForm()) {
+          this.$.checkoutForm.submit();
+        }
+      },
+
+      /**
+       * Sets the valid state and updates the location.
+       */
+      _pushState: function(state) {
+        this._validState = state;
+        this.set('route.path', state);
+      },
+
+      /**
+       * Checks that the `:state` subroute is correct. That is, the state has been pushed
+       * after receiving response from the server. e.g. Users can only go to `/checkout/success`
+       * if the server responsed with a success message.
+       */
+      _activeRouteHandler: function(e) {
+        var route = e.target;
+
+        if (e.detail.value) {
+          var state = route.data.state;
+          if (this._validState === state) {
+            this.state = state;
+            this._validState = '';
+            return;
+          }
+        }
+
+        this.state = 'init';
+      },
+
+      /**
+       * Sets the initial state.
+       */
+      _reset: function() {
+        var form = this.$.checkoutForm;
+
+        this._setWaiting(false);
+        form.reset();
+
+        // Remove the `aria-invalid` attribute from the form inputs.
+        for (var el, i = 0; el = form.elements[i], i < form.elements.length; i++) {
+          el.removeAttribute('aria-invalid');
+        }
+      },
+
+      /**
+       * Validates the form's inputs and adds the `aria-invalid` attribute to the inputs
+       * that don't match the pattern specified in the markup.
+       */
+      _validateForm: function() {
+        var myObject = this;
+        var form = this.$.checkoutForm;
+        var failedValidation = false;
+        var invalidElements = [];
+        var myLinkedGroup = this.linkedGroup;
+        var linkedGroupFailed = false;
+
+        var  handleFirstInvalid = function (myElement) {
+          myElement.setAttribute('aria-invalid', 'true');
+          if (myElement.nextElementSibling) {
+            myObject.fire('announce', myElement.nextElementSibling.getAttribute('error-message'));
+          }
+          if (myElement.scrollIntoViewIfNeeded) {
+            // safari, chrome
+            myElement.scrollIntoViewIfNeeded();
+          } else {
+            // firefox, edge, ie
+            myElement.scrollIntoView(false);
+          }
+          myElement.focus();
+          return;
+        }
+
+        for (var el, i = 0; el = form.elements[i], i < form.elements.length; i++) {
+          if (el.checkValidity()) {
+            el.removeAttribute('aria-invalid');
+          } else {
+            invalidElements.push({
+              index: i,
+              domElement: el
+            });
+          }
+        }
+
+        if (!this._isLinkedGroupValid()) {
+          linkedGroupFailed = true;
+          for (var k=0; k < myLinkedGroup.length; k++) {
+            var myObj = {
+              index: "",
+              domElement: ""
+            };
+            myObj.index = myLinkedGroup[k].index;
+            myObj.domElement = myLinkedGroup[k].elementDOM;
+
+            if (invalidElements.length < 0) {
+              for (var invEl, j = 0; invEl = invalidElements[j], j < invalidElements.length; i++) {
+                var next = i++;
+                if (myObj.index < invEl.index) {
+                  invalidElements.splice(j, 0, myObj);
+                  break;
+                } else if (next > invalidElements.length) {
+                  invalidElements.push(myObj);
+                }
+              }
+            } else {
+              invalidElements.push(myObj);
+            }
+
+          }
+        }
+
+        if (invalidElements.length > 0) {
+          this.$.toast.open();
+          if (linkedGroupFailed) {
+            this.instructionsClass = 'contact-instructions-visible';
+          }
+          failedValidation = true;
+          for (var i = 0; i < invalidElements.length; i++) {
+            if (i == 0) {
+              // console.log("First Invalid: ", invEl.domElement);
+              handleFirstInvalid(invalidElements[i].domElement);
+            } else {
+              // console.log("Remaining Invalid: ", invEl.domElement);
+              invalidElements[i].domElement.setAttribute('aria-invalid', 'true');
+            }
+          }
+        }
+
+        return !failedValidation;
+      },
+
+      _isLinkedGroupValid: function () {
+        var myLinkedGroup = this.linkedGroup;
+        var myLength = myLinkedGroup.length;
+        var validElements = 0;
+
+        for (var linkedEl, i=0; linkedEl = myLinkedGroup[i], i < myLength; i++) {
+          if (linkedEl.isValid == true) {
+            validElements++;
+          }
+        }
+
+        if (validElements > 0) {
+          return true;
+        } else {
+          return false;
+        }
+      },
+
+      /**
+       * Adds the cart data to the payload that will be sent to the server
+       * and updates the UI to reflect the waiting state.
+       */
+      _computeProductNo: function(prodNo) {
+        //Ref: http://www.codigomanso.com/en/2010/07/simple-javascript-formatting-zero-padding/
+        var formattedNo = ("0" + prodNo).slice (-2);
+        return "Product"+formattedNo;
+      },
+
+      _willSendRequest: function(e) {
+        var form = e.target;
+        var body = form.request.body;
+        var myLinkedGroup = this.linkedGroup;
+        var myLength = myLinkedGroup.length;
+        //create a formatted date to add to subject line of Formspree email
+        var today = new Date();
+        var dd = ("0" + today.getDate()).slice (-2);
+        var mm = ("0" + (today.getMonth()+1)).slice (-2);
+        var yyyy = today.getFullYear();
+        var formattedDate = mm+'/'+dd+'/'+yyyy;
+
+        this._setWaiting(true);
+
+        if (!body) {
+          return;
+        }
+
+        // create the Formspree email subject line with the date, number of items,
+        // ... and user name
+        body._subject = "SFI Quote: on " + formattedDate + " for " + this.numItems + " Items from " + body.Name;
+
+        // check to see if user submitted an email address and if they did, cc them
+        // ... and, make them the reply target of the email.
+        for (var linkedEl, i=0; linkedEl = myLinkedGroup[i], i < myLength; i++) {
+          if (linkedEl.elementName == "Email") {
+            if(linkedEl.isValid = true) {
+              body._replyto = linkedEl.elementDOM.value;
+              body._cc = linkedEl.elementDOM.value;
+              break;
+            } else {
+              break;
+            }
+          }
+        }
+
+        // Have the email form list a seperate object for each product type; where it lists
+        //... the name of the product, the service needed, and the quantity requested.
+        this.cart.forEach(function(cartItem, i) {
+          var myName = cartItem.item.NAME;
+          var formattedNo = ("0" + (i+1)).slice (-2);
+          var myProperty = "Product_" + formattedNo;
+          body[myProperty] = "Need "+ cartItem.size + " for " + cartItem.quantity + " " + myName + "(s)";
+          // body.cartItemsId.push(cartItem.size);
+          // body.cartItemsId[i].push(cartItem.item.NAME);
+          // body.cartItemsQuantity.push(cartItem.quantity);
+        });
+      },
+
+      /**
+       * Handles the response from the server by checking the response status
+       * and transitioning to the success or error UI.
+       */
+      _didReceiveResponse: function(e) {
+        var response = e.detail.response;
+
+        this.response = response;
+        this._setWaiting(true);
+
+        if (response.success) {
+          this._pushState('success');
+          this._reset();
+          this.fire('clear-cart');
+        } else {
+          this._pushState('error');
+        }
+      },
+
+      _toggleBillingAddress: function(e) {
+        this.hasBillingAddress = e.target.checked;
+      },
+
+      _computeHasItem: function(cartLength) {
+        return cartLength > 0;
+      },
+
+      _formatPrice: function(total) {
+        return isNaN(total) ? '' : '$' + total.toFixed(2);
+      },
+
+      _getEntryTotal: function(entry) {
+        return this._formatPrice(entry.quantity * entry.item.price);
+      },
+
+      _visibleChanged: function(visible) {
+        if (!visible) {
+          return;
+        }
+        // Reset the UI states
+        this._reset();
+        // Notify the page's title
+        this.fire('change-section', { title: 'Quote' });
+      }
+
+    });
+  </script>
+
+</dom-module>

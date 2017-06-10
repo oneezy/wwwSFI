@@ -1,0 +1,24 @@
+{
+  "entrypoint": "index.html",
+  "shell": "src/shop-app.html",
+  "fragments": [
+    "src/shop-list.html",
+    "src/shop-detail.html",
+    "src/shop-cart.html",
+    "src/shop-checkout.html",
+    "src/shop-company.html",
+    "src/shop-location.html",
+    "src/app-resources.html"
+  ],
+  "sourceGlobs": [
+   "src/**/*",
+   "data/**/*",
+   "email/**/*",
+   "images/**/*",
+   "bower.json"
+  ],
+  "includeDependencies": [
+    "manifest.json",
+    "bower_components/webcomponentsjs/webcomponents-lite.min.js"
+  ]
+}

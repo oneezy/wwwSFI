@@ -1,0 +1,13 @@
+Ford+Powerstroke+Diesel+Fuel+Injector+7.3L+1999-2003
+Dodge+2003-2004.5+(5.9L)+Injector
+Dodge+2004.5-2007+(5.9L)+Injector
+Dodge+2007-2008+(6.7L)+Injector
+Dodge+2007-2008+(6.7L)+Injector
+Duramax+Chevy+2001-2004.5+Injector
+Duramax+Chevy+2004.5-2005+Injector
+Duramax+Chevy+2006+Injector
+Duramax+Chevy+2007-2008+Injector
+Rebuilt+1998-2002+Dodge+Cummins+5.9L+24+Valve+Injector
+Rebuilt+Cat+Injector
+Rebuilt+Cummins+Celect+Injector
+Rebuilt+Detroit+60+Series+Injector

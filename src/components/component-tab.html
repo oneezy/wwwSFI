@@ -1,0 +1,61 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="component-ripple.html">
+
+<dom-module id="component-tab">
+  <template strip-whitespace>
+    <style>
+      [hidden] {
+        display: none !important;
+      }
+
+      :host {
+        display: inline-block;
+        position: relative;
+        margin: 0;
+      }
+
+      #overlay {
+        pointer-events: none;
+        display: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        @apply(--component-tab-overlay);
+      }
+
+      :host(.component-tabs-overlay-static-above) #overlay {
+        display: block;
+      }
+
+      component-ripple { height: 100%; }
+    </style>
+    <div id="overlay"></div>
+
+    <!-- Disabled Ripple
+    --------------------------->
+    <!--
+    <component-ripple>
+        <content></content>
+    </component-ripple>  -->
+
+    <content></content>
+  </template>
+  <script>
+    Polymer({
+      is: 'component-tab'
+    });
+  </script>
+</dom-module>

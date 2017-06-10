@@ -1,0 +1,204 @@
+<!--
+
+
+COMPONENT PAGE (template)
+-------------------------------------------------------------------------------------------------------------------------->
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/fx-skew/fx-skew.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../../bower_components/app-layout/app-scroll-effects/effects/parallax-background.html">
+<link rel="import" href="../../bower_components/app-layout/app-box/app-box.html">
+<link rel="import" href="../styles-main.html">
+<link rel="import" href="../styles-fonts.html">
+<link rel="import" href="../app-resources.html">
+<link rel="import" href="component-button.html">
+<link rel="import" href="component-image.html">
+<link rel="import" href="component-bg.html">
+
+<dom-module id="component-page">
+    <template>
+<style is="custom-style" include="styles-main styles-fonts component-button component-bg">
+
+    :host {
+        display: block;
+        position: relative;
+        min-height: 100%;
+        height: 100%;
+    }
+
+    main                                                                       {  }
+    main section                                                               {  }
+
+    /* App Box (content) */
+    main section app-box                                                       {  }
+    main section app-box article                                               {  }
+    main section app-box article.wrapper                                       { padding: calc(64px + 2rem) 0 0; }
+    main section app-box article.wrapper figure                                { width: 200px; display: block; margin: 0 auto; padding: 2rem 0 0; }
+
+    /* FX Skew (content) */
+    main section fx-skew                                                       { background: rgba(255, 255, 255, 1); position: relative; z-index: 1; }
+    main section fx-skew article                                               {  }
+    main section fx-skew article.wrapper                                       {  }
+    main section fx-skew article.wrapper h3                                    { color: var(--app-primary-color); }
+    main section fx-skew article.wrapper .bullet-points                        {  }
+    main section fx-skew article.wrapper .bullet-points div                    {  }
+    main section fx-skew article.wrapper .bullet-points div h3                 {  }
+    main section fx-skew article.wrapper .bullet-points div ul                 { color: var(--app-secondary-color); }
+    main section fx-skew article.wrapper .bullet-points div ul li              {  }
+    main section fx-skew article.wrapper .bullet-points div ul li iron-icon    {  }
+
+
+    a         { text-decoration: none; }
+    h3        { color: var(--app-primary-color); position: relative; display: inline-block; text-align: center; text-transform: uppercase; font-size: 18px; }
+
+
+/*  Mobile
+****************************************************************/
+@media (min-width: 0) and (max-width: 768px) {
+
+    main                                                 {  }
+    main section                                         {  }
+
+    /* App Box (content) */
+    main section app-box                                 {  }
+    main section app-box article                         {  }
+    main section app-box article.wrapper                 {  }
+    main section app-box article.wrapper figure          { width: 160px; }
+
+    /* FX Skew (content) */
+    main section fx-skew                                 {  }
+    main section fx-skew article                         {  }
+    main section fx-skew article.wrapper                 {  }
+    main section fx-skew article.wrapper h3              {  }
+    main section fx-skew article.wrapper .bullet-points  {  }
+
+}
+
+
+
+/*  Tablet
+****************************************************************/
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    main                                                 {  }
+    main section                                         {  }
+
+    /* App Box (content) */
+    main section app-box                                 {  }
+    main section app-box article                         {  }
+    main section app-box article.wrapper                 {  }
+    main section app-box article.wrapper figure          { width: 260px; }
+
+    /* FX Skew (content) */
+    main section fx-skew                                 {  }
+    main section fx-skew article                         {  }
+    main section fx-skew article.wrapper                 {  }
+    main section fx-skew article.wrapper h3              {  }
+    main section fx-skew article.wrapper .bullet-points  {  }
+
+}
+
+
+
+/*  Desktop
+****************************************************************/
+@media (min-width: 1025px) {
+
+    main                                                 {  }
+    main section                                         {  }
+
+    /* App Box (content) */
+    main section app-box                                 {  }
+    main section app-box article                         {  }
+    main section app-box article.wrapper                 {  }
+    main section app-box article.wrapper figure          { width: 360px; }
+
+    /* FX Skew (content) */
+    main section fx-skew                                 {  }
+    main section fx-skew article                         {  }
+    main section fx-skew article.wrapper                 {  }
+    main section fx-skew article.wrapper h3              {  }
+    main section fx-skew article.wrapper .bullet-points  {  }
+
+}
+</style>
+
+<main>
+
+    <section>
+
+        <!-- Top Content -->
+        <app-box
+            effects="parallax-background"
+            effects-config='{"parallax-background": {"startsAt": 0, "endsAt": 1}}'>
+
+            <content select=".hero-image"></content>
+
+            <article class="wrapper text-center flex-vertical center-center mobile-min-height-30 tablet-min-height-40 desktop-min-height-50">
+                <div class="flex-1 blur">
+                    <content select="h1"></content>
+                    <content select="h2"></content>
+                </div>
+
+                <div class="flex-2">
+                    <content select=".top-content"></content>
+                </div>
+
+                <figure class="self-end">
+                    <content select=".icon-owner"></content>
+                </figure>
+                
+                <figure class="self-center bottom">
+                    <content select=".bottom"></content>
+                </figure>
+            </article>
+        </app-box>
+
+        <!-- Bottom Content -->
+        <fx-skew>
+            <article class="wrapper">
+                <content select="h4"></content>
+                <content select=".photo-wrapper"></content>
+                <content select=".bullet-points"></content>
+                
+                <p class="text-20 mobile-text-16">
+                    <content select="p"></content>
+                </p>
+
+                <content select=".grid"></content>
+
+                <content select="component-button"></content>
+
+                <!-- Full Content -->
+                <section class="flex-vertical start-center bullet-points">
+                    <div class="flex-1 padding-1">
+                        <div class="headline text-center">
+                            <content select="h3"></content>
+                        </div>
+
+                        <div class="text-20 mobile-text-16 text-left">
+                            <content select="ul">
+                                <content></content>
+                            </content>
+                        </div>
+
+                    </div>
+                </section>
+            </article>
+        </fx-skew>
+    </section>
+
+
+</main>
+
+</template>
+
+    <script>
+        Polymer({
+
+            is: 'component-page'
+
+        });
+    </script>
+
+</dom-module>

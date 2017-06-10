@@ -1,0 +1,558 @@
+<!--
+
+
+SHOP COMPANY (page)
+-------------------------------------------------------------------------------------------------------------------------->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../bower_components/app-route/app-route.html">
+<link rel="import" href="../bower_components/super-hover/super-hover.html">
+<link rel="import" href="../bower_components/super-album/super-album.html">
+<link rel="import" href="styles-main.html">
+<link rel="import" href="styles-fonts.html">
+<link rel="import" href="components/component-button.html">
+<link rel="import" href="components/component-image.html">
+<link rel="import" href="components/component-page.html">
+
+<dom-module id="shop-company">
+    <template>
+
+<style is="custom-style" include="styles-main styles-fonts component-button component-page">
+
+    :host {
+        display: block;
+        position: relative;
+        min-height: 100%;
+        height: 100%;
+    }
+
+
+    .photo-wrapper {
+        @apply(--layout-horizontal);
+        @apply(--layout-center-justified);
+        width: 100%;
+    }
+
+    .bullet-points {
+        @apply(--layout-vertical);
+        @apply(--layout-center-justified);
+        width: 100%;
+    }
+
+    .bullet-points div {
+        @apply(--layout-horizontal);
+        @apply(--layout-around-justified);
+        width: 100%;
+    }
+
+    .bullet-points h4 { font-size: 24px; margin: 2rem 0 0; }
+    .bullet-points ul { list-style: none; }
+    .bullet-points iron-icon { color: #00E676; }
+
+    .bullet-points .rebuild-title {  @apply(--layout-vertical); @apply(--layout-center-center); position: relative; margin: 6rem 0 5rem; }
+    .bullet-points .rebuild-title iron-icon { position: absolute; top: calc(50% - 100px); left: calc(50% - 100px); width: 200px; height: 200px; color: var(--dark-divider); }
+    .bullet-points .rebuild-title h3 { margin: 20px 0 0; padding: 0; font-size: 42px; }
+    .bullet-points .rebuild-title h3:before  { content: ""; display: block; position: absolute; top: calc(50% - 2px); right: calc(100% + 10px); height: 4px; width: 100%; background: var(--dark-divider); }
+    .bullet-points .rebuild-title h3:after   { content: ""; display: block; position: absolute; top: calc(50% - 2px); left: calc(100% + 10px); height: 4px; width: 100%; background: var(--dark-divider); }
+
+    .bullet-points .rebuild-subtitle { @apply(--layout-horizontal); @apply(--layout-justified-center); }
+    .bullet-points .rebuild-subtitle iron-icon { color: var(--dark-divider); width: 48px; height: 48px; }
+    .bullet-points .rebuild-subtitle h4 { text-transform: uppercase; display: inline-block; margin: 0; padding: 0; line-height: 1.9; }
+
+    
+
+    /* Super Album  
+    *****************************************************************/
+    super-album { 
+        width: 100%;
+        
+        --super-gallery: { 
+            width: 100%;
+            max-width: 100%;
+        };
+
+        --super-hover: {
+            background: var(--lite-primary);
+        };
+
+        --super-hover-hover: {
+            background: var(--accent-color);
+        };
+
+        --super-title: {
+            color: var(--dark-primary);
+            font-size: 18px;
+            text-transform: uppercase;
+            margin: 1rem 0 0;
+        };
+
+        --super-description: {
+            color: var(--dark-secondary);
+        };
+        
+        --super-header: {
+            top: 66px;
+        };
+
+        --super-footer: {
+            display: none;
+        };
+
+        --super-icons: {
+            width: 80px;
+            height: 80px;
+            background: transparent;
+            color: var(--lite-primary);
+        };
+    }
+
+
+
+
+/*  Mobile
+****************************************************************/
+@media (min-width: 0) and (max-width: 768px) {
+
+    .photo-wrapper {
+        @apply(--layout-vertical);
+        @apply(--layout-center-center);
+    }
+
+    .bullet-points div {
+        @apply(--layout-vertical);
+        @apply(--layout-around-justified);
+        width: 100%;
+    }
+
+    
+    .bullet-points aside { margin: 0 0 2rem; }
+    .bullet-points ul { padding: 0 0 0 12px; }
+    .bullet-points .rebuild-title h3 { margin: 20px 0 0; padding: 0; font-size: 24px; }
+    .bullet-points .rebuild-subtitle { @apply(--layout-horizontal); @apply(--layout-justified-center); }
+    .bullet-points .rebuild-subtitle h4 { font-size: 18px; line-height: 2.7; }
+    
+    .bullet-points .rebuild-title iron-icon { position: absolute; top: calc(50% - 75px); left: calc(50% - 75px); width: 150px; height: 150px; color: var(--dark-divider); }
+
+    /* Super Album  
+    ****************************/
+    super-album {
+        margin: 0 0 2rem;
+        
+        --super-hover: {
+            width: 200px; 
+            height: 200px;
+        };
+    }
+
+}
+
+
+
+/*  Tablet
+****************************************************************/
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    .photo-wrapper {
+        @apply(--layout-horizontal);
+        @apply(--layout-center-justified);
+    }
+
+    .bullet-points div {
+        @apply(--layout-horizontal);
+        @apply(--layout-around-justified);
+        width: 100%;
+    }
+
+    /* Super Album  
+    ****************************/
+    super-album { 
+        margin: 0 1rem;
+
+        --super-hover: {
+            width: 160px; 
+            height: 160px;
+        };
+    }
+
+}
+
+
+
+/*  Desktop
+****************************************************************/
+@media (min-width: 1025px) {
+
+
+    .photo-wrapper {
+        @apply(--layout-horizontal);
+        @apply(--layout-center-justified);
+    }
+
+    .bullet-points div {
+        @apply(--layout-horizontal);
+        @apply(--layout-around-justified);
+        width: 100%;
+    }
+
+    /* Super Album  
+    ****************************/
+    super-album { 
+        margin: 0 1rem;
+        
+        --super-hover: {
+            width: 200px; 
+            height: 200px;
+        };
+    }
+
+}
+
+</style>
+
+
+
+
+
+
+
+
+<!--
+    MAIN CONTENT
+-------------------------------------------------------------------------------------------------------------->
+<component-page>
+
+
+    <!-- TOP
+    ---------------------------------------------->
+
+    <!-- Parallax BG -->
+    <component-image
+        alt="Our Company"
+        src="../images/bg_company.jpg"
+        placeholder-img="../images/bg_company_placeholder.jpg" class="hero-image" background>
+    </component-image>
+
+    <!-- Top Content -->
+    <h1>Our Company</h1>
+    <h2>Certified technicians w/ 25+ years experience</h2>
+    <img src="../images/icon_owner.png" class="icon-owner" alt="Bart Winzer" />
+
+
+
+
+
+
+    <!-- BOTTOM
+    ---------------------------------------------->
+    <!-- <h4>{{someOldBull}}</h4> -->
+    
+    <section class="photo-wrapper">
+
+        <!-- Super Album 1 -->
+        <super-album 
+            title="Our Shop"
+            description="We provide our customers with quality service using the latest and most effective equipment.">
+
+            <super-album-photo 
+                thumbnail="../images/photos/outside/thumbnail-outside-01.jpg" 
+                src="../images/photos/outside/outside-01.jpg" 
+                caption="Product">
+            </super-album-photo>
+
+            <super-album-photo 
+                thumbnail="../images/photos/outside/thumbnail-outside-01.jpg" 
+                src="../images/photos/outside/outside-02.jpg" 
+                caption="Product">
+            </super-album-photo>
+        </super-album>
+
+        <!-- Super Album 2 -->
+        <super-album 
+            title="Rebuild Process"
+            description="Our technicians are highly qualified and factory trained in all the latest technology.">
+            <super-album-photo 
+                thumbnail="../images/photos/inside/thumbnail-inside-01.jpg" 
+                src="../images/photos/inside/inside-01.jpg" 
+                caption="Product">
+            </super-album-photo>
+
+            <super-album-photo 
+                thumbnail="../images/photos/inside/thumbnail-inside-01.jpg" 
+                src="../images/photos/inside/inside-02.jpg" 
+                caption="Product">
+            </super-album-photo>
+
+            <super-album-photo 
+                thumbnail="../images/photos/inside/thumbnail-inside-01.jpg" 
+                src="../images/photos/inside/inside-03.jpg" 
+                caption="Product">
+            </super-album-photo>
+
+            <super-album-photo 
+                thumbnail="../images/photos/inside/thumbnail-inside-01.jpg" 
+                src="../images/photos/inside/inside-04.jpg" 
+                caption="Product">
+            </super-album-photo>
+
+            <super-album-photo 
+                thumbnail="../images/photos/inside/thumbnail-inside-01.jpg" 
+                src="../images/photos/inside/inside-05.jpg" 
+                caption="Product">
+            </super-album-photo>
+
+            <super-album-photo 
+                thumbnail="../images/photos/inside/thumbnail-inside-01.jpg" 
+                src="../images/photos/inside/inside-06.jpg" 
+                caption="Product">
+            </super-album-photo>
+        </super-album>
+
+        <!-- Super Album 3 -->
+        <super-album 
+            title="Finished Products"
+            description="Our remanufactured injectors meet or exceed performance and emission requirements.">
+            
+            <super-album-photo 
+                thumbnail="../images/photos/products/thumbnail-product-01.jpg" 
+                src="../images/photos/products/product-01.jpg" 
+                caption="Product">
+            </super-album-photo>
+
+            <super-album-photo 
+                thumbnail="../images/photos/products/thumbnail-product-01.jpg" 
+                src="../images/photos/products/product-02.jpg" 
+                caption="Product">
+            </super-album-photo>
+
+            <super-album-photo 
+                thumbnail="../images/photos/products/thumbnail-product-01.jpg" 
+                src="../images/photos/products/product-03.jpg" 
+                caption="Product">
+            </super-album-photo>
+
+            <super-album-photo 
+                thumbnail="../images/photos/products/thumbnail-product-01.jpg" 
+                src="../images/photos/products/product-04.jpg" 
+                caption="Product">
+            </super-album-photo>
+
+            <super-album-photo 
+                thumbnail="../images/photos/products/thumbnail-product-01.jpg" 
+                src="../images/photos/products/product-05.jpg" 
+                caption="Product">
+            </super-album-photo>
+
+            <super-album-photo 
+                thumbnail="../images/photos/products/thumbnail-product-01.jpg" 
+                src="../images/photos/products/product-06.jpg" 
+                caption="Product">
+            </super-album-photo>
+
+            <super-album-photo 
+                thumbnail="../images/photos/products/thumbnail-product-01.jpg" 
+                src="../images/photos/products/product-07.jpg" 
+                caption="Product">
+            </super-album-photo>
+
+            <super-album-photo 
+                thumbnail="../images/photos/products/thumbnail-product-01.jpg" 
+                src="../images/photos/products/product-08.jpg" 
+                caption="Product">
+            </super-album-photo>
+
+            <super-album-photo 
+                thumbnail="../images/photos/products/thumbnail-product-01.jpg" 
+                src="../images/photos/products/product-09.jpg" 
+                caption="Product">
+            </super-album-photo>
+
+            <super-album-photo 
+                thumbnail="../images/photos/products/thumbnail-product-01.jpg" 
+                src="../images/photos/products/product-10.jpg" 
+                caption="Product">
+            </super-album-photo>
+
+            <super-album-photo 
+                thumbnail="../images/photos/products/thumbnail-product-01.jpg" 
+                src="../images/photos/products/product-11.jpg" 
+                caption="Product">
+            </super-album-photo>
+        </super-album>
+
+    </section>
+
+    <section class="bullet-points">
+        <!--<p>We' completely test and rebuild today’s most popular Diesel Fuel Injection Pumps, Injectors and Components.</p>-->
+        
+
+        <iron-label class="rebuild-title">
+            <iron-icon id="build" icon="super-icons:build" tabindex="0"></iron-icon>
+            <h3>We Test and Rebuild</h3>
+        </iron-label>
+
+        <div>
+            <aside>
+                <iron-label class="rebuild-subtitle">
+                    <iron-icon id="settings" class="margin-r-5" icon="super-icons:settings" tabindex="0"></iron-icon>
+                    <h4>Fuel Injection Pumps</h4>
+                </iron-label>
+                <ul class="text-left">
+                    <template is="dom-repeat" items="{{pumps}}">
+                        <li>
+                            <iron-label>
+                                <iron-icon id="check" class="margin-r-5" icon="super-icons:check" tabindex="0"></iron-icon>
+                                <span>{{item.bullet}}</span>
+                            </iron-label>
+                        </li>
+                    </template>
+                </ul>
+            </aside>
+
+            <aside>
+                <iron-label class="rebuild-subtitle">
+                    <iron-icon id="settings" class="margin-r-5" icon="super-icons:settings" tabindex="0"></iron-icon>
+                    <h4>Fuel Injectors</h4>
+                </iron-label>
+                <ul class="text-left">
+                    <template is="dom-repeat" items="{{injectors}}">
+                        <li>
+                            <iron-label>
+                                <iron-icon id="check" class="margin-r-5" icon="super-icons:check" tabindex="0"></iron-icon>
+                                <span>{{item.bullet}}</span>
+                            </iron-label>
+                        </li>
+                    </template>
+                </ul>
+            </aside>
+            
+        </div>
+    </section>
+
+    <!--
+    <ul class="text-left">
+        <li>Complete rebuild of Diesel Fuel Injection Components</li>
+        <li>Rebuild today's popular Diesel Fuel Injection Pumps and Injectors</li>
+        <li>Rebuild 12 valve and 24 valve Cummins Fuel Injection Pumps in house</li>
+        <li>Test and rebuild Duramax and Dodge Common Rail Injectors</li>
+        <li>Test and rebuild Injectors</li>
+        <li>Carry FPPF and Stanadyne Diesel Fuel Treatment</li>
+        <li>Rebuild Diesel Fuel Injection Pumps and Injectors for most ALL types <br>of Diesel Engines</li>
+    </ul>
+    -->
+
+    <!--
+    <p>
+        We at Sulphur Fuel & Injection Service, Ltd. provide
+        our customers with quality service using the latest and most effective equipment.
+        Our technicians are highly qualified and factory trained in all the latest
+        technology to provide you with the reliable service you deserve and expect.
+    </p>
+    -->
+
+    <!--
+    <template id="goto-url" is="dom-if" if="{{!_showContent(someOldBull)}}" restamp="true">
+        <component-button>
+            <a href="/company" aria-label="Learn More">Learn More</a>
+        </component-button>
+    </template>
+    -->
+
+    <!--
+    <template id="extra-content" is="dom-if" if="{{_showContent(someOldBull)}}" restamp="true">
+        <h3>Services</h3>
+        <ul>
+            <li>Complete rebuild of Diesel Fuel Injection Components</li>
+            <li>Rebuild today's popular Diesel Fuel Injection Pumps and Injectors</li>
+            <li>Rebuild 12 valve and 24 valve Cummins Fuel Injection Pumps in house</li>
+            <li>Test and rebuild Duramax and Dodge Common Rail Injectors</li>
+            <li>Test and rebuild Injectors</li>
+            <li>Carry FPPF and Stanadyne Diesel Fuel Treatment</li>
+            <li>Rebuild Diesel Fuel Injection Pumps and Injectors for most ALL types of Diesel Engines</li>
+        </ul>
+    </template>
+    -->
+
+
+    </component-page>
+    </template>
+
+    <script>
+        Polymer({
+
+            is: 'shop-company',
+
+            properties: {
+
+                fullContent: {
+                    type: Boolean,
+                    value: false,
+                    notify: true
+                },
+
+                someOldBull: {
+                    type: String
+                },
+
+                myDate: {
+                    value: function() {
+                        return Date()
+                    }
+                }
+            },
+
+            ready: function() {
+
+                this.pumps = [
+                    { bullet: "VP44 Pumps" },
+                    { bullet: "Delphi (Lucas)(CAV) Pumps" },
+                    { bullet: "Bosch Inline Pumps" },
+                    { bullet: "Zexel (Diesel Kiki) Inline & Rotary Pumps" },
+                    { bullet: "Bosch VE Pumps (Rotary)" },
+                    { bullet: "Denso Inline & Rotary Pumps" },
+                    { bullet: "Stanadyne (Roosa Master) Rotary Pumps" },
+                    { bullet: "Yanmar Pumps" },
+                    { bullet: "Cummins PT Pumps" },
+                    { bullet: "Caterpillar Fuel Injection Pumps" },
+                    { bullet: "All Pumps for Cummins 5.9L & 3.9L Engines" },
+                    { bullet: "Dodge Common Rail Pumps" },
+                    { bullet: "Mack Fuel Injection Pumps" },
+                    { bullet: "Duramax Common Rail Pumps" }
+                ],
+
+                this.injectors = [
+                    { bullet: "Powerstroke 7.3L & DT 466E Injectors" },
+                    { bullet: "Cummins Top Stop, L10 & STC Injectors" },
+                    { bullet: "Cummins Celect Injectors" },
+                    { bullet: "Detroit 60 Series Injectors" },
+                    { bullet: "Caterpillar Electronic Injectors" },
+                    { bullet: "All Nozzle Type Injectors" },
+                    { bullet: "Dodge Common Rail Injectors" },
+                    { bullet: "Duramax Common Rail Injectors" },
+                    { bullet: "And a wide range of Electronic Injectors" }
+                ]
+            },
+
+            attached: function() {
+                console.log("attached: ", this.fullContent);
+                console.log("someOldBull", this.someOldBull);
+            },
+
+            _showContent: function(myBull) {
+                if (myBull === "yes") {
+                    return true;
+                } else {
+                    console.log("wrong content value (use: yes)");
+                    return false;
+                }
+            }
+
+            //  _show: function (myBoolean) {
+            //    console.log(myBoolean);
+            //    return myBoolean;
+            //  }
+
+        });
+    </script>
+
+</dom-module>

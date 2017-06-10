@@ -1,0 +1,51 @@
+<!--
+
+
+MAIN (stylesheet)
+-------------------------------------------------------------------------------------------------------------------------->
+
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+
+<dom-module id="styles-main">
+<template>
+<style>
+
+    [hidden] { display: none !important; }
+
+    img                                    { max-width: 100%; }
+
+    header                                 { text-align: center; }
+    header > h1                            { margin: 0 0 4px 0; font-size: 1.3em; font-weight: 500; }
+    header > span                          { color: var(--app-secondary-color); font-size: 12px; }
+    header > component-button[responsive]  { margin-top: 20px; }
+
+    .wrapper  { margin: 0 auto; position: relative; overflow: hidden; height: 100%; }
+    .blur     { width: 100%; background: url(../images/blur.svg) no-repeat 50% 50%; background-size: contain; }
+
+/*  Mobile
+********************************************************/
+@media (min-width: 0) and (max-width: 768px) {
+
+    header > h1 { font-size: 1.1em; }
+    .wrapper { width: 95%; }
+}
+
+/*  Tablet
+********************************************************/
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    .wrapper { width: 90%; }
+}
+
+/*  Desktop
+********************************************************/
+@media (min-width: 1025px) {
+
+    .wrapper { width: 80%; max-width: 1024px; }
+}
+
+</style>
+</template>
+</dom-module>

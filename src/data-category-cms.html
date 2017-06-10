@@ -1,0 +1,171 @@
+<!--
+API for retrieving data from a google spreadsheet posing as a cms
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/tabletop-import/tabletop-import.html">
+
+<dom-module id="data-category-cms">
+
+  <script>
+  (function() {
+    var categoryList = [
+      {
+        name: 'common_rail_fuel_systems',
+        headline: 'Common Rail',
+        title: 'Common Rail Injectors',
+        image: '/images/prod_common_rail_color.png',
+        bg: '/images/bg_common_rail_color.jpg',
+        placeholder: '/images/bg_common_rail_placeholder.jpg'
+      },
+      {
+        name: 'diesel_fuel_pumps',
+        headline: 'Fuel Pumps',
+        title: 'Diesel Fuel Pumps',
+        image: '/images/prod_fuel_pump_color.png',
+        bg: '/images/bg_diesel_fuel_pumps.jpg',
+        placeholder: '/images/bg_diesel_fuel_pumps_placeholder.jpg'
+      },
+      {
+        name: 'diesel_fuel_injectors',
+        headline: 'Fuel Injectors',
+        title: 'Diesel Fuel Injectors',
+        image: '/images/prod_fuel_injectors_color.png',
+        bg: '/images/bg_diesel_fuel_injectors.jpg',
+        placeholder: '/images/bg_diesel_fuel_injectors_placeholder.jpg'
+      },
+      {
+        name: 'dp_filters',
+        headline: 'DP Filters',
+        title: 'We Clean Diesel Particulate Filters',
+        image: '/images/prod_dps_filters_color.png',
+        bg: '/images/bg_dps_filters.jpg',
+        placeholder: '/images/bg_dps_filters.jpg'
+      }
+    ];
+
+    Polymer({
+
+      is: 'data-category-cms',
+
+      properties: {
+
+        categoryName: String,
+
+        itemName: String,
+
+          dataKey: {
+          type: String,
+          value: '1Ve96UECFFDbI4asH-XDXVSn6n30uSG1U5kZ2khFGLvk',
+          readOnly: true
+        },
+
+        categories: {
+          type: Array,
+          value: categoryList,
+          readOnly: true, //one way databinding upward
+          notify: true
+        },
+
+        category: {
+          type: Object,
+          computed: '_computeCategory(categoryName, dataKey)',
+          //computed: '_mycomputeCategory(categoryName, dataKey)',
+          notify: true
+        },
+
+        item: {
+          type: Object,
+          computed: '_computeItem(category.items, itemName)',
+          notify: true
+        },
+
+        failure: {
+          type: Boolean,
+          notify: true,
+          readOnly: true
+        }
+      },
+
+      // returns a specific object from the categories array matching the categoryName...
+      // ... argument and returns null if there is no such object
+      _getCategoryObject: function(categoryName) {
+        for (var i = 0, c; c = this.categories[i]; ++i) {
+          if (c.name === categoryName) {
+            return c;
+          }
+        }
+        return null;
+      },
+
+      _computeCategory: function(categoryName, dataKey) {
+        // Fetch the items of the category. Note that the fetch is asynchronous,
+        // which means `category.items` may not be set initially (but that path
+        // will be notified when the fetch completes).
+        var categoryObj = this._getCategoryObject(categoryName);
+        this._myfetchItems(categoryObj, 1, dataKey);
+        return categoryObj;
+      },
+
+      _computeItem: function(items, itemName) {
+        for (var i = 0, item; item = items[i]; ++i) {
+          if (item.KEY === itemName) {
+            return item;
+          }
+        }
+      },
+
+      _myfetchItems: function(category, attempts, dataKey) {
+        this._setFailure(false);
+        // Only fetch the items of a category if it has not been previously set.
+        if (!category || category.items) {
+          return;
+        }
+        var staticThis = this;
+
+        function assignItems(data, tabletop) {
+          var mySheet = tabletop.sheets(category.name).all();
+          function logArrayElements(element, index, array) {
+            element.CATEGORYKEY = category.name;
+            element.KEY = element.NAME.replace(/ /g,"+");
+          }
+          mySheet.forEach(logArrayElements);
+          staticThis.set('category.items',mySheet);
+        }
+
+        var myTableTop = Tabletop.init({
+          key: dataKey,
+          callback: assignItems
+        });
+      },
+
+      _fetchItems: function(category, attempts) {
+        this._setFailure(false);
+        // Only fetch the items of a category if it has not been previously set.
+        if (!category || category.items) {
+          return;
+        }
+        this._getResource({
+          url: '/data/' + category.name + '.json',
+          onLoad: function(e) {
+            this.set('category.items', JSON.parse(e.target.responseText));
+          },
+          onError: function(e) {
+            this._setFailure(true);
+          }
+        }, attempts);
+      },
+
+      refresh: function() {
+        if (this.categoryName) {
+          // Try at most 3 times to get the items.
+          this._myfetchItems(this._getCategoryObject(this.categoryName), 3, this.dataKey);
+        }
+      }
+
+    });
+
+  })();
+  </script>
+
+</dom-module>

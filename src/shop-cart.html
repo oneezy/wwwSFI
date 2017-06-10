@@ -1,0 +1,119 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="components/component-button.html">
+<link rel="import" href="styles-main.html">
+<link rel="import" href="styles-form.html">
+
+<dom-module id="shop-cart">
+
+  <template>
+
+    <style include="styles-main component-button styles-form">
+
+      .list {
+        margin: 40px 0;
+      }
+
+      .checkout-box {
+        font-weight: bold;
+        text-align: right;
+        margin-right: 10px;
+      }
+
+      .subtotal {
+        margin: 0 64px 0 24px;
+      }
+
+
+/*  Mobile
+********************************************************/
+@media (min-width: 0) and (max-width: 768px) {
+    .subtotal { margin: 0 0 0 24px; }
+}
+    </style>
+
+    <div class="main-frame">
+      <div class="subsection" visible$="[[!_hasItems]]">
+        <p class="empty-cart">Your Service Quote is empty.</p>
+      </div>
+      <div class="subsection" visible$="[[_hasItems]]">
+        <header>
+          <h1>Products and Services you are Interested in</h1>
+          <span>([[_getPluralizedQuantity(numItems)]])</span>
+          <!-- <span>([[_getPluralizedQuantity(cart.length)]])</span> -->
+        </header>
+        <div class="list">
+          <template is="dom-repeat" items="[[cart]]" as="entry">
+            <cart-item entry="[[entry]]"></cart-item>
+          </template>
+        </div>
+        <div class="checkout-box">
+          Total: <span class="subtotal">[[numItems]]</span>
+          <component-button responsive>
+            <a href="/checkout">Submit for Quote</a>
+          </component-button>
+        </div>
+      </div>
+    </div>
+
+  </template>
+
+  <script>
+
+    Polymer({
+
+      is: 'shop-cart',
+
+      properties: {
+
+        total: Number,
+
+        numItems: Number,
+
+        cart: Array,
+
+        visible: {
+          type: Boolean,
+          observer: '_visibleChanged'
+        },
+
+        _hasItems: {
+          type: Boolean,
+          computed: '_computeHasItem(cart.length)'
+        }
+
+      },
+
+      _formatTotal: function(total) {
+        return isNaN(total) ? '' : '$' + total.toFixed(2);
+      },
+
+      _computeHasItem: function(cartLength) {
+        return cartLength > 0;
+      },
+
+      _getPluralizedQuantity: function(quantity) {
+        return quantity + ' ' + (quantity === 1 ? 'item' : 'items');
+      },
+
+      _visibleChanged: function(visible) {
+        if (visible) {
+          // Notify the section's title
+          this.fire('change-section', { title: 'My List' });
+        }
+      }
+
+    });
+
+  </script>
+
+</dom-module>

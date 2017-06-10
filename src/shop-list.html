@@ -1,0 +1,235 @@
+<!--
+
+
+SHOP LIST (fragment)
+-------------------------------------------------------------------------------------------------------------------------->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/app-route/app-route.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../bower_components/fx-skew/fx-skew.html">
+<link rel="import" href="data-category-cms.html">
+<link rel="import" href="styles-main.html">
+<link rel="import" href="components/component-page.html">
+<link rel="import" href="components/component-image.html">
+<link rel="import" href="components/component-item.html">
+<link rel="import" href="styles-main.html">
+<link rel="import" href="styles-fonts.html">
+
+<dom-module id="shop-list">
+<template>
+
+<style is="custom-style" include="styles-main styles-fonts component-page">
+
+    :host {
+        display: block;
+        position: relative;
+        min-height: 100%;
+        height: 100%;
+    }
+
+    .grid {
+        @apply(--layout-horizontal);
+        @apply(--layout-wrap);
+        @apply(--layout-justified);
+        margin: 0 10px 32px 10px;
+    }
+
+    .grid > a {
+        -webkit-flex: 1 1;
+        flex: 1 1;
+        -webkit-flex-basis: 33%;
+        flex-basis: 33%;
+        max-width: 33%;
+        text-decoration: none;
+    }
+
+
+
+/*  Mobile
+****************************************************************/
+@media (min-width: 0) and (max-width: 768px) {
+
+    .grid > a {
+        -webkit-flex-basis: 50%;
+        flex-basis: 50%;
+        max-width: 50%;
+    }
+
+}
+
+
+
+/*  Tablet
+****************************************************************/
+@media (min-width: 769px) and (max-width: 1024px) {
+
+
+
+}
+
+
+
+/*  Desktop
+****************************************************************/
+@media (min-width: 1025px) {
+
+
+
+}
+
+</style>
+
+<!-- APP ROUTE
+------------------------------>
+<app-route
+    route="[[route]]"
+    pattern="/:category"
+    data="{{routeData}}">
+</app-route>
+
+<!-- DATA CATEGORY
+------------------------------>
+<data-category-cms
+    id="categoryData"
+    category-name="[[routeData.category]]"
+    category="{{category}}"
+    failure="{{failure}}">
+</data-category-cms>
+
+
+<!--
+    MAIN CONTENT
+-------------------------------------------------------------------------------------------------------------->
+<component-page>
+
+
+    <!-- TOP
+    ---------------------------------------------->
+
+    <!-- Parallax BG -->
+    <component-image
+        alt="[[category.title]]"
+        src="[[category.bg]]"
+        placeholder-img="[[category.placeholder]]" class="hero-image" background>
+    </component-image>
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Top Content -->
+    <h1>[[category.title]]</h1>
+    <h2>[[_getPluralizedQuantity(category.items.length)]]</h2>
+
+
+
+
+
+
+
+    <!-- BOTTOM
+    ---------------------------------------------->
+
+    <!-- Bottom (Content) -->
+    <div class="grid" hidden$="[[failure]]">
+        <template is="dom-repeat" items="[[_getListItems(category.items)]]" initial-count="4">
+            <a href$="[[_getItemHref(item)]]">
+                <component-item item="[[item]]"></component-item>
+            </a>
+        </template>
+    </div>
+
+</component-page>
+
+<!-- Offline Message
+-------------------------------------------------------------------------------------------------------------->
+<component-offline
+    hidden$="[[!failure]]"
+    offline="[[offline]]"
+    on-try-reconnect="_tryReconnect">
+</component-offline>
+
+</template>
+
+  <script>
+
+    Polymer({
+
+      is: 'shop-list',
+
+      properties: {
+
+        category: Object,
+
+        route: Object,
+
+        routeData: Object,
+
+        visible: Boolean,
+
+        offline: {
+          type: Boolean,
+          observer: '_offlineChanged'
+        },
+
+        failure: Boolean
+
+      },
+
+      observers: [
+        '_categoryChanged(category, visible)'
+      ],
+
+      _getListItems: function(items) {
+        // Return placeholder items when the items haven't loaded yet.
+        return items || [{},{},{},{},{},{},{},{},{},{}];
+      },
+
+      _getItemHref: function(item) {
+        // By returning null when `itemId` is undefined, the href attribute won't be set and
+        // the link will be disabled.
+        return item.KEY ? ['/detail', this.category.name, item.KEY].join('/') : null;
+      },
+
+      _getPluralizedQuantity: function(quantity) {
+        if (!quantity) {
+          return '';
+        }
+        var pluralizedQ = quantity === 1 ? 'item' : 'items';
+        return  '(' + quantity + ' ' + pluralizedQ + ')';
+      },
+
+      _categoryChanged: function(category, visible) {
+        if (visible) {
+          this.debounce('change-section', function() {
+            // Notify the category and the page's title
+            this.fire('change-section', {
+              category: category.name,
+              title: category.title
+            });
+          });
+        }
+      },
+
+      _tryReconnect: function() {
+        this.$.categoryData.refresh();
+      },
+
+      _offlineChanged: function(offline) {
+        if (!offline) {
+          this._tryReconnect();
+        }
+      }
+
+    });
+
+  </script>
+
+</dom-module>

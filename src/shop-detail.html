@@ -1,0 +1,293 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/app-route/app-route.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../bower_components/steel-properties/steel-classes.html">
+<link rel="import" href="components/component-button.html">
+<link rel="import" href="data-category-cms.html">
+<link rel="import" href="styles-main.html">
+<link rel="import" href="components/component-image.html">
+<link rel="import" href="components/component-select.html">
+
+<dom-module id="shop-detail">
+
+  <template>
+
+    <style include="styles-main component-button component-select">
+
+      :host {
+        display: block;
+      }
+
+      #content {
+        @apply(--layout-horizontal);
+        @apply(--layout-center-justified);
+      }
+
+      component-image {
+        position: relative;
+        margin: 64px 32px;
+        width: 50%;
+        max-width: 600px;
+        --component-image-img: {
+          @apply(--layout-fit);
+        };
+      }
+
+      component-image::before {
+        content: "";
+        display: block;
+        padding-top: 100%;
+      }
+
+      .detail {
+        margin: 64px 32px;
+        width: 50%;
+        max-width: 400px;
+        transition: opacity 0.4s;
+        opacity: 0;
+      }
+
+      .detail[has-content] {
+        opacity: 1;
+      }
+
+      h1 {
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 28px;
+        margin: 0;
+      }
+
+      .price {
+        margin: 16px 0 40px;
+        font-size: 16px;
+        color: var(--app-secondary-color);
+      }
+
+      .description {
+        margin: 32px 0;
+      }
+
+      .description > h4 {
+        margin: 16px 0;
+      }
+
+      .description > p {
+        margin: 0;
+        color: var(--app-secondary-color);
+      }
+
+      .pickers {
+        @apply(--layout-vertical);
+        border-top: 1px solid #ccc;
+        margin-bottom: 3rem;
+      }
+
+      component-select > select {
+        font-size: 16px;
+        padding: 16px 24px 16px 70px;
+      }
+
+      @media (max-width: 767px) {
+
+        #content {
+          @apply(--layout-vertical);
+          @apply(--layout-center);
+        }
+
+        component-image {
+          margin: 0;
+          width: 80%;
+        }
+
+        .detail {
+          box-sizing: border-box;
+          margin: 32px 0;
+          padding: 0 24px;
+          width: 100%;
+          max-width: 600px;
+        }
+
+        h1 {
+          font-size: 20px;
+          line-height: 24px;
+        }
+
+        .price {
+          font-size: inherit;
+          margin: 12px 0 32px;
+        }
+
+      }
+
+    </style>
+
+    <!--
+      app-route provides the name of the category and the item.
+    -->
+    <app-route
+        route="[[route]]"
+        pattern="/:category/:item"
+        data="{{routeData}}"></app-route>
+
+    <!--
+      data-category provides the item data for a given category and item name.
+    -->
+    <data-category-cms
+        id="categoryData"
+        category-name="[[routeData.category]]"
+        item-name="[[routeData.item]]"
+        item="{{item}}"
+        failure="{{failure}}"></data-category-cms>
+
+    <div id="content" hidden$="[[failure]]">
+      <component-image alt="[[item.NAME]]" src="[[item.IMAGE]]"></component-image>
+      <div class="detail" has-content$="[[_isDefined(item)]]">
+        <h1>[[item.NAME]]</h1>
+        <div class="price">Call for availability and price. (337) 626-0004</div>
+        <p class="price">[[item.DESCRIPTION]]</p>
+        <!-- <div class="price">[[_formatPrice(item.price)]]</div> -->
+        <div class="pickers">
+          <component-select>
+            <label id="sizeLabel" prefix>Services</label>
+            <select id="sizeSelect" aria-labelledby="sizeLabel">
+              <option value="TEST">TEST</option>
+              <option value="REBUILD" selected>REBUILD</option>
+            </select>
+            <shop-md-decorator aria-hidden="true">
+              <shop-underline></shop-underline>
+            </shop-md-decorator>
+          </component-select>
+          <component-select>
+            <label id="quantityLabel" prefix>Quantity</label>
+            <select id="quantitySelect" aria-labelledby="quantityLabel">
+              <option value="1" selected>1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+            </select>
+            <shop-md-decorator aria-hidden="true">
+              <shop-underline></shop-underline>
+            </shop-md-decorator>
+          </component-select>
+        </div>
+        <!-- <div class="description">
+          <h4>Description</h4>
+          <p id="desc"></p>
+        </div> -->
+        <component-button responsive>
+          <button on-tap="_addToCart" aria-label="Add this item to service quote">Add to Your Service Quote</button>
+        </component-button>
+      </div>
+    </div>
+
+    <!--
+      component-offline shows a warning message when the items can't be rendered due
+      to network conditions.
+    -->
+    <component-offline
+        hidden$="[[!failure]]"
+        offline="[[offline]]"
+        on-try-reconnect="_tryReconnect"></component-offline>
+
+  </template>
+
+  <script>
+
+    Polymer({
+
+      is: 'shop-detail',
+
+      properties: {
+
+        item: Object,
+
+        route: Object,
+
+        routeData: Object,
+
+        visible: Boolean,
+
+        offline: {
+          type: Boolean,
+          observer: '_offlineChanged'
+        },
+
+        failure: Boolean
+
+      },
+
+      observers: [
+        '_itemChanged(item, visible)'
+      ],
+
+      _itemChanged: function(item, visible) {
+        if (visible) {
+          this.debounce('item-change', function() {
+            // The item description contains escaped HTML (e.g. "&lt;br&gt;"), so we need to
+            // unescape it ("<br>") and set it as innerHTML.
+            var text = item ? item.DESCRIPTION : '';
+            this.$.desc.innerHTML = this._unescapeText(text);
+
+            // Reset the select menus.
+            this.$.quantitySelect.value = '1';
+            this.$.sizeSelect.value = 'REBUILD';
+
+            this.fire('change-section', {
+              category: item.CATEGORYKEY,
+              title: item.NAME
+            });
+          });
+        }
+      },
+
+      _unescapeText: function(text) {
+        var elem = document.createElement('textarea');
+        elem.innerHTML = text;
+        return elem.textContent;
+      },
+
+      _formatPrice: function(price) {
+        return price ? '$' + price.toFixed(2) : '';
+      },
+
+      _addToCart: function() {
+        // This event will be handled by shop-app.
+        this.fire('add-cart-item', {
+          item: this.item,
+          quantity: parseInt(this.$.quantitySelect.value, 10),
+          size: this.$.sizeSelect.value
+        });
+      },
+
+      _isDefined: function(item) {
+        return item != null;
+      },
+
+      _tryReconnect: function() {
+        this.$.categoryData.refresh();
+      },
+
+      _offlineChanged: function(offline) {
+        if (!offline) {
+          this._tryReconnect();
+        }
+      }
+
+    });
+
+  </script>
+
+</dom-module>
