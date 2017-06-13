@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "sfi-feature"
+    "default": "build/default",
+    "production": "sfi-feature"
   }
 }

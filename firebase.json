@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "build/bundled",
+    "public": "build/default",
     "rewrites": [
       {
         "source": "**",
