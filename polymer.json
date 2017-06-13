@@ -10,14 +10,14 @@
     "src/shop-location.html",
     "src/app-resources.html"
   ],
-  "sourceGlobs": [
+  "sources": [
    "src/**/*",
    "data/**/*",
    "email/**/*",
    "images/**/*",
    "bower.json"
   ],
-  "includeDependencies": [
+  "extraDependencies": [
     "manifest.json",
     "bower_components/webcomponentsjs/webcomponents-lite.min.js"
   ]
