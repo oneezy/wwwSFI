@@ -40,7 +40,8 @@
     "super-album": "oneezy/super-album#^0.8.5",
     "super-hover": "oneezy/super-hover#^0.0.3",
     "tabletop-import": "oneezy/tabletop-import#^0.0.1",
-    "super-icons": "oneezy/super-icons#^0.1.0"
+    "super-icons": "oneezy/super-icons#^0.1.0",
+    "paper-button": "polymerelements/paper-button#^2.0.0"
   },
   "devDependencies": {
     "web-component-tester": "^4.0.0"
